@@ -1,0 +1,60 @@
+<svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pt-cli-title">
+<title id="pt-cli-title">Schematic diagram of the Packet Tracer router CLI console and IOS prompt-mode ladder</title>
+<style>
+  .lbl { font-family: system-ui, -apple-system, sans-serif; fill: #1A1A1A; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .panel { fill: #ffffff; stroke: #D7E1E8; stroke-width: 1.5; }
+  .term { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; fill: #F6F8FA; }
+  .term-hi { fill: #00A79E; font-weight: 600; }
+  .mono { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; fill: #0C3274; font-weight: 600; }
+</style>
+
+<!-- window frame -->
+<rect x="4" y="4" width="892" height="512" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+
+<!-- title bar -->
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">R0 - CLI</text>
+<circle cx="850" cy="20" r="5" fill="#00A79E"/>
+<circle cx="868" cy="20" r="5" fill="#E3F3F1"/>
+
+<!-- terminal panel -->
+<rect x="16" y="44" width="864" height="248" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+
+<text x="30" y="66" class="term"><tspan class="term-hi">Router&gt;</tspan> enable</text>
+<text x="30" y="84" class="term"><tspan class="term-hi">Router#</tspan> configure terminal</text>
+<text x="30" y="102" class="term"><tspan class="term-hi">Router(config)#</tspan> interface FastEthernet0/0</text>
+<text x="30" y="120" class="term"><tspan class="term-hi">Router(config-if)#</tspan> ip address 192.168.1.1 255.255.255.0</text>
+<text x="30" y="138" class="term"><tspan class="term-hi">Router(config-if)#</tspan> no shutdown</text>
+<text x="30" y="156" class="term"><tspan class="term-hi">Router(config-if)#</tspan> end</text>
+<text x="30" y="174" class="term"><tspan class="term-hi">Router#</tspan> show ip route</text>
+<text x="30" y="196" class="term" style="fill:#B8C4CC;">Codes: <tspan class="term-hi">C</tspan> - connected, <tspan class="term-hi">L</tspan> - local, <tspan class="term-hi">S</tspan> - static, <tspan class="term-hi">S*</tspan> - candidate default</text>
+<text x="30" y="220" class="term"><tspan class="term-hi">C</tspan>    192.168.1.0/24 is directly connected, FastEthernet0/0</text>
+<text x="30" y="238" class="term"><tspan class="term-hi">L</tspan>    192.168.1.1/32 is directly connected, FastEthernet0/0</text>
+<text x="30" y="256" class="term"><tspan class="term-hi">S</tspan>    192.168.2.0/24 [1/0] via 10.0.0.2</text>
+<text x="30" y="274" class="term"><tspan class="term-hi">S*</tspan>   0.0.0.0/0 [1/0] via 203.0.113.2</text>
+
+<!-- prompt-mode ladder -->
+<rect x="16" y="308" width="864" height="152" rx="6" class="panel"/>
+<text x="30" y="330" class="lbl" style="font-size:13px;font-weight:600;">IOS PROMPT-MODE LADDER</text>
+
+<rect x="30" y="342" width="4" height="18" fill="#00A79E"/>
+<text x="46" y="356" class="mono">Router&gt;</text>
+<text x="180" y="356" class="lbl-sm">User EXEC - view-only, limited commands</text>
+
+<rect x="30" y="368" width="4" height="18" fill="#00A79E"/>
+<text x="46" y="382" class="mono">Router#</text>
+<text x="180" y="382" class="lbl-sm">Privileged EXEC - full show/debug access, no config changes yet</text>
+
+<rect x="30" y="394" width="4" height="18" fill="#00A79E"/>
+<text x="46" y="408" class="mono">Router(config)#</text>
+<text x="260" y="408" class="lbl-sm">Global Configuration - system-wide settings</text>
+
+<rect x="30" y="420" width="4" height="18" fill="#00A79E"/>
+<text x="46" y="434" class="mono">Router(config-if)#</text>
+<text x="280" y="434" class="lbl-sm">Interface Configuration - one interface's IP / shutdown state</text>
+
+<text x="16" y="502" class="lbl-sm" style="font-style:italic;">*Schematic layout - not a live screenshot. Command output is a representative example; your addressing will differ.</text>
+</svg>

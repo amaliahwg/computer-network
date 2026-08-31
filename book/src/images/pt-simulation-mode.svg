@@ -1,0 +1,84 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pt-sim-title">
+<title id="pt-sim-title">Schematic diagram of Packet Tracer's Simulation Mode</title>
+<style>
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .cell { font-family: system-ui, -apple-system, sans-serif; fill: #1A1A1A; font-size: 11px; }
+  .panel { fill: #ffffff; stroke: #D7E1E8; stroke-width: 1.5; }
+</style>
+
+<rect x="4" y="4" width="892" height="452" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+
+<!-- title bar -->
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">Simulation Mode — stepping a ping event by event</text>
+
+<!-- Realtime / Simulation toggle, Simulation active -->
+<rect x="692" y="10" width="180" height="22" rx="11" class="panel"/>
+<rect x="782" y="10" width="90" height="22" rx="11" fill="#E3F3F1"/>
+<text x="737" y="25" text-anchor="middle" class="lbl-sm">Realtime</text>
+<text x="827" y="25" text-anchor="middle" class="lbl-sm" style="fill:#0C3274;font-weight:600;">Simulation</text>
+
+<!-- workspace with a mid-hop packet -->
+<rect x="16" y="46" width="520" height="300" rx="6" fill="#FAFBFC" stroke="#D7E1E8" stroke-width="1.5"/>
+<text x="276" y="70" text-anchor="middle" class="lbl-sm" style="font-weight:600;">Workspace</text>
+
+<rect x="60" y="180" width="34" height="26" rx="3" fill="#0C3274"/>
+<text x="77" y="222" text-anchor="middle" class="lbl-sm">PC0</text>
+<rect x="250" y="180" width="34" height="26" rx="3" fill="#0C3274"/>
+<text x="267" y="222" text-anchor="middle" class="lbl-sm">SW0</text>
+<rect x="440" y="180" width="34" height="26" rx="3" fill="#0C3274"/>
+<text x="457" y="222" text-anchor="middle" class="lbl-sm">PC1</text>
+<line x1="94" y1="193" x2="250" y2="193" stroke="#D7E1E8" stroke-width="2"/>
+<line x1="284" y1="193" x2="440" y2="193" stroke="#D7E1E8" stroke-width="2"/>
+
+<!-- packet mid-hop with a small motion cue -->
+<circle cx="170" cy="193" r="7" fill="#00A79E"/>
+<text x="170" y="170" text-anchor="middle" class="lbl-sm" style="fill:#00A79E;font-weight:600;">ICMP echo, mid-hop →</text>
+
+<!-- Event List panel -->
+<rect x="552" y="46" width="332" height="300" rx="6" class="panel"/>
+<text x="566" y="68" class="lbl-sm" style="font-weight:600;">Event List</text>
+
+<rect x="566" y="78" width="304" height="20" fill="#F6F8FA"/>
+<text x="572" y="92" class="cell" style="font-weight:600;">Vis.  No.  Time  At Device  Type</text>
+
+<rect x="566" y="98" width="304" height="20" fill="#ffffff"/>
+<circle cx="574" cy="108" r="4" fill="#00A79E"/>
+<text x="586" y="112" class="cell">1   0.000   PC0        ARP request</text>
+
+<rect x="566" y="118" width="304" height="20" fill="#FAFBFC"/>
+<circle cx="574" cy="128" r="4" fill="#00A79E"/>
+<text x="586" y="132" class="cell">2   0.001   SW0        ARP reply</text>
+
+<rect x="566" y="138" width="304" height="20" fill="#ffffff"/>
+<circle cx="574" cy="148" r="4" fill="#0C3274"/>
+<text x="586" y="152" class="cell">3   0.002   PC0        ICMP echo request</text>
+
+<rect x="566" y="158" width="304" height="20" fill="#FAFBFC"/>
+<circle cx="574" cy="168" r="4" fill="#0C3274"/>
+<text x="586" y="172" class="cell">4   0.003   PC1        ICMP echo reply</text>
+
+<text x="566" y="200" class="lbl-sm">Click the filter icon to show only the</text>
+<text x="566" y="216" class="lbl-sm">protocols you care about (e.g. ICMP + ARP).</text>
+<text x="566" y="232" class="lbl-sm">Click a row's envelope icon to open its</text>
+<text x="566" y="248" class="lbl-sm">PDU detail — headers at every layer.</text>
+
+<!-- control bar -->
+<rect x="16" y="362" width="868" height="80" rx="6" class="panel"/>
+<rect x="32" y="378" width="90" height="30" rx="15" fill="#0C3274"/>
+<text x="77" y="398" text-anchor="middle" class="lbl-sm" style="fill:#fff;font-weight:600;">▶ Play</text>
+<rect x="134" y="378" width="110" height="30" rx="15" class="panel"/>
+<text x="189" y="398" text-anchor="middle" class="lbl-sm">Auto Capture</text>
+<rect x="256" y="378" width="90" height="30" rx="15" class="panel"/>
+<text x="301" y="398" text-anchor="middle" class="lbl-sm">Capture / Fwd</text>
+<rect x="358" y="378" width="70" height="30" rx="15" fill="#E3F3F1" stroke="#00A79E"/>
+<text x="393" y="398" text-anchor="middle" class="lbl-sm" style="fill:#0C3274;font-weight:600;">Next</text>
+<rect x="440" y="378" width="120" height="30" rx="15" class="panel"/>
+<text x="500" y="398" text-anchor="middle" class="lbl-sm">Reset Simulation</text>
+<text x="590" y="398" class="lbl-sm">Play speed:</text>
+<line x1="672" y1="393" x2="820" y2="393" stroke="#D7E1E8" stroke-width="3"/>
+<circle cx="720" cy="393" r="6" fill="#00A79E"/>
+<text x="32" y="428" class="lbl-sm" style="font-style:italic;">Schematic layout — not a live screenshot. Real row content depends on your event filter and topology.</text>
+</svg>

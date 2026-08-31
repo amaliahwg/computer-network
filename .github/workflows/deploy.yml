@@ -1,0 +1,68 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - name: Install mdBook v0.5.2
+        run: |
+          curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.5.2/mdbook-v0.5.2-x86_64-unknown-linux-gnu.tar.gz \
+            | tar xz -C /usr/local/bin
+
+      - name: Build book
+        run: mdbook build book --dest-dir "$GITHUB_WORKSPACE/_site/book"
+
+      - name: Setup Node
+        uses: actions/setup-node@v7.0.0
+        with:
+          node-version: 20
+
+      - name: Build slides
+        run: npx --yes @marp-team/marp-cli --input-dir slides --output "$GITHUB_WORKSPACE/_site/slides" --theme-set themes/hankyong.css --html --allow-local-files
+
+      - name: Install LibreOffice (for PPTX export)
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libreoffice
+
+      - name: Build slides (PPTX)
+        run: npx --yes @marp-team/marp-cli --input-dir slides --output "$GITHUB_WORKSPACE/_site/slides" --theme-set themes/hankyong.css --html --pptx --pptx-editable --allow-local-files --parallel 1 --browser-timeout 120
+
+      - name: Build book chapter PDFs
+        run: node scripts/build-book-pdfs.js "$GITHUB_WORKSPACE/_site/book" "$GITHUB_WORKSPACE/_site/book/pdf"
+
+      - name: Copy shared assets
+        run: cp -r assets "$GITHUB_WORKSPACE/_site/assets"
+
+      - name: Add landing page
+        run: cp landing/index.html "$GITHUB_WORKSPACE/_site/index.html"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5.0.0

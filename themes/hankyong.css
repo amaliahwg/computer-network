@@ -1,0 +1,341 @@
+/* ==========================================================================
+   Marp theme: hankyong
+   Visual identity for 한경국립대학교 Hankyong National University
+   (Navy + teal sampled from the official site header logo; orange is an
+   approximate accent only, not sampled from an official asset.)
+   ========================================================================== */
+
+/* @theme hankyong */
+
+:root {
+  --navy: #0C3274;
+  --brand: #145DA0;
+  --accent: #00A79E;
+  --deep: #072048;
+  --gold: #E8792A;
+  --cream: #FFF8F1;
+  --pale: #E3F3F1;
+  --ink: #1A1A1A;
+  --band: linear-gradient(90deg, #0C3274 0%, #145DA0 55%, #00A79E 100%);
+  --font-head: Cambria, Georgia, 'Noto Serif KR', serif;
+  --font-body: 'Aptos', 'Calibri', system-ui, -apple-system, 'Malgun Gothic', sans-serif;
+}
+
+section {
+  width: 1280px;
+  height: 720px;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: #ffffff;
+  padding: 56px 72px 106px 72px;
+  font-size: 24px;
+  line-height: 1.45;
+  position: relative;
+}
+
+/* bottom footer band: present on every slide. Painted on section::after
+   because Marpit reserves `content` there for the page number, so the
+   number stays on `content: attr(data-marpit-pagination)` and this rule
+   only adds the background, sizing, and the number's on-band position. */
+section::after {
+  left: 0; right: 0; bottom: 0; top: auto;
+  width: 100%; height: 82px;
+  margin: 0;
+  padding: 0 53px 0 0;
+  box-sizing: border-box;
+  background-image: url('../assets/hankyong-logo-white.png'), var(--band);
+  background-position: 40px center, left bottom;
+  background-size: 160px 32px, 100% 100%;
+  background-repeat: no-repeat, no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: #ffffff;
+  z-index: 1;
+}
+
+/* dept name: driven by Marp's native `footer:` directive (plain text
+   only, a real <footer> element). The logo is painted as a background
+   layer on section::after above instead of a child <img> here, because
+   Marp wraps footer markdown (image + text) into a single <p>, which
+   made independently-positioned img/text children fight each other. */
+section footer {
+  position: absolute;
+  z-index: 2;
+  left: 280px; right: 53px; bottom: 0; height: 82px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section footer p {
+  margin: 0;
+  text-align: center;
+  color: #ffffff;
+  font-size: 18px;
+  font-family: var(--font-body);
+}
+
+section h1 {
+  font-family: var(--font-head);
+  color: var(--navy);
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 18px 0;
+  padding-bottom: 14px;
+  border-bottom: 3px solid var(--accent);
+}
+
+section h2 {
+  font-family: var(--font-head);
+  color: var(--brand);
+  font-size: 30px;
+  margin: 0 0 12px 0;
+}
+
+section h3 {
+  font-family: var(--font-head);
+  color: var(--deep);
+  font-size: 24px;
+  margin: 0 0 8px 0;
+}
+
+section p, section li { font-size: 22px; }
+
+section a { color: var(--accent); }
+
+section strong { color: var(--navy); }
+
+section ul, section ol { margin: 8px 0; padding-left: 28px; }
+section li { margin: 6px 0; }
+
+section code {
+  background: var(--pale);
+  color: var(--deep);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+section pre {
+  background: #F4F9F8;
+  border-left: 5px solid var(--brand);
+  border-radius: 6px;
+  padding: 16px 20px;
+  font-size: 18px;
+}
+section pre code { background: none; padding: 0; }
+
+section table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 19px;
+}
+section th {
+  background: var(--brand);
+  color: #fff;
+  padding: 8px 12px;
+  text-align: left;
+}
+section td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--pale);
+}
+section tr:nth-child(even) td { background: var(--pale); }
+
+section blockquote {
+  border-left: 5px solid var(--gold);
+  background: var(--cream);
+  margin: 0;
+  padding: 12px 20px;
+  color: var(--deep);
+  font-style: normal;
+}
+
+/* page number */
+section::part(paginate) {}
+section { counter-increment: none; }
+
+/* ---- utility classes ---- */
+
+/* motivation / pain callout */
+.pain {
+  background: #FDECEC;
+  border-left: 5px solid #C0392B;
+  border-radius: 6px;
+  padding: 16px 22px;
+  color: #6b1414;
+}
+
+/* why / note callout */
+.why {
+  background: var(--cream);
+  border-left: 5px solid var(--gold);
+  border-radius: 6px;
+  padding: 16px 22px;
+  color: var(--deep);
+}
+
+.limits {
+  background: #F2F2F2;
+  border-left: 5px solid var(--navy);
+  border-radius: 6px;
+  padding: 16px 22px;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* roadmap grid: full-semester overview as cards, not a tall table */
+.roadmap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.roadmap .wk {
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: var(--pale);
+  border: 1px solid #BFE0DB;
+}
+.roadmap .wk .n {
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--brand);
+  font-size: 13px;
+}
+.roadmap .wk .t {
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.roadmap .wk.now {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+.roadmap .wk.now .n, .roadmap .wk.now .t { color: #fff; }
+.roadmap .wk.review {
+  background: #fff;
+  border-style: dashed;
+}
+.roadmap .wk.review .n, .roadmap .wk.review .t { color: #7A8699; font-style: italic; }
+
+/* bridge line: one-line connective thread under an H1, ties a slide back
+   to the one before it so Act 3 reads as a build-up, not a topic list */
+.thread {
+  font-family: var(--font-head);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--brand);
+  margin: -8px 0 16px 0;
+}
+
+/* chip row: small labeled entities in a line */
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.chip-row .chip {
+  background: var(--brand);
+  color: #fff;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ---- slide classes ---- */
+
+/* Title slide: the only slide with a top band too */
+section.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 106px;
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff 72%, var(--pale) 72%, var(--pale) 100%);
+}
+section.title::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 73px;
+  background: var(--band);
+}
+section.title h1 {
+  font-size: 54px;
+  color: var(--navy);
+  border-bottom: none;
+  padding-bottom: 0;
+}
+section.title .subtitle {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--accent);
+  margin-top: 6px;
+}
+section.title .meta {
+  margin-top: 28px;
+  font-size: 18px;
+  color: var(--deep);
+}
+
+/* Callout slide: H1 + one short pain/why/limits box and nothing else -
+   vertically center so it doesn't sit pinned to the top with dead space
+   below (same technique as section.section). */
+section.callout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Section / driving-question divider */
+section.section {
+  background: linear-gradient(135deg, var(--navy), var(--brand));
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section.section h1 {
+  color: #fff;
+  border-bottom: 3px solid rgba(255,255,255,.5);
+  font-size: 40px;
+}
+section.section .driving-q {
+  font-family: var(--font-head);
+  font-style: italic;
+  font-size: 26px;
+  color: var(--pale);
+  margin-top: 14px;
+}
+
+/* End slide */
+section.end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #ffffff 60%, var(--pale) 100%);
+}
+section.end h1 {
+  font-size: 60px;
+  color: var(--navy);
+  border-bottom: none;
+}
+section.end .meta {
+  margin-top: 24px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--deep);
+  text-align: center;
+}

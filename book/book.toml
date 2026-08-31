@@ -1,0 +1,10 @@
+[book]
+title = "Intelligent Network Design - Lab Manual"
+authors = ["Amalia"]
+description = "지능형네트워크설계 (Software Convergence 001), 한경국립대학교 Hankyong National University - Hands-on lab modules using Cisco Packet Tracer"
+language = "en"
+
+[output.html]
+additional-js = ["mermaid.min.js", "mermaid-icons.js", "mermaid-init.js"]
+default-theme = "light"
+preferred-dark-theme = "navy"
