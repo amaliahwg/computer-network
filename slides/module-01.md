@@ -80,12 +80,11 @@ network integrating every technology covered in the weekly labs.
 | Component | Weight |
 |-----------|--------|
 | Attendance (출석) | 10% |
-| Midterm Exam (중간평가) - Week 8 | 30% |
-| Final Exam (기말평가) - Week 15 | 30% |
+| Midterm Exam (중간평가) - Week 8 | 40% |
+| Final Exam (기말평가) - Week 15 | 40% |
 | Lab Reports / Assignments (과제) | 10% |
-| Other (project, participation) | 20% |
 
-Lab reports (실습결과보고서) due on the LMS within one week of each session.
+Lab reports (실습결과보고서) are due on the LMS within one week of each session.
 
 ---
 
