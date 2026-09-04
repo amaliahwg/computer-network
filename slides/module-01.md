@@ -102,6 +102,15 @@ Lab reports (실습결과보고서) are due on the LMS within one week of each s
 
 ---
 
+## Equipment & Materials
+
+- A free Cisco Networking Academy / Skills for All account (see Pre-Lab)
+- Cisco Packet Tracer 9.x installer, downloaded during Part A below
+- Your own computer (Windows, Linux, or macOS)
+- This lab manual
+
+---
+
 ## Pre-Lab
 
 **Create your free account** at Cisco Networking Academy / Skills for All - Packet Tracer’s installer is gated behind a free account signup, and account creation can take a few minutes to email-verify. Do this well before class, not at the start of the lab.
