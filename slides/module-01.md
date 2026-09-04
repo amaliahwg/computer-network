@@ -105,6 +105,7 @@ Lab reports (실습결과보고서) are due on the LMS within one week of each s
 ## Pre-Lab
 
 **Create your free account** at Cisco Networking Academy / Skills for All - Packet Tracer’s installer is gated behind a free account signup, and account creation can take a few minutes to email-verify. Do this well before class, not at the start of the lab.
+
 **Read before class:** Supplementary textbook, Chapter 1 (Introduction to Networks); any Packet Tracer getting-started guide from Cisco NetAcad.
 
 ---
