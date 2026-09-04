@@ -23,7 +23,7 @@ Amalia · 컴퓨터응용수학부 소프트웨어융합전공 · 한경국립�
 
 <div align="center">
 
-![Syllabus](images/syllabus.png){ width=850px }
+<img src="./images/syllabus.png" width="900">
 
 </div>
 
