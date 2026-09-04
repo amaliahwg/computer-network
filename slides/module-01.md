@@ -21,14 +21,14 @@ Amalia · 컴퓨터응용수학부 소프트웨어융합전공 · 한경국립�
 <!-- SLOT 2: 강의계획서 -->
 # Course Syllabus (강의계획서)
 
-![](./images/syllabus.png){width=80%}
+![](./images/syllabus.png)
 
 ---
 
 <!-- SLOT 3: 강의계획서 -->
 # Course Syllabus (강의계획서)
 
-![](./images/syllabus2.png){width=80%}
+![](./images/syllabus2.png)
 
 ---
 
