@@ -21,14 +21,14 @@ Amalia · 컴퓨터응용수학부 소프트웨어융합전공 · 한경국립�
 <!-- PRELUDE: Course syllabus overview (outside spine numbering, see SPINE.md) -->
 # Course Syllabus (강의계획서)
 
-![h:520](./images/syllabus.png)
+![h:440](./images/syllabus.png)
 
 ---
 
 <!-- PRELUDE: Course syllabus overview (outside spine numbering, see SPINE.md) -->
 # Course Syllabus (강의계획서)
 
-![h:520](./images/syllabus2.png)
+![h:440](./images/syllabus2.png)
 
 ---
 
