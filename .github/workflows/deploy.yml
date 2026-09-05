@@ -36,6 +36,9 @@ jobs:
       - name: Build slides
         run: npx --yes @marp-team/marp-cli --input-dir slides --output "$GITHUB_WORKSPACE/_site/slides" --theme-set themes/hankyong.css --html --allow-local-files
 
+      - name: Copy slide images
+        run: cp -r slides/images/. "$GITHUB_WORKSPACE/_site/slides/images/"
+
       - name: Install LibreOffice (for PPTX export)
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libreoffice
 

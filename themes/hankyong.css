@@ -146,6 +146,12 @@ section td {
 }
 section tr:nth-child(even) td { background: var(--pale); }
 
+section img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
 section blockquote {
   border-left: 5px solid var(--gold);
   background: var(--cream);

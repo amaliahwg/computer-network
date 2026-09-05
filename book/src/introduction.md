@@ -41,10 +41,9 @@ The lecture covers *Why This Matters*, *Learning Outcomes*, and *Theory Review* 
 | Component | Weight |
 |-----------|--------|
 | Attendance (출석) | 10% |
-| Midterm Exam (중간평가) - Week 8 | 30% |
-| Final Exam (기말평가) - Week 15 | 30% |
+| Midterm Exam (중간평가) - Week 8 | 40% |
+| Final Exam (기말평가) - Week 15 | 40% |
 | Lab Reports / Assignments (과제) | 10% |
-| Other (project, participation) | 20% |
 
 **Lab Reports (실습결과보고서)** must be submitted via the course LMS (Learning Management System) within one week of each lab session. Use the template in [Appendix D](appendix/report-template.md).
 

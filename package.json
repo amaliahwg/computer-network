@@ -5,7 +5,7 @@
   "description": "Marp slide decks for Intelligent Network Design (지능형네트워크설계)",
   "scripts": {
     "preview": "npx --yes @marp-team/marp-cli -s slides --theme-set themes/hankyong.css --html",
-    "build:html": "npx --yes @marp-team/marp-cli -I slides --theme-set themes/hankyong.css --html --allow-local-files -o dist/slides",
+    "build:html": "npx --yes @marp-team/marp-cli -I slides --theme-set themes/hankyong.css --html --allow-local-files -o dist/slides && cp -r slides/images/. dist/slides/images/",
     "build:pdf": "npx --yes @marp-team/marp-cli -I slides --theme-set themes/hankyong.css --html --pdf --allow-local-files -o dist/slides",
     "build:pptx": "npx --yes @marp-team/marp-cli -I slides --theme-set themes/hankyong.css --html --pptx --pptx-editable --allow-local-files -o dist/slides",
     "build:book-pdfs": "mdbook build book && node scripts/build-book-pdfs.js"
