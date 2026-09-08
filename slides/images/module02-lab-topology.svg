@@ -1,0 +1,62 @@
+<svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="topo-title">
+<title id="topo-title">Diagram of the Module 2 lab topology: two LANs joined by a not-yet-configured router</title>
+<style>
+  .lbl { font-family: system-ui, -apple-system, sans-serif; fill: #1A1A1A; font-size: 13px; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 11px; }
+  .lbl-w { font-family: system-ui, -apple-system, sans-serif; fill: #ffffff; font-size: 11px; font-weight: 600; }
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .dev { fill: #0C3274; }
+</style>
+
+<rect x="4" y="4" width="892" height="412" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">Module 2 lab topology — two LANs, one not-yet-configured router</text>
+
+<!-- LAN 1 box -->
+<rect x="24" y="56" width="330" height="300" rx="8" fill="#E3F3F1" stroke="#00A79E"/>
+<text x="189" y="78" text-anchor="middle" class="lbl" style="font-weight:700;fill:#0C3274;">LAN 1 — 192.168.1.0/24</text>
+
+<rect x="50" y="100" width="60" height="30" rx="4" class="dev"/>
+<text x="80" y="146" text-anchor="middle" class="lbl-sm">PC0 · .10</text>
+<rect x="140" y="100" width="60" height="30" rx="4" class="dev"/>
+<text x="170" y="146" text-anchor="middle" class="lbl-sm">PC1 · .20</text>
+<rect x="230" y="100" width="70" height="30" rx="4" class="dev"/>
+<text x="265" y="146" text-anchor="middle" class="lbl-sm">Server0 · .100</text>
+<text x="265" y="160" text-anchor="middle" class="lbl-sm" style="fill:#00A79E;font-weight:600;">HTTP: On</text>
+
+<rect x="140" y="190" width="70" height="26" rx="4" fill="#5B6B78"/>
+<text x="175" y="207" text-anchor="middle" class="lbl-w">Switch0</text>
+<line x1="80" y1="130" x2="175" y2="190" stroke="#D7E1E8" stroke-width="2"/>
+<line x1="170" y1="130" x2="175" y2="190" stroke="#D7E1E8" stroke-width="2"/>
+<line x1="265" y1="130" x2="175" y2="190" stroke="#D7E1E8" stroke-width="2"/>
+
+<text x="40" y="270" class="lbl-sm">✓ Same-LAN ping: works</text>
+<text x="40" y="288" class="lbl-sm">✓ HTTP to Server0: works</text>
+
+<!-- Router in middle, greyed -->
+<rect x="378" y="176" width="90" height="50" rx="6" fill="#B7C2CB"/>
+<text x="423" y="197" text-anchor="middle" class="lbl-w" style="fill:#3A4650;">Router0</text>
+<text x="423" y="213" text-anchor="middle" class="lbl-sm" style="fill:#3A4650;">not configured</text>
+<text x="423" y="250" text-anchor="middle" class="lbl-sm">Fa0/0 = .1.1</text>
+<text x="423" y="264" text-anchor="middle" class="lbl-sm">Fa0/1 = .2.1</text>
+<text x="423" y="150" text-anchor="middle" class="lbl-sm" style="font-style:italic;">Modules 3–4 bring this to life</text>
+
+<line x1="210" y1="203" x2="378" y2="201" stroke="#D7E1E8" stroke-width="2"/>
+<line x1="468" y1="201" x2="546" y2="203" stroke="#D7E1E8" stroke-width="2"/>
+
+<!-- LAN 2 box -->
+<rect x="546" y="56" width="330" height="300" rx="8" fill="#FAFBFC" stroke="#D7E1E8"/>
+<text x="711" y="78" text-anchor="middle" class="lbl" style="font-weight:700;fill:#0C3274;">LAN 2 — 192.168.2.0/24</text>
+
+<rect x="640" y="190" width="70" height="26" rx="4" fill="#5B6B78"/>
+<text x="675" y="207" text-anchor="middle" class="lbl-w">Switch1</text>
+<rect x="700" y="100" width="60" height="30" rx="4" class="dev"/>
+<text x="730" y="146" text-anchor="middle" class="lbl-sm">PC2 · .10</text>
+<line x1="730" y1="130" x2="675" y2="190" stroke="#D7E1E8" stroke-width="2"/>
+
+<text x="580" y="270" class="lbl-sm">✗ HTTP to Server0: fails</text>
+<text x="580" y="288" class="lbl-sm">(ARP for gateway .2.1 gets no reply)</text>
+
+<text x="24" y="392" class="lbl-sm" style="font-style:italic;">Schematic — not to scale.</text>
+</svg>

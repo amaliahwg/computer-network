@@ -40,6 +40,8 @@ Amalia · 컴퓨터응용수학부 소프트웨어융합전공 · 한경국립�
 <div class="wk review"><div class="n">Wk 15</div><div class="t">Final Exam</div></div>
 </div>
 
+<p class="meta">Abbreviated topic names on this map (ACLs, VLANs, WAN, PPP, NAT, OSPF, DHCP) are each spelled out in full in their own module.</p>
+
 ---
 
 <!-- SLOT 3+4: Recap and the pain -->
@@ -47,7 +49,7 @@ Amalia · 컴퓨터응용수학부 소프트웨어융합전공 · 한경국립�
 
 # "The Network Is Down" - But Where?
 
-<span class="thread">Last time: you still don't know what happens to a packet's headers as it crosses a switch and a router.</span>
+<span class="thread">Last time: you built a small network and proved two machines could talk. What you still can't do: say *where* it broke when it stops working.</span>
 
 <div class="pain">
 
@@ -87,10 +89,10 @@ systematic way to check, "down" is just a guess.
 
 # By the End of This Module, You Can
 
-1. Describe the function of each OSI layer and map it to the TCP/IP layer
-2. Use Simulation Mode to observe encapsulation and decapsulation
-3. Identify which protocols operate at which layers via packet capture
-4. Trace a full HTTP request, naming each envelope added/removed per hop
+1. Describe each layer of the **OSI model** (Open Systems Interconnection) and map it to the **TCP/IP model** (Transmission Control Protocol / Internet Protocol)
+2. Use Packet Tracer's Simulation Mode to watch data gain and lose its per-layer wrapping — **encapsulation** and **decapsulation**
+3. Identify which protocols operate at which layers from a packet capture
+4. Trace a full **HTTP** (HyperText Transfer Protocol — the web's request language) page load, naming each envelope added and removed
 
 ---
 
@@ -98,11 +100,13 @@ systematic way to check, "down" is just a guess.
 
 # Where This Idea Came From
 
-The **OSI model** (ISO, 1984) was designed by committee to let any vendor's
-equipment interoperate - a teaching and interoperability reference, mostly
-never implemented layer-for-layer. The **TCP/IP model** (Cerf & Kahn, DARPA,
-1974) was the pragmatic, already-shipping protocol suite that became the
-real internet. Today we use OSI's vocabulary to talk about TCP/IP's reality.
+The **OSI model** (**ISO** — International Organization for Standardization,
+1984) was designed by committee to let any vendor's equipment interoperate -
+a teaching and interoperability reference, mostly never implemented
+layer-for-layer. The **TCP/IP model** (Vint Cerf & Bob Kahn, 1974, funded by
+**DARPA** — the U.S. Defense Advanced Research Projects Agency) was the
+pragmatic, already-shipping protocol suite that became the real internet.
+Today we use OSI's vocabulary to talk about TCP/IP's reality.
 
 ---
 
@@ -113,13 +117,45 @@ real internet. Today we use OSI's vocabulary to talk about TCP/IP's reality.
 > Each layer adds a **header** (and sometimes a trailer) to the data handed
 > down from above - **encapsulation**. At the receiving end, each layer
 > strips its own header and passes the remainder up - **decapsulation**.
+> Each wrapped stage has its own name - its **PDU** (Protocol Data Unit).
+
+![h:280](./images/encapsulation-stack.svg)
+
+---
+
+# The Layer Map
 
 | OSI | TCP/IP | PDU | Key Protocols |
 |-----|--------|-----|---------------|
-| Application / Presentation / Session | Application | Data | HTTP, DNS, TLS |
+| Application / Presentation / Session | Application | Data | HTTP, DNS |
 | Transport | Transport | Segment | TCP, UDP |
 | Network | Internet | Packet | IP, ICMP, ARP |
-| Data Link / Physical | Network Access | Frame / Bit | Ethernet, PPP |
+| Data Link / Physical | Network Access | Frame / Bit | Ethernet |
+
+Full name for every protocol here: next slide.
+
+---
+
+# The Protocols You'll Meet Today
+
+<div class="two-col">
+<div>
+
+**HTTP** = HyperText Transfer Protocol — how browsers request pages
+**DNS** = Domain Name System — turns names into IP addresses
+**TCP** = Transmission Control Protocol — reliable, connection-based delivery
+**UDP** = User Datagram Protocol — fast, connectionless delivery
+
+</div>
+<div>
+
+**IP** = Internet Protocol — addressing between networks
+**ICMP** = Internet Control Message Protocol — the messages behind `ping`
+**ARP** = Address Resolution Protocol — finds the MAC for a known IP
+**MAC address** = Media Access Control — the interface's hardware address
+
+</div>
+</div>
 
 ---
 
@@ -127,23 +163,22 @@ real internet. Today we use OSI's vocabulary to talk about TCP/IP's reality.
 
 # Switch vs Router - Which Layer Do They Read?
 
-- **Switch (Layer 2):** reads the destination **MAC** in the Ethernet frame, forwards to the correct port - never looks at the IP header
-- **Router (Layer 3):** strips the Ethernet frame, reads the **IP** destination, makes a routing decision, re-encapsulates for the next hop
+- **Switch (Layer 2):** reads the destination MAC, forwards to the correct port - never opens the IP header
+- **Router (Layer 3):** strips the Ethernet frame, reads the destination IP, re-encapsulates for the next hop
 
-This is why routing is needed **between** subnets but not **within** them -
-and why layer-by-layer troubleshooting works: each device answers only for
-its own layer.
+![h:300](./images/switch-vs-router-layers.svg)
 
 ---
 
 # Why ARP Must Precede ICMP
 
-ARP is a **Layer 2 broadcast** - every device on the local segment receives
-it, but only the device owning the target IP replies.
+ARP is a Layer 2 broadcast - every device on the segment receives it, but
+only the device owning the target IP replies. It cannot cross a router
+(routers don't forward broadcasts) - so your PC must resolve a MAC address
+before sending its first ICMP Echo Request - the `ping` message - to a new
+neighbor.
 
-This is why ARP works within a subnet but **cannot cross a router**
-(routers don't forward broadcasts) - and why your PC must resolve a MAC
-address before sending its first ICMP Echo Request to a new neighbor.
+![h:280](./images/arp-before-icmp.svg)
 
 ---
 
@@ -151,14 +186,18 @@ address before sending its first ICMP Echo Request to a new neighbor.
 
 # Guided Lab at a Glance
 
-**Part A** - build a 3-subnet review topology (same-subnet pings work;
-cross-router pings intentionally fail - routing comes in Module 3)
+**Part A** - build a two-LAN review topology (same-subnet pings work;
+cross-router pings intentionally fail - the router comes alive in Modules 3-4)
 
 **Part B** - Simulation Mode: watch ARP + ICMP for a same-subnet ping
 
-**Part C** - Simulation Mode: trace a full HTTP request (DNS → TCP → HTTP)
+**Part C** - Simulation Mode: trace a full HTTP page load to a server on
+your own LAN - ARP, then TCP, then HTTP - then watch the same request die
+at the unconfigured router
 
 **Part D** - ARP cause-and-effect: why `arp -a` output changes after a ping
+
+![h:200](./images/module02-lab-topology.svg)
 
 ---
 
@@ -202,7 +241,7 @@ topology has no hostname, no password, nothing configured - anyone with
 access to it could type <code>enable</code> and change anything.
 </div>
 
-<span class="thread">Next: Module 3 addresses the unsecured router - IOS mode navigation and basic hardening.</span>
+<span class="thread">Next: Module 3 secures the router - navigating **IOS** (Cisco's Internetwork Operating System) - and Module 4 brings its interfaces to life.</span>
 
 ---
 

@@ -290,6 +290,7 @@ Router# show ip interface brief
 2. Use `show running-config | section interface` to display only the interface sections of the config. Research the `|` (pipe) operator in IOS - what other filters are available? (`begin`, `include`, `exclude`, `section`)
 3. Configure a second router in the topology and use `show cdp neighbors detail` to see the connected router's IOS version. Explain why CDP is useful for network inventory and why it is sometimes disabled in security-conscious networks.
 4. **Ping flag scavenger hunt:** In IOS, run `ping ?` to see all one-line ping options. Find and test: the option that sets repeat count; the option that sets packet size; the option that sets timeout. For each option, document: the flag name, what it changes, and what scenario would make it useful for troubleshooting.
+5. Now that both interfaces are `up/up`, ping across the router (PC0 to PC1) in Simulation Mode. Find the exact moment the Ethernet frame changes its **source and destination MAC address** as the packet passes through the router. Which MAC is used on each segment - before the router, and after? What does this confirm about how routers rebuild the Layer 2 header on every hop?
 
 ## Deliverables
 

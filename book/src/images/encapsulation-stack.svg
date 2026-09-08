@@ -1,0 +1,65 @@
+<svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="encap-title">
+<title id="encap-title">Diagram of encapsulation: each layer wraps the data from the layer above it</title>
+<style>
+  .lbl { font-family: system-ui, -apple-system, sans-serif; fill: #1A1A1A; font-size: 14px; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .lbl-pdu { font-family: system-ui, -apple-system, sans-serif; fill: #ffffff; font-size: 13px; font-weight: 600; }
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+</style>
+
+<rect x="4" y="4" width="892" height="512" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">Encapsulation — each layer adds its own header before handing data down</text>
+
+<text x="30" y="66" class="lbl-sm" style="font-weight:600;">Layer (top to bottom)</text>
+<text x="700" y="66" class="lbl-sm" style="font-weight:600;">PDU name</text>
+
+<!-- Row 1: Application data, widest -->
+<rect x="30" y="78" width="700" height="46" rx="6" fill="#E8792A"/>
+<text x="380" y="106" text-anchor="middle" class="lbl-pdu">Application data (HTTP request)</text>
+<text x="30" y="140" class="lbl">Application layer</text>
+<text x="740" y="106" class="lbl">Data</text>
+
+<!-- Row 2: + TCP header -->
+<rect x="30" y="158" width="60" height="46" rx="6" fill="#00A79E"/>
+<text x="60" y="186" text-anchor="middle" class="lbl-pdu" style="font-size:11px;">TCP</text>
+<rect x="90" y="158" width="640" height="46" fill="#E8792A"/>
+<text x="410" y="186" text-anchor="middle" class="lbl-pdu">Application data</text>
+<text x="30" y="220" class="lbl">Transport layer</text>
+<text x="740" y="186" class="lbl">Segment</text>
+
+<!-- Row 3: + IP header -->
+<rect x="30" y="238" width="60" height="46" rx="6" fill="#145DA0"/>
+<text x="60" y="266" text-anchor="middle" class="lbl-pdu" style="font-size:11px;">IP</text>
+<rect x="90" y="238" width="60" height="46" fill="#00A79E"/>
+<text x="120" y="266" text-anchor="middle" class="lbl-pdu" style="font-size:11px;">TCP</text>
+<rect x="150" y="238" width="580" height="46" fill="#E8792A"/>
+<text x="440" y="266" text-anchor="middle" class="lbl-pdu">Application data</text>
+<text x="30" y="300" class="lbl">Network / Internet layer</text>
+<text x="740" y="266" class="lbl">Packet</text>
+
+<!-- Row 4: + Ethernet header + trailer -->
+<rect x="30" y="318" width="55" height="46" rx="6" fill="#0C3274"/>
+<text x="57" y="342" text-anchor="middle" class="lbl-pdu" style="font-size:10px;">Eth</text>
+<text x="57" y="356" text-anchor="middle" class="lbl-pdu" style="font-size:10px;">hdr</text>
+<rect x="85" y="318" width="60" height="46" fill="#145DA0"/>
+<text x="115" y="346" text-anchor="middle" class="lbl-pdu" style="font-size:11px;">IP</text>
+<rect x="145" y="318" width="60" height="46" fill="#00A79E"/>
+<text x="175" y="346" text-anchor="middle" class="lbl-pdu" style="font-size:11px;">TCP</text>
+<rect x="205" y="318" width="500" height="46" fill="#E8792A"/>
+<text x="455" y="346" text-anchor="middle" class="lbl-pdu">Application data</text>
+<rect x="705" y="318" width="25" height="46" fill="#0C3274"/>
+<text x="717" y="346" text-anchor="middle" class="lbl-pdu" style="font-size:9px;">FCS</text>
+<text x="30" y="382" class="lbl">Data Link / Physical layer</text>
+<text x="770" y="346" class="lbl">Frame</text>
+
+<!-- Row 5: bits -->
+<rect x="30" y="398" width="700" height="34" rx="4" fill="#FAFBFC" stroke="#D7E1E8"/>
+<text x="380" y="420" text-anchor="middle" class="lbl-sm" style="font-family:monospace;">01001010 11001101 00101011 10110100 …</text>
+<text x="740" y="420" class="lbl">Bits</text>
+
+<text x="30" y="470" class="lbl-sm">Header + trailer added going down (encapsulation). The receiving end strips each one in reverse order,</text>
+<text x="30" y="488" class="lbl-sm">bottom to top, on its way back up — decapsulation.</text>
+<text x="30" y="508" class="lbl-sm" style="font-style:italic;">Schematic — box widths are illustrative, not to scale with real header sizes.</text>
+</svg>

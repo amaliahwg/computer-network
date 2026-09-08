@@ -250,7 +250,8 @@ R0# show ip route
 1. Add a **floating static route** as a backup path: `ip route 192.168.2.0 255.255.255.0 <alt-next-hop> 5` (administrative distance 5 instead of the default 1). Remove the primary static route. Verify the floating route activates automatically.
 2. Use the **exit-interface syntax** for one of your static routes and compare the routing table output. Does the code letter change? Is there any practical difference in a simulated environment?
 3. Configure `ip route 192.168.1.0 255.255.255.0 Null0` on R1. What does routing to Null0 accomplish? Why would a network engineer do this deliberately? (Research: null route / black-hole route.)
-4. **Three-router chain:** Build a 3-router topology with the following addressing. Derive all required static routes yourself - including the transit routes on the middle router - without looking at a solution. Then verify with end-to-end pings.
+4. **Second router, event count:** Add a second router (R2) between R1 and its LAN, moving PC1's switch behind it. Re-run a cross-site ping in Simulation Mode. Does the number of ARP events change compared to the single-router topology? Why - which additional segment now needs its own ARP resolution?
+5. **Three-router chain:** Build a 3-router topology with the following addressing. Derive all required static routes yourself - including the transit routes on the middle router - without looking at a solution. Then verify with end-to-end pings.
 
    ```
    PC0 (192.168.1.10/24, GW .1.1) - SW0 - R0 - R1 - R2 - SW2 - PC2 (192.168.3.10/24, GW .3.1)
