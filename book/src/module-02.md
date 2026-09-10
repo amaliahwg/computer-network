@@ -86,8 +86,8 @@ architecture-beta
     service sw1(net:switch)[Switch1] in lan2
     service pc2(net:pc)[PC2] in lan2
 
-    pc0:R -- L:sw0
-    pc1:R -- L:sw0
+    pc0:B -- T:sw0
+    pc1:T -- B:sw0
     srv0:R -- L:sw0
     sw0:R -- L:r0
     r0:R -- L:sw1
@@ -109,17 +109,19 @@ Device addressing:
 
 > **Note:** The router interfaces come alive in **Module 4** - Module 3 first secures the router before its interfaces are ever turned on. For now, PCs (and the server) on the **same switch** should be able to ping each other; cross-router pings will fail - and that is expected and intentional.
 
-**Step 1.** Place devices: 3× PC-PT (the **-PT** suffix marks Packet Tracer's generic device models), 1× Cisco 2960 switch, 1× Cisco 1841 router (or 2811), 1× more 2960 switch, 1× more PC-PT.
+**Step 1.** Place devices: 2× PC-PT (the **-PT** suffix marks Packet Tracer's generic device models), 1× Server-PT, 1× Cisco 2960 switch (LAN 1); 1× Cisco 1841 router (or 2811); 1× more PC-PT, 1× more 2960 switch (LAN 2) - six devices total, matching the diagram above. Rename each one to match (click the label under its icon, or its **Config** tab's **Display Name** field): PC0, PC1, Server0, Router0, Switch0, Switch1, PC2.
 
 **Step 2.** Cable: PCs and the server to switches with **Copper Straight-Through**; switches to the router with **Copper Straight-Through** (switch-to-router is unlike devices). Connect **Router0's Fa0/0 to Switch0** and **Fa0/1 to Switch1** specifically - the addressing table above binds each interface to its LAN, and Module 4 builds on exactly this cabling. Packet Tracer asks which interface to use when you click each device - pick deliberately, don't accept the first option offered.
 
-**Step 3.** Configure **PC0, PC1, and PC2**: click the device, open the **Desktop** tab, choose **IP Configuration**, select **Static**, and enter the IP address, subnet mask, and default gateway from the table above. Enter the gateway now even though the router isn't configured yet - it does nothing today, but Module 4 brings it to life.
+**Step 3.** Configure **PC0, PC1, Server0, and PC2**: click each device, open the **Desktop** tab, choose **IP Configuration**, select **Static**, and enter the IP address, subnet mask, and default gateway from the table above. Enter the gateway now even though the router isn't configured yet - it does nothing today, but Module 4 brings it to life.
+
+📸 Screenshot the complete topology (all six devices labeled, cabled, and visible).
 
 **Step 4.** Ping test: from PC0, open **Desktop → Command Prompt** and run `ping 192.168.1.20` to reach PC1.
 
 📸 Screenshot the successful same-subnet ping.
 
-> **Observe:** Does the ping from PC0 to PC2 (192.168.2.10) succeed? Why not? What is missing?
+> **Observe:** Does the ping from PC0 to PC2 (192.168.2.10) succeed? Why not? What is missing? (Optional: try pinging Server0 at 192.168.1.100 too - same-LAN, so it should succeed the same way.)
 
 ---
 
@@ -129,40 +131,37 @@ Device addressing:
 
 **Step 5.** Switch to the **Simulation** tab in the bottom-right corner (or press Shift+S). In the Simulation Panel, under Event List Filters, click **Show All/None** to clear everything, then **Edit Filters** and tick only **ICMP** and **ARP** (IPv4 tab).
 
-**Step 6.** From PC0's Desktop → Command Prompt, send a single ping to PC1: `ping 192.168.1.20 -n 1` (Packet Tracer syntax).
+**Step 6.** PC0's ARP cache already has PC1's MAC cached from Step 4's ping - clear it first so the broadcast happens again: `PC0> arp -d`. Then send a single ping to PC1: `ping -n 1 192.168.1.20` (Packet Tracer syntax - the option comes *before* the target).
 
 **Step 7.** Click **Capture/Forward** to advance one event at a time (or **Auto Capture/Play** to let it run automatically; the speed slider controls the pace). Watch each event appear in the Event List.
 
-📸 Screenshot the event list showing the ARP request/reply followed by ICMP echo/reply.
+📸 Screenshot the event list showing the ARP request/reply followed by ICMP echo/reply - annotate which two rows are ARP and which two are ICMP.
 
 > **Observe:** Which happened first - ARP or ICMP? Why must ARP happen first?
 
-**Step 8.** Click on any ICMP event and open the PDU information (click the envelope icon). Identify:
+**Step 8.** Click on any ICMP event's **colored square in the Event List's Info column** to open its PDU information (the envelope icon is the packet graphic on the workspace canvas, not the Event List row). Identify:
 
 - Source and destination MAC (Layer 2)
 - Source and destination IP (Layer 3)
 - ICMP type and code (Layer 3 / ICMP)
 
-![Schematic diagram of the Packet Tracer PDU Information window: the OSI Model layer ladder on the left and the Inbound/Outbound PDU Details header fields (Ethernet, IP, TCP/UDP, ICMP, 802.1Q, DHCP) on the right](images/pt-pdu-details.svg)
+![Schematic diagram of the Packet Tracer PDU Information window: the OSI Model layer ladder on the left and the Inbound/Outbound PDU Details header fields (Ethernet, IP, ICMP) on the right](images/pt-pdu-details.svg)
 
-> **Explain:** At which layers does the switch read headers? At which layers does the PC's NIC read headers?
+> **Explain:** At which layers does the switch read headers? At which layers does the PC's NIC read headers? Based on the Theory Review, what would a **router** read if this packet ever crossed one? The router in this topology is still inactive, so you can't verify this hands-on yet - Module 4 lets you check your answer directly.
 
 ---
 
 ### Part C - HTTP in Simulation Mode
 
-**Step 9.** Add a **Server-PT** named **Server0** to the topology, connected to **Switch0** (same LAN as PC0 and PC1) with a straight-through cable.
+**Step 9.** Server0 already exists and is addressed from Part A - it just isn't serving anything yet. Click Server0 → **Services** tab → **HTTP** → verify it is **On**.
 
-- Server IP: click Server0 → **Desktop → IP Configuration → Static** → `192.168.1.100 / 255.255.255.0`, gateway `192.168.1.1` (see the addressing table in Part A).
-- Then click **Services** tab → **HTTP** → verify it is **On**.
-
-**Step 10.** On PC0, open **Desktop → Web Browser**. In the **URL** (Uniform Resource Locator - the address-bar text) bar type: `http://192.168.1.100`
+**Step 10.** Switch back to **Realtime mode** first (same toggle as Step 5, bottom-right corner) - a normal page load needs Realtime, not Simulation. On PC0, open **Desktop → Web Browser**. In the **URL** (Uniform Resource Locator - the address-bar text) bar type: `http://192.168.1.100`
 
 The page **loads** - PC0 and Server0 share LAN 1, so no router is involved yet.
 
 📸 Screenshot the loaded page.
 
-**Step 11.** In Simulation Mode, click **Show All/None** then **Edit Filters** and tick **ARP, TCP, HTTP**. Send the HTTP request again from PC0.
+**Step 11.** Switch back to **Simulation mode**. Step 10's page load already cached Server0's MAC, so clear it first: `PC0> arp -d`. Click **Show All/None** then **Edit Filters** and tick **ARP** (IPv4 tab) and **TCP, HTTP** (Misc tab). Send the HTTP request again from PC0.
 
 > **No DNS events will appear:** you typed a raw IP address, so nothing needs name resolution. DNS enters the story once a name server joins a topology in a later module.
 
@@ -180,18 +179,18 @@ The page **loads** - PC0 and Server0 share LAN 1, so no router is involved yet.
 
 This exercise demonstrates why ARP must precede any IP communication - and why running the same command twice can give different output.
 
-**Step 13.** On PC0's Desktop → Command Prompt, check the current ARP cache:
+**Step 13.** Switch back to **Realtime mode**. PC0's ARP cache likely still holds an entry from an earlier step (Part B's PC1 ping, or Part C's Server0 request) - clear it first so this comparison starts from a genuinely empty cache: `PC0> arp -d`. Then check:
 
 ```
 PC0> arp -a
 ```
 
-📸 Screenshot. The table is likely empty or minimal (no entry for PC1's IP yet).
+📸 Screenshot. The table should now be empty (no entry for PC1's IP).
 
 **Step 14.** Ping PC1 once:
 
 ```
-PC0> ping 192.168.1.20 -n 1
+PC0> ping -n 1 192.168.1.20
 ```
 
 **Step 15.** Run `arp -a` again immediately:
@@ -205,11 +204,13 @@ PC0> arp -a
 > **Answer this question:** You ran `arp -a` twice with no configuration change in between. Why did the two outputs differ?
 > *(Hint: the ping in Step 14 triggered an ARP broadcast - your PC had to discover PC1's MAC before it could send the ICMP Echo Request. Once ARP received a reply, it cached the MAC. The second `arp -a` shows that cached entry.)*
 
-**Step 16.** That cached entry means a fresh ping won't ARP again - clear it first so the broadcast happens again: `PC0> arp -d`. Then, in Simulation Mode, filter for **ARP and ICMP only** and send the same ping. Step through the events.
+**Step 16.** Switch to **Simulation mode**. That cached entry means a fresh ping won't ARP again - clear it first so the broadcast happens again: `PC0> arp -d`. Filter for **ARP and ICMP only** and send the same ping. Step through the events, then click the ARP request's PDU details to see the broadcast destination.
 
-📸 Screenshot of the Event List showing the ARP broadcast (Ethernet destination FF:FF:FF:FF:FF:FF), ARP reply (unicast), and then ICMP Echo Request.
+📸 Screenshot of the ARP event's PDU details showing the broadcast destination (Ethernet destination FF:FF:FF:FF:FF:FF), plus the Event List showing the ARP reply (unicast) followed by the ICMP Echo Request.
 
-> **Observe:** ARP is a Layer 2 broadcast. Every device on the local segment receives it. Only the device that owns the target IP replies. This is why ARP works within a subnet but cannot cross a router (routers do not forward broadcasts).
+> **Observe:** ARP is a Layer 2 broadcast frame, even though the Theory Review table above groups the *protocol* ARP at Layer 3 (it resolves a Layer-3 IP into a Layer-2 MAC, so it's conventionally listed there) - the broadcast itself is what happens at Layer 2. Every device on the local segment receives it. Only the device that owns the target IP replies. This is why ARP works within a subnet but cannot cross a router (routers do not forward broadcasts).
+
+**Step 17.** Save your work: **File → Save As** → `StudentID_Module2.pka`.
 
 ---
 
@@ -237,7 +238,7 @@ PC0> arp -a
 
 | Criterion | Points |
 |-----------|--------|
-| Topology correctly built and diagrammed | 20 |
+| Topology correctly built (all six devices, addressed per the table) | 20 |
 | ARP/ICMP simulation screenshots with annotation | 20 |
 | HTTP protocol sequence correctly ordered and layered | 20 |
 | Switch vs. router layer-reading explanation | 15 |

@@ -23,10 +23,10 @@ TeamName_Project.pka       ← for the team project
 | Simulation | Clock icon | You want to watch packets move step-by-step and inspect each layer |
 
 In Simulation Mode:
-- **Event List filter:** Click the filter button and select only the protocols you care about (e.g., ICMP + ARP) to reduce noise.
-- **Next:** Step one event at a time.
-- **Auto Capture / Play:** Let PT advance until the next event.
-- **Clicking an envelope icon** on a packet in the topology: opens the PDU details window showing all protocol headers.
+- **Event List filter:** Click **Show All/None** to clear the list, then **Edit Filters** to tick only the protocols you care about (e.g., ICMP + ARP) to reduce noise.
+- **Capture/Forward:** Step one event at a time.
+- **Auto Capture/Play:** Let PT advance automatically; the speed slider controls the pace.
+- **Clicking a colored square** in an Event List row's Info column opens the PDU details window showing all protocol headers - clicking the **envelope icon** on a packet out on the topology canvas does the same thing.
 
 ---
 

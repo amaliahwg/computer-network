@@ -59,23 +59,18 @@
 <line x1="316" y1="152" x2="864" y2="152" stroke="#D7E1E8" stroke-width="1"/>
 <text x="316" y="172" class="lbl-sm" style="font-weight:600;">IP</text>
 <text x="330" y="190" class="lbl-sm">Source IP:</text>
-<text x="480" y="190" class="field-val">192.168.1.10</text>
+<text x="480" y="190" class="field-val">192.168.1.10 (PC0)</text>
 <text x="330" y="208" class="lbl-sm">Destination IP:</text>
-<text x="480" y="208" class="field-val">192.168.2.10</text>
+<text x="480" y="208" class="field-val">192.168.1.20 (PC1)</text>
 <text x="330" y="226" class="lbl-sm">TTL:</text>
 <text x="480" y="226" class="field-val">255</text>
 
 <line x1="316" y1="238" x2="864" y2="238" stroke="#D7E1E8" stroke-width="1"/>
-<text x="316" y="258" class="lbl-sm" style="font-weight:600;">TCP / UDP</text>
-<text x="330" y="276" class="lbl-sm">Source Port:</text>
-<text x="480" y="276" class="field-val">1024</text>
-<text x="330" y="294" class="lbl-sm">Destination Port:</text>
-<text x="480" y="294" class="field-val">80</text>
-
-<line x1="316" y1="306" x2="864" y2="306" stroke="#D7E1E8" stroke-width="1"/>
-<text x="316" y="326" class="lbl-sm" style="font-weight:600;">ICMP</text>
-<text x="330" y="344" class="lbl-sm">Type:</text>
-<text x="480" y="344" class="field-val">8 (Echo Request)</text>
+<text x="316" y="258" class="lbl-sm" style="font-weight:600;">ICMP</text>
+<text x="330" y="276" class="lbl-sm">Type:</text>
+<text x="480" y="276" class="field-val">8 (Echo Request)</text>
+<text x="330" y="294" class="lbl-sm">Code:</text>
+<text x="480" y="294" class="field-val">0</text>
 
 <rect x="316" y="358" width="548" height="46" rx="4" class="panel-ghost"/>
 <text x="330" y="376" class="lbl-sm" style="font-weight:600;">802.1Q (trunk links only)</text>

@@ -42,28 +42,28 @@
 <text x="566" y="68" class="lbl-sm" style="font-weight:600;">Event List</text>
 
 <rect x="566" y="78" width="304" height="20" fill="#F6F8FA"/>
-<text x="572" y="92" class="cell" style="font-weight:600;">Vis.  No.  Time  At Device  Type</text>
+<text x="572" y="92" class="cell" style="font-weight:600;">Vis.  Time  Last Device  At Device  Type</text>
 
 <rect x="566" y="98" width="304" height="20" fill="#ffffff"/>
 <circle cx="574" cy="108" r="4" fill="#00A79E"/>
-<text x="586" y="112" class="cell">1   0.000   PC0        ARP request</text>
+<text x="586" y="112" class="cell">0.000    -      PC0       ARP</text>
 
 <rect x="566" y="118" width="304" height="20" fill="#FAFBFC"/>
 <circle cx="574" cy="128" r="4" fill="#00A79E"/>
-<text x="586" y="132" class="cell">2   0.001   SW0        ARP reply</text>
+<text x="586" y="132" class="cell">0.001   PC0    PC1       ARP</text>
 
 <rect x="566" y="138" width="304" height="20" fill="#ffffff"/>
 <circle cx="574" cy="148" r="4" fill="#0C3274"/>
-<text x="586" y="152" class="cell">3   0.002   PC0        ICMP echo request</text>
+<text x="586" y="152" class="cell">0.002    -      PC0       ICMP</text>
 
 <rect x="566" y="158" width="304" height="20" fill="#FAFBFC"/>
 <circle cx="574" cy="168" r="4" fill="#0C3274"/>
-<text x="586" y="172" class="cell">4   0.003   PC1        ICMP echo reply</text>
+<text x="586" y="172" class="cell">0.003   PC1    PC0       ICMP</text>
 
 <text x="566" y="200" class="lbl-sm">Edit Filters ticks the protocols you want; Show</text>
 <text x="566" y="216" class="lbl-sm">All/None clears the list first (e.g. ICMP + ARP).</text>
-<text x="566" y="232" class="lbl-sm">Click a row's envelope icon to open its</text>
-<text x="566" y="248" class="lbl-sm">PDU detail — headers at every layer.</text>
+<text x="566" y="232" class="lbl-sm">Click a row's colored square (Info column) to</text>
+<text x="566" y="248" class="lbl-sm">open its PDU detail — headers at every layer.</text>
 
 <!-- control bar -->
 <rect x="16" y="362" width="868" height="80" rx="6" class="panel"/>
