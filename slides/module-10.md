@@ -118,7 +118,7 @@ mechanism keeping IPv4 alive.
 Same principle as `enable secret` (Module 3): never send or store
 passwords in plaintext.
 
-![h:230](./images/module10-chap-handshake.svg)
+![h:180](./images/module10-chap-handshake.svg)
 
 ---
 

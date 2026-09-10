@@ -119,7 +119,11 @@ convergence. It applies **Dijkstra's shortest-path algorithm (1959)** - over
 | Algorithm | Dijkstra SPF | Bellman-Ford |
 | Convergence | Seconds | Minutes |
 
-![h:230](./images/module11-lsa-flooding.svg)
+---
+
+# Link-State Flooding, Visualized
+
+![h:450](./images/module11-lsa-flooding.svg)
 
 ---
 

@@ -152,8 +152,8 @@ YourName(config-line)#end
 YourName#copy running-config startup-config
 ```
 
-Notice: the hostname change takes effect on the *next* prompt line, not the
-line that typed it - that is the live proof the command actually ran.
+Notice: the hostname change appears on the *next* prompt line - live proof
+the command actually ran.
 
 ---
 

@@ -129,7 +129,7 @@ Every ACL is a numbered list of rules, checked top to bottom against the
 packet. The very first line that matches decides the packet's fate -
 every rule after it is never even looked at.
 
-![h:400](./images/module07-acl-match-flow.svg)
+![h:330](./images/module07-acl-match-flow.svg)
 
 ---
 
@@ -143,7 +143,7 @@ every rule after it is never even looked at.
 
 A wildcard `1` bit means "don't care" - the inverse of a subnet mask.
 
-![h:250](./images/module07-wildcard-mask.svg)
+![h:210](./images/module07-wildcard-mask.svg)
 
 ---
 
@@ -153,7 +153,7 @@ A standard ACL only sees source IP - it cannot tell one destination from
 another. Placed too early, it blocks a source from everything beyond that
 point, not just the one destination it was meant to protect.
 
-![h:400](./images/module07-acl-placement.svg)
+![h:330](./images/module07-acl-placement.svg)
 
 ---
 
@@ -179,11 +179,9 @@ access-list 10 deny any
 
 **Packet:** source `192.168.1.13`, destination `192.168.2.100`
 
-1. Line 1 - `deny host 192.168.1.13`: matches exactly. **Deny. Stop here.**
-2. Line 2 is never evaluated - line 1 already decided the packet's fate,
-   even though `192.168.1.13` also falls inside `192.168.1.0/24`
-3. A packet from `192.168.1.20` instead would skip line 1 (no match), hit
-   line 2, and be **permitted**
+1. `deny host 192.168.1.13` matches Line 1 exactly - **denied, stop here**
+2. Line 2 is never checked - Line 1 already decided the packet's fate
+3. Traffic from `192.168.1.20` skips Line 1, hits Line 2, and is **permitted**
 
 ---
 

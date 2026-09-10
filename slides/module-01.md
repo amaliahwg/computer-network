@@ -229,9 +229,13 @@ the problem they solve never went away.
   along the path replies "Time Exceeded," revealing the hop-by-hop route
 - **`nslookup`/`dig`** - queries a DNS resolver, translating hostname to IP
 
-![h:260](./images/module01-traceroute-hops.svg)
-
 > "Website works by IP but not by name" means DNS is broken, not the network.
+
+---
+
+# Traceroute, Visualized
+
+![h:480](./images/module01-traceroute-hops.svg)
 
 ---
 

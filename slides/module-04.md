@@ -116,7 +116,7 @@ over memorized.
 > down too - but Layer 1 up with Layer 2 down often signals an
 > encapsulation mismatch.
 
-![h:290](./images/module04-interface-states.svg)
+![h:230](./images/module04-interface-states.svg)
 
 ---
 
@@ -144,10 +144,9 @@ IOS ping symbol patterns:
 - `U....` "no route to host" - an ICMP Unreachable from the router near the
   **destination**
 
-![h:240](./images/module04-ping-symbols.svg)
+![h:210](./images/module04-ping-symbols.svg)
 
-**Traceroute** sends probes with increasing TTL; each router that
-decrements TTL to 0 replies "Time Exceeded," revealing the path hop by hop.
+**Traceroute**: TTL rises per probe; each hop at TTL=0 replies "Time Exceeded."
 
 ---
 
@@ -185,8 +184,7 @@ S  172.16.0.0/16 [1/0] via
 - **Fa0/1** is `administratively down` - unused, `shutdown` still applied
 - **Serial0/0/0** is `up`/`down` - a Layer 2 problem (likely encapsulation)
   even though the routing table still lists it as directly connected
-- Route codes at the left margin: `C` = directly connected, `S` = static
-  (a route someone typed by hand - Module 5's topic)
+- Route codes: `C` = directly connected, `S` = static (typed by hand - Module 5)
 
 ---
 

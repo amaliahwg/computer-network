@@ -165,7 +165,11 @@ its neighbors. R1 sits between R0 and R2, so it hears from both sides at
 `t1` and is already done; R0 and R2 each need a second round before they
 learn about the network on the *far* side of R1.
 
-![h:330](./images/module06-distance-vector-propagation.svg)
+---
+
+# RIP Convergence, Visualized
+
+![h:450](./images/module06-distance-vector-propagation.svg)
 
 ---
 

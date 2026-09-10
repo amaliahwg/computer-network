@@ -146,15 +146,13 @@ route telling it the *other* site's LAN exists.
 ```
 R0# show ip route
 Gateway of last resort is 203.0.113.2 to network 0.0.0.0
-
 C    192.168.1.0/24 is directly connected, FastEthernet0/0
 L    192.168.1.1/32 is directly connected, FastEthernet0/0
 S    192.168.2.0/24 [1/0] via 10.0.0.2
 S*   0.0.0.0/0 [1/0] via 203.0.113.2
 ```
 
-`C`/`L` came free from configuring the interface; the `S` and `S*` lines
-are the two static routes added in Part B and C - nothing else changed.
+`C`/`L` are automatic; `S`/`S*` are the two static routes just added.
 
 ---
 
@@ -178,7 +176,11 @@ does not use the first one it finds - it compares every matching entry's
 **prefix length** and forwards using the longest one, because it is the
 most specific description of where the packet is actually going.
 
-![h:330](./images/module05-routing-lookup.svg)
+---
+
+# Longest Prefix Match, Visualized
+
+![h:450](./images/module05-routing-lookup.svg)
 
 ---
 

@@ -114,7 +114,7 @@ behave as many isolated logical ones - no rewiring required.
 > VLAN. A PC in VLAN 10 cannot directly reach a PC in VLAN 20, even on the
 > same physical switch.
 
-![h:280](./images/module09-vlan-broadcast-domains.svg)
+![h:220](./images/module09-vlan-broadcast-domains.svg)
 
 ---
 
@@ -147,7 +147,11 @@ interface FastEthernet0/0.10
 The trunk carries tagged frames for every VLAN to the router; it strips,
 routes, and re-tags for the destination VLAN.
 
-![h:250](./images/module09-router-on-a-stick.svg)
+---
+
+# Router-on-a-Stick, Visualized
+
+![h:450](./images/module09-router-on-a-stick.svg)
 
 ---
 

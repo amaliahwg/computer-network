@@ -119,7 +119,11 @@ foundational idea BOOTP never had.
 | 1, 3 | Discover, Request | Client to Server (broadcast) |
 | 2, 4 | Offer, Acknowledge | Server to Client (unicast) |
 
-![h:230](./images/module12-dora-sequence.svg)
+---
+
+# DORA, Visualized
+
+![h:450](./images/module12-dora-sequence.svg)
 
 ---
 
@@ -140,7 +144,11 @@ broadcasts between subnets, a relay converts it to unicast toward the
 server: `ip helper-address <DHCP-server-IP>`, applied on the **client-facing**
 interface.
 
-![h:250](./images/module12-dhcp-relay.svg)
+---
+
+# DHCP Relay, Visualized
+
+![h:450](./images/module12-dhcp-relay.svg)
 
 ---
 
