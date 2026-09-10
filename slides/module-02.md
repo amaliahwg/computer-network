@@ -176,13 +176,10 @@ Full name for every protocol here: next slide.
 
 # Why ARP Must Precede ICMP
 
-ARP is a Layer 2 broadcast - every device on the segment receives it, but
-only the device owning the target IP replies. It cannot cross a router
-(routers don't forward broadcasts) - so your PC must resolve a MAC address
-before sending its first ICMP Echo Request - the `ping` message - to a new
-neighbor.
+ARP resolves a MAC address before ICMP can be sent - and it cannot cross a
+router. Follow the three numbered steps below.
 
-![h:300](./images/arp-before-icmp.svg)
+![h:400](./images/arp-before-icmp.svg)
 
 ---
 
