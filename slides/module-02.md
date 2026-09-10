@@ -119,7 +119,11 @@ Today we use OSI's vocabulary to talk about TCP/IP's reality.
 > strips its own header and passes the remainder up - **decapsulation**.
 > Each wrapped stage has its own name - its **PDU** (Protocol Data Unit).
 
-![h:280](./images/encapsulation-stack.svg)
+---
+
+# Encapsulation, Visualized
+
+![h:450](./images/encapsulation-stack.svg)
 
 ---
 
@@ -163,10 +167,10 @@ Full name for every protocol here: next slide.
 
 # Switch vs Router - Which Layer Do They Read?
 
-- **Switch (Layer 2):** reads the destination MAC, forwards to the correct port - never opens the IP header
-- **Router (Layer 3):** strips the Ethernet frame, reads the destination IP, re-encapsulates for the next hop
+- **Switch (Layer 2):** reads the destination MAC, never opens the IP header
+- **Router (Layer 3):** reads the destination IP, re-wraps for the next hop
 
-![h:300](./images/switch-vs-router-layers.svg)
+![h:340](./images/switch-vs-router-layers.svg)
 
 ---
 
@@ -178,7 +182,7 @@ only the device owning the target IP replies. It cannot cross a router
 before sending its first ICMP Echo Request - the `ping` message - to a new
 neighbor.
 
-![h:280](./images/arp-before-icmp.svg)
+![h:300](./images/arp-before-icmp.svg)
 
 ---
 
@@ -197,7 +201,11 @@ at the unconfigured router
 
 **Part D** - ARP cause-and-effect: why `arp -a` output changes after a ping
 
-![h:200](./images/module02-lab-topology.svg)
+---
+
+# Module 2 Lab Topology
+
+![h:440](./images/module02-lab-topology.svg)
 
 ---
 
