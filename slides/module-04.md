@@ -111,13 +111,12 @@ over memorized.
 # Interface State: Definition
 
 > Every Cisco interface reports two independent status indicators:
-> **physical** (up/down/administratively down) and **data link** (up/down).
-> If Layer 1 is down, Layer 2 is always down too - but Layer 1 up with
-> Layer 2 down often signals an encapsulation mismatch.
+> **physical** (Layer 1: up/down/administratively down) and **line
+> protocol** (Layer 2: up/down). If Layer 1 is down, Layer 2 is always
+> down too - but Layer 1 up with Layer 2 down often signals an
+> encapsulation mismatch.
 
-```
-FastEthernet0/0 is up, line protocol is up
-```
+![h:290](./images/module04-interface-states.svg)
 
 ---
 
@@ -140,11 +139,54 @@ FastEthernet0/0 is up, line protocol is up
 
 IOS ping symbol patterns:
 
-- `!!!!!` full connectivity · `.....` no route near the **source**
-- `U....` "no route to host" from the router near the **destination**
+- `!!!!!` full connectivity
+- `.....` no route near the **source** - dies immediately, no reply at all
+- `U....` "no route to host" - an ICMP Unreachable from the router near the
+  **destination**
+
+![h:240](./images/module04-ping-symbols.svg)
 
 **Traceroute** sends probes with increasing TTL; each router that
 decrements TTL to 0 replies "Time Exceeded," revealing the path hop by hop.
+
+---
+
+# Worked Example: Reading `show` Output
+
+<div class="two-col">
+<div>
+
+```
+Router#show ip interface brief
+Interface       IP-Address   Status  Protocol
+FastEthernet0/0  10.0.0.1    up      up
+FastEthernet0/1  unassigned  admin.. down
+Serial0/0/0      192.168.9.1 up      down
+```
+
+</div>
+<div>
+
+```
+Router#show ip route
+C  10.0.0.0/24 is directly connected,
+     FastEthernet0/0
+C  192.168.9.0/30 is directly
+     connected, Serial0/0/0
+S  172.16.0.0/16 [1/0] via
+     192.168.9.2
+```
+
+</div>
+</div>
+
+- **Fa0/0** is fully healthy: `up`/`up`, and `C` (directly connected) in
+  the routing table confirms IOS agrees
+- **Fa0/1** is `administratively down` - unused, `shutdown` still applied
+- **Serial0/0/0** is `up`/`down` - a Layer 2 problem (likely encapsulation)
+  even though the routing table still lists it as directly connected
+- Route codes at the left margin: `C` = directly connected, `S` = static
+  (a route someone typed by hand - Module 5's topic)
 
 ---
 

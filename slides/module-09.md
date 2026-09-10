@@ -114,6 +114,8 @@ behave as many isolated logical ones - no rewiring required.
 > VLAN. A PC in VLAN 10 cannot directly reach a PC in VLAN 20, even on the
 > same physical switch.
 
+![h:280](./images/module09-vlan-broadcast-domains.svg)
+
 ---
 
 <!-- Act 3 / BUILD -->
@@ -126,6 +128,8 @@ behave as many isolated logical ones - no rewiring required.
 | **Trunk** | Multiple VLANs | 802.1Q tag (4-byte insert with VLAN ID) |
 
 Trunks connect switch-to-switch and switch-to-router.
+
+![h:270](./images/module09-8021q-tag.svg)
 
 ---
 
@@ -142,6 +146,27 @@ interface FastEthernet0/0.10
 
 The trunk carries tagged frames for every VLAN to the router; it strips,
 routes, and re-tags for the destination VLAN.
+
+![h:250](./images/module09-router-on-a-stick.svg)
+
+---
+
+# Worked Example: One Frame, Three Hops
+
+PC-A (VLAN 10, `192.168.10.10`) pings a PC on VLAN 10 attached to a second
+switch, on the far side of a trunk link.
+
+1. PC-A sends an untagged frame to its access port on SW0 - the frame
+   carries no VLAN tag; the port's VLAN 10 membership is implicit
+2. SW0 tags the frame **VLAN 10** as it enters the trunk to SW1 - the
+   4-byte 802.1Q field is inserted here, not before
+3. SW1 receives the tagged frame on its trunk port and looks up VLAN 10
+   internally
+4. SW1 strips the tag before forwarding out the destination's access
+   port - the receiving PC never sees an 802.1Q header
+
+The tag exists only for the trunk segment in the middle; both end
+devices see plain untagged Ethernet.
 
 ---
 

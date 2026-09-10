@@ -1,0 +1,79 @@
+<svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="place-title">
+<title id="place-title">Diagram comparing correct and incorrect placement of a standard ACL relative to source and destination</title>
+<style>
+  .lbl { font-family: system-ui, -apple-system, sans-serif; fill: #1A1A1A; font-size: 13px; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .lbl-w { font-family: system-ui, -apple-system, sans-serif; fill: #ffffff; font-size: 12px; font-weight: 600; }
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .dev { fill: #0C3274; }
+</style>
+
+<rect x="4" y="4" width="892" height="472" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">Where a standard ACL belongs — same topology, two placements</text>
+
+<!-- Row 1: correct -->
+<rect x="24" y="52" width="852" height="180" rx="8" fill="#E3F3F1" stroke="#00A79E"/>
+<text x="40" y="76" class="lbl" style="font-weight:700;fill:#0C3274;">Correct — ACL 10 applied near the destination</text>
+
+<rect x="50" y="108" width="70" height="32" rx="4" class="dev"/>
+<text x="85" y="128" text-anchor="middle" class="lbl-w" style="font-size:11px;">PC-User</text>
+<text x="85" y="156" text-anchor="middle" class="lbl-sm">192.168.1.20</text>
+
+<line x1="120" y1="124" x2="230" y2="124" stroke="#D7E1E8" stroke-width="2"/>
+<rect x="230" y="104" width="80" height="40" rx="6" class="dev"/>
+<text x="270" y="128" text-anchor="middle" class="lbl-w">R0</text>
+
+<line x1="310" y1="124" x2="450" y2="124" stroke="#D7E1E8" stroke-width="2"/>
+<rect x="450" y="104" width="80" height="40" rx="6" class="dev"/>
+<text x="490" y="128" text-anchor="middle" class="lbl-w">R1</text>
+
+<!-- ACL badge at R1, facing server: correct -->
+<circle cx="562" cy="124" r="18" fill="#00A79E"/>
+<text x="562" y="129" text-anchor="middle" class="lbl-w" style="font-size:11px;">ACL</text>
+<line x1="530" y1="124" x2="544" y2="124" stroke="#00A79E" stroke-width="3"/>
+<line x1="580" y1="124" x2="650" y2="124" stroke="#00A79E" stroke-width="3"/>
+<text x="562" y="170" text-anchor="middle" class="lbl" style="font-weight:700;fill:#00A79E;">&#10003; out on R1 Fa0/1</text>
+
+<rect x="650" y="108" width="90" height="32" rx="4" fill="#00A79E"/>
+<text x="695" y="128" text-anchor="middle" class="lbl-w">Server</text>
+<text x="695" y="156" text-anchor="middle" class="lbl-sm">192.168.2.100</text>
+
+<text x="40" y="200" class="lbl-sm">A source-only rule dropped right before the Server blocks unauthorized</text>
+<text x="40" y="216" class="lbl-sm">sources reaching it, without touching their traffic to anywhere else.</text>
+
+<!-- Row 2: wrong -->
+<rect x="24" y="252" width="852" height="200" rx="8" fill="#FDECEC" stroke="#C0392B"/>
+<text x="40" y="276" class="lbl" style="font-weight:700;fill:#C0392B;">Wrong — same standard ACL applied near the source instead</text>
+
+<rect x="50" y="308" width="70" height="32" rx="4" class="dev"/>
+<text x="85" y="328" text-anchor="middle" class="lbl-w" style="font-size:11px;">PC-User</text>
+<text x="85" y="356" text-anchor="middle" class="lbl-sm">192.168.1.20</text>
+
+<!-- ACL badge at R0, facing PC: wrong -->
+<line x1="120" y1="324" x2="180" y2="324" stroke="#C0392B" stroke-width="3"/>
+<circle cx="192" cy="324" r="18" fill="#E8792A"/>
+<text x="192" y="329" text-anchor="middle" class="lbl-w" style="font-size:11px;">ACL</text>
+<line x1="210" y1="324" x2="230" y2="324" stroke="#D7E1E8" stroke-width="2"/>
+
+<rect x="230" y="304" width="80" height="40" rx="6" class="dev"/>
+<text x="270" y="328" text-anchor="middle" class="lbl-w">R0</text>
+
+<line x1="310" y1="324" x2="450" y2="324" stroke="#D7E1E8" stroke-width="2"/>
+<rect x="450" y="304" width="80" height="40" rx="6" class="dev"/>
+<text x="490" y="328" text-anchor="middle" class="lbl-w">R1</text>
+
+<line x1="530" y1="324" x2="650" y2="324" stroke="#D7E1E8" stroke-width="2"/>
+<rect x="650" y="308" width="90" height="32" rx="4" fill="#00A79E"/>
+<text x="695" y="328" text-anchor="middle" class="lbl-w">Server</text>
+<text x="695" y="356" text-anchor="middle" class="lbl-sm">192.168.2.100</text>
+
+<text x="192" y="370" text-anchor="middle" class="lbl" style="font-weight:700;fill:#C0392B;">&#10007; in on R0 Fa0/0</text>
+
+<text x="40" y="404" class="lbl-sm">A standard ACL can only match source IP - it can't say "only block traffic</text>
+<text x="40" y="420" class="lbl-sm">toward the Server." Placed here, it blocks PC-User from every destination</text>
+<text x="40" y="436" class="lbl-sm">reachable through R0, not just the Server - far more than intended.</text>
+
+<text x="24" y="464" class="lbl-sm" style="font-style:italic;">Schematic — extended ACLs (which can match destination) belong near the source instead; see the placement table.</text>
+</svg>

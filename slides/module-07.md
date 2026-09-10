@@ -123,6 +123,16 @@ history, the router's ACL *was* the firewall.
 
 <!-- Act 3 / BUILD -->
 
+# How the Router Checks an ACL
+
+Every ACL is a numbered list of rules, checked top to bottom against the
+packet. The very first line that matches decides the packet's fate -
+every rule after it is never even looked at.
+
+![h:400](./images/module07-acl-match-flow.svg)
+
+---
+
 # Wildcard Masks
 
 | Wildcard | Matches |
@@ -133,6 +143,18 @@ history, the router's ACL *was* the firewall.
 
 A wildcard `1` bit means "don't care" - the inverse of a subnet mask.
 
+![h:250](./images/module07-wildcard-mask.svg)
+
+---
+
+# Where to Place Standard vs. Extended ACLs
+
+A standard ACL only sees source IP - it cannot tell one destination from
+another. Placed too early, it blocks a source from everything beyond that
+point, not just the one destination it was meant to protect.
+
+![h:400](./images/module07-acl-placement.svg)
+
 ---
 
 # The Implicit Deny Trap
@@ -141,6 +163,27 @@ Every ACL ends with an unwritten **implicit deny all**. Removing your
 explicit `permit ip any any` line doesn't remove one rule - it exposes that
 implicit deny, and **all** traffic through that interface stops, not just
 the traffic you meant to block.
+
+---
+
+# Worked Example: Tracing One Packet Through a 3-Line ACL
+
+A standard ACL on R1, protecting the Server subnet after PC 192.168.1.13
+was compromised:
+
+```
+access-list 10 deny host 192.168.1.13
+access-list 10 permit 192.168.1.0 0.0.0.255
+access-list 10 deny any
+```
+
+**Packet:** source `192.168.1.13`, destination `192.168.2.100`
+
+1. Line 1 - `deny host 192.168.1.13`: matches exactly. **Deny. Stop here.**
+2. Line 2 is never evaluated - line 1 already decided the packet's fate,
+   even though `192.168.1.13` also falls inside `192.168.1.0/24`
+3. A packet from `192.168.1.20` instead would skip line 1 (no match), hit
+   line 2, and be **permitted**
 
 ---
 

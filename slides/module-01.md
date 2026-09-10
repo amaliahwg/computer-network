@@ -223,11 +223,15 @@ the problem they solve never went away.
 
 # How the Diagnostic Commands Work
 
-- **`ping`** - sends ICMP Echo Request. Same subnet → direct (via ARP); otherwise → default gateway
-- **`tracert`/`traceroute`** - increments TTL by one each probe; each router along the path replies "Time Exceeded," revealing the hop-by-hop route
-- **`nslookup`/`dig`** - queries a DNS resolver, translating hostname → IP
+- **`ping`** - sends ICMP Echo Request. Same subnet: direct (via ARP);
+  otherwise: sent to the default gateway
+- **`tracert`/`traceroute`** - increments TTL by one each probe; each router
+  along the path replies "Time Exceeded," revealing the hop-by-hop route
+- **`nslookup`/`dig`** - queries a DNS resolver, translating hostname to IP
 
-> "Website works by IP but not by name" → DNS is broken, not the network.
+![h:260](./images/module01-traceroute-hops.svg)
+
+> "Website works by IP but not by name" means DNS is broken, not the network.
 
 ---
 
@@ -235,9 +239,8 @@ the problem they solve never went away.
 
 Every Ethernet port is wired as **MDI** (PCs, servers, routers - built to
 originate traffic) or **MDI-X** (switches, hubs - built to receive it). A
-straight-through cable connects the same pin end to end and only works
-when one side's wiring already crosses transmit to receive; two same-type
-ports need the *cable* to cross instead.
+straight-through cable only works when one side's wiring already crosses
+transmit to receive; two same-type ports need the *cable* to cross instead.
 
 | Connection | Port Types | Cable |
 |------------|-----------|-------|
@@ -246,13 +249,25 @@ ports need the *cable* to cross instead.
 | Switch ↔ Switch | MDI-X ↔ MDI-X | Crossover |
 | PC ↔ Router console | n/a - management | Rollover |
 
-**T-568A vs T-568B** (TIA/EIA-568): straight-through = same standard both
-ends; crossover = A on one end, B on the other, swapping TX/RX pairs.
-Modern hardware uses **Auto-MDIX** to detect and correct automatically.
+Modern hardware uses **Auto-MDIX** to detect and correct the wrong cable
+type automatically - but you still need to know the rule to explain *why*
+a link came up anyway.
 
-**Rollover is different in kind, not degree:** every pin reverses (1-8,
-2-7, 3-6, 4-5) and it carries RS-232 serial, not Ethernet - it manages a
-device through its console port, not the network.
+---
+
+## Cable Rules: The Nuance
+
+**T-568A vs T-568B** (TIA/EIA-568, the two pinout standards): a
+straight-through cable wires both ends to the *same* standard; a crossover
+wires one end A and the other B, swapping the transmit and receive pairs.
+Either standard works, as long as both ends of a straight-through cable
+agree.
+
+**Rollover is different in kind, not degree:** every pin reverses
+(1↔8, 2↔7, 3↔6, 4↔5) and it carries RS-232 serial, not Ethernet at all -
+it manages a device through its console port, never the network itself.
+A rollover cable will never establish a network link if used by mistake
+in an Ethernet port.
 
 ---
 
@@ -260,9 +275,7 @@ device through its console port, not the network.
 
 # Worked Example: A Minimal Two-Host Network
 
-Two hosts, directly cabled, each configured with an IP address in the same
-/24 network (`192.168.1.10` and `.20`) - no default gateway needed, since
-they're on the same subnet.
+![h:280](./images/module01-two-host-topology.svg)
 
 When PC0 pings PC1: **ARP** resolves PC1's IP to a MAC address first (same
 subnet, no gateway involved), *then* **ICMP** Echo Request/Reply confirms

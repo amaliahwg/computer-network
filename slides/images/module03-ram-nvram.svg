@@ -1,0 +1,50 @@
+<svg viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ramnvram-title">
+<title id="ramnvram-title">Diagram comparing RAM's running-config to NVRAM's startup-config, and the command that copies one into the other</title>
+<style>
+  .lbl { font-family: system-ui, -apple-system, sans-serif; fill: #1A1A1A; font-size: 14px; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 13px; }
+  .lbl-w { font-family: system-ui, -apple-system, sans-serif; fill: #ffffff; font-size: 16px; font-weight: 700; }
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .prompt { font-family: 'Courier New', monospace; fill: #0C3274; font-size: 13px; font-weight: 700; }
+</style>
+
+<rect x="4" y="4" width="892" height="372" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">RAM vs. NVRAM — what survives a reload?</text>
+
+<!-- RAM box -->
+<rect x="40" y="70" width="360" height="220" rx="8" fill="#FDECEC" stroke="#C0392B" stroke-width="1.5"/>
+<rect x="40" y="70" width="360" height="44" rx="8" fill="#C0392B"/>
+<rect x="40" y="98" width="360" height="16" fill="#C0392B"/>
+<text x="220" y="98" text-anchor="middle" class="lbl-w">RAM — volatile</text>
+<text x="220" y="140" text-anchor="middle" class="lbl" style="font-weight:700;">running-config</text>
+<text x="220" y="164" text-anchor="middle" class="lbl-sm">The device's currently active configuration —</text>
+<text x="220" y="182" text-anchor="middle" class="lbl-sm">every command you've typed so far.</text>
+<rect x="70" y="200" width="300" height="34" rx="5" fill="#ffffff" stroke="#D7E1E8"/>
+<text x="220" y="222" text-anchor="middle" class="lbl-sm" style="font-weight:700;fill:#C0392B;">Erased on power loss or reload</text>
+<text x="220" y="264" text-anchor="middle" class="lbl-sm">hostname, passwords, interface</text>
+<text x="220" y="282" text-anchor="middle" class="lbl-sm">config — all live here first</text>
+
+<!-- NVRAM box -->
+<rect x="500" y="70" width="360" height="220" rx="8" fill="#E3F3F1" stroke="#00A79E" stroke-width="1.5"/>
+<rect x="500" y="70" width="360" height="44" rx="8" fill="#00A79E"/>
+<rect x="500" y="98" width="360" height="16" fill="#00A79E"/>
+<text x="680" y="98" text-anchor="middle" class="lbl-w" style="fill:#052E28;">NVRAM — non-volatile</text>
+<text x="680" y="140" text-anchor="middle" class="lbl" style="font-weight:700;">startup-config</text>
+<text x="680" y="164" text-anchor="middle" class="lbl-sm">The configuration loaded automatically</text>
+<text x="680" y="182" text-anchor="middle" class="lbl-sm">every time the device boots.</text>
+<rect x="530" y="200" width="300" height="34" rx="5" fill="#ffffff" stroke="#D7E1E8"/>
+<text x="680" y="222" text-anchor="middle" class="lbl-sm" style="font-weight:700;fill:#0C3274;">Persists across power loss and reload</text>
+<text x="680" y="264" text-anchor="middle" class="lbl-sm">nothing here changes until you</text>
+<text x="680" y="282" text-anchor="middle" class="lbl-sm">explicitly save to it</text>
+
+<!-- copy arrow -->
+<line x1="400" y1="180" x2="500" y2="180" stroke="#145DA0" stroke-width="3"/>
+<polygon points="500,180 488,172 488,188" fill="#145DA0"/>
+<rect x="405" y="150" width="95" height="20" fill="#ffffff"/>
+<text x="452" y="164" text-anchor="middle" class="prompt" style="font-size:11px;">copy run start</text>
+
+<text x="24" y="330" class="lbl-sm" style="font-style:italic;">Full command: <tspan class="prompt" style="font-size:12px;">copy running-config startup-config</tspan> (short form: <tspan class="prompt" style="font-size:12px;">wr</tspan>)</text>
+<text x="24" y="356" class="lbl-sm" style="font-style:italic;">Schematic — memory sizes not to scale.</text>
+</svg>

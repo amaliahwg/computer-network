@@ -111,17 +111,11 @@ instead.
 
 # IOS Mode Hierarchy: Definition
 
-> Cisco IOS uses a hierarchical command structure. The **prompt** tells you
-> exactly where you are: `Router>` (User EXEC) → `Router#` (Privileged EXEC)
-> → `Router(config)#` (Global Config) → `Router(config-if)#` (Interface
-> Config).
+> Cisco IOS uses a hierarchical command structure. The **prompt** itself
+> tells you exactly where you are - it changes as you move between modes,
+> from `Router>` all the way down to `Router(config-if)#`.
 
-```
-Router> enable                     → Privileged EXEC
-Router# configure terminal         → Global Config
-Router(config)# interface Fa0/0    → Interface Config
-Router(config)# end  (Ctrl+Z)      → back to Privileged EXEC
-```
+![h:340](./images/module03-ios-modes.svg)
 
 ---
 
@@ -134,10 +128,32 @@ Router(config)# end  (Ctrl+Z)      → back to Privileged EXEC
 | running-config | RAM (volatile) | Currently active | No |
 | startup-config | NVRAM (non-volatile) | Loaded at boot | Yes |
 
-Save with: `copy running-config startup-config` (or `wr`)
-
 Anything only in `running-config` - hostname, passwords, interface
 config - is **lost** on reload unless it's saved first.
+
+![h:250](./images/module03-ram-nvram.svg)
+
+---
+
+# Worked Example: The Hardening Command Ladder
+
+Watch the prompt itself change at every step - concrete proof of which mode
+a command took effect in.
+
+```
+Router> enable
+Router#configure terminal
+Router(config)#hostname YourName
+YourName(config)#enable secret Cisco123
+YourName(config)#line console 0
+YourName(config-line)#password Cisco123
+YourName(config-line)#login
+YourName(config-line)#end
+YourName#copy running-config startup-config
+```
+
+Notice: the hostname change takes effect on the *next* prompt line, not the
+line that typed it - that is the live proof the command actually ran.
 
 ---
 

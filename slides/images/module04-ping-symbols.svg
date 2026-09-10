@@ -1,0 +1,62 @@
+<svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pingsym-title">
+<title id="pingsym-title">Diagram showing where each IOS ping symbol's signal originates along the path from source to destination</title>
+<style>
+  .lbl { font-family: system-ui, -apple-system, sans-serif; fill: #1A1A1A; font-size: 13px; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .lbl-w { font-family: system-ui, -apple-system, sans-serif; fill: #ffffff; font-size: 11px; font-weight: 600; }
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .sym { font-family: 'Courier New', monospace; font-size: 17px; font-weight: 700; }
+  .dev { fill: #0C3274; }
+  .devg { fill: #B7C2CB; }
+</style>
+
+<rect x="4" y="4" width="892" height="472" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">IOS ping symbols — where each signal comes from</text>
+
+<!-- device chain -->
+<rect x="60" y="70" width="60" height="34" rx="4" class="dev"/>
+<text x="90" y="122" text-anchor="middle" class="lbl-sm" style="font-weight:600;">Source</text>
+<rect x="290" y="70" width="60" height="34" rx="4" class="devg"/>
+<text x="320" y="92" text-anchor="middle" class="lbl-w">R1</text>
+<text x="320" y="122" text-anchor="middle" class="lbl-sm">nearest source</text>
+<rect x="520" y="70" width="60" height="34" rx="4" class="devg"/>
+<text x="550" y="92" text-anchor="middle" class="lbl-w">R2</text>
+<text x="550" y="122" text-anchor="middle" class="lbl-sm">nearest destination</text>
+<rect x="760" y="70" width="60" height="34" rx="4" class="dev"/>
+<text x="790" y="122" text-anchor="middle" class="lbl-sm" style="font-weight:600;">Dest network</text>
+
+<line x1="120" y1="87" x2="290" y2="87" stroke="#D7E1E8" stroke-width="2"/>
+<line x1="350" y1="87" x2="520" y2="87" stroke="#D7E1E8" stroke-width="2"/>
+<line x1="580" y1="87" x2="760" y2="87" stroke="#D7E1E8" stroke-width="2"/>
+
+<!-- Row 1: !!!!! full path -->
+<text x="24" y="152" class="sym" style="fill:#00A79E;">!!!!!</text>
+<rect x="90" y="160" width="700" height="9" rx="4" fill="#00A79E"/>
+<polygon points="790,164.5 782,159 782,170" fill="#00A79E"/>
+<text x="24" y="188" class="lbl-sm">Every probe reaches the destination, which replies each time. Full path works end to end.</text>
+
+<!-- Row 2: ..... dies at R1 -->
+<text x="24" y="222" class="sym" style="fill:#C0392B;">.....</text>
+<rect x="90" y="230" width="230" height="9" rx="4" fill="#C0392B"/>
+<circle cx="320" cy="234.5" r="10" fill="#ffffff" stroke="#C0392B" stroke-width="2.5"/>
+<line x1="314" y1="228.5" x2="326" y2="240.5" stroke="#C0392B" stroke-width="2.5"/>
+<line x1="326" y1="228.5" x2="314" y2="240.5" stroke="#C0392B" stroke-width="2.5"/>
+<text x="24" y="260" class="lbl-sm">R1 (nearest the source) has no route to that network — it drops the packet silently.</text>
+<text x="24" y="278" class="lbl-sm">No reply of any kind comes back, so every probe just times out as a dot.</text>
+
+<!-- Row 3: U.... dies at R2, ICMP unreachable -->
+<text x="24" y="312" class="sym" style="fill:#E8792A;">U....</text>
+<rect x="90" y="320" width="460" height="9" rx="4" fill="#E8792A"/>
+<circle cx="550" cy="324.5" r="10" fill="#ffffff" stroke="#E8792A" stroke-width="2.5"/>
+<line x1="544" y1="318.5" x2="556" y2="330.5" stroke="#E8792A" stroke-width="2.5"/>
+<line x1="556" y1="318.5" x2="544" y2="330.5" stroke="#E8792A" stroke-width="2.5"/>
+<line x1="550" y1="345" x2="320" y2="345" stroke="#145DA0" stroke-width="2.5" stroke-dasharray="6 4"/>
+<polygon points="320,345 328,340 328,350" fill="#145DA0"/>
+<text x="435" y="340" text-anchor="middle" class="lbl-sm" style="fill:#145DA0;font-weight:600;">ICMP Destination Unreachable</text>
+<text x="24" y="378" class="lbl-sm">R1 forwards fine, but R2 (nearest the destination) has no route to the final network — it</text>
+<text x="24" y="396" class="lbl-sm">sends back one ICMP "Destination Unreachable" (the U), then the remaining probes time out as dots.</text>
+
+<text x="24" y="440" class="lbl-sm" style="font-style:italic;">Schematic — bar lengths are illustrative, not proportional to real latency.</text>
+</svg>

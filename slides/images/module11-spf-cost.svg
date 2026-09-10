@@ -1,0 +1,53 @@
+<svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="spf-title">
+<title id="spf-title">Diagram of SPF choosing the cheaper of two paths across a four-router topology by summing link costs</title>
+<style>
+  .lbl { font-family: system-ui, -apple-system, sans-serif; fill: #1A1A1A; font-size: 13px; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .lbl-w { font-family: system-ui, -apple-system, sans-serif; fill: #ffffff; font-size: 13px; font-weight: 600; }
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+</style>
+
+<rect x="4" y="4" width="892" height="472" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">SPF — Dijkstra picks the lowest total-cost path, not the fewest hops</text>
+
+<!-- diamond topology -->
+<!-- R0 source left, R1 top, R2 bottom, R3 destination right -->
+<rect x="60" y="200" width="80" height="46" rx="6" fill="#0C3274"/>
+<text x="100" y="228" text-anchor="middle" class="lbl-w">R0</text>
+<text x="100" y="264" text-anchor="middle" class="lbl-sm">Source</text>
+
+<rect x="400" y="80" width="80" height="46" rx="6" fill="#145DA0"/>
+<text x="440" y="108" text-anchor="middle" class="lbl-w">R1</text>
+
+<rect x="400" y="320" width="80" height="46" rx="6" fill="#145DA0"/>
+<text x="440" y="348" text-anchor="middle" class="lbl-w">R2</text>
+
+<rect x="740" y="200" width="80" height="46" rx="6" fill="#0C3274"/>
+<text x="780" y="228" text-anchor="middle" class="lbl-w">R3</text>
+<text x="780" y="264" text-anchor="middle" class="lbl-sm">Destination</text>
+
+<!-- winning path R0-R1-R3, highlighted teal -->
+<line x1="130" y1="210" x2="410" y2="115" stroke="#00A79E" stroke-width="4"/>
+<text x="240" y="145" text-anchor="middle" class="lbl" style="fill:#00A79E;font-weight:700;">cost 1</text>
+<line x1="480" y1="115" x2="750" y2="210" stroke="#00A79E" stroke-width="4"/>
+<text x="660" y="145" text-anchor="middle" class="lbl" style="fill:#00A79E;font-weight:700;">cost 1</text>
+
+<!-- losing path R0-R2-R3, greyed dashed -->
+<line x1="130" y1="238" x2="410" y2="335" stroke="#B7C2CB" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="240" y="325" text-anchor="middle" class="lbl-sm">cost 64</text>
+<line x1="480" y1="335" x2="750" y2="238" stroke="#B7C2CB" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="660" y="325" text-anchor="middle" class="lbl-sm">cost 1</text>
+
+<!-- path totals -->
+<rect x="230" y="380" width="220" height="60" rx="8" fill="#E3F3F1" stroke="#00A79E" stroke-width="2"/>
+<text x="340" y="404" text-anchor="middle" class="lbl" style="font-weight:700;fill:#0C3274;">via R1: 1 + 1 = 2</text>
+<text x="340" y="424" text-anchor="middle" class="lbl-sm" style="fill:#00A79E;font-weight:700;">winner — lowest total cost</text>
+
+<rect x="470" y="380" width="220" height="60" rx="8" fill="#F2F2F2" stroke="#B7C2CB" stroke-width="2"/>
+<text x="580" y="404" text-anchor="middle" class="lbl" style="fill:#5B6B78;">via R2: 64 + 1 = 65</text>
+<text x="580" y="424" text-anchor="middle" class="lbl-sm">more hops-equal, but far costlier</text>
+
+<text x="24" y="464" class="lbl-sm" style="font-style:italic;">Schematic — costs follow OSPF's 10⁸/bandwidth rule (FastEthernet = 1, a T1 serial link = 64).</text>
+</svg>

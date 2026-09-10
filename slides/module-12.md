@@ -116,8 +116,10 @@ foundational idea BOOTP never had.
 
 | # | Message | Direction |
 |---|---------|-----------|
-| 1–3 | Discover, Request | Client → Server (broadcast) |
-| 2, 4 | Offer, Acknowledge | Server → Client (unicast) |
+| 1, 3 | Discover, Request | Client to Server (broadcast) |
+| 2, 4 | Offer, Acknowledge | Server to Client (unicast) |
+
+![h:230](./images/module12-dora-sequence.svg)
 
 ---
 
@@ -137,6 +139,26 @@ ip dhcp pool <name>
 broadcasts between subnets, a relay converts it to unicast toward the
 server: `ip helper-address <DHCP-server-IP>`, applied on the **client-facing**
 interface.
+
+![h:250](./images/module12-dhcp-relay.svg)
+
+---
+
+# Worked Example: DORA With Concrete Addresses
+
+A new laptop joins the 192.168.1.0/24 network. Every message below
+carries the same **XID** (Transaction ID), `0x3F2A1B07`.
+
+1. **Discover** - client broadcasts, source `0.0.0.0`, XID `0x3F2A1B07`
+2. **Offer** - server at `192.168.1.1` offers `192.168.1.50`, same XID
+3. **Request** - client broadcasts again, formally claiming
+   `192.168.1.50`, same XID
+4. **Acknowledge** - server confirms `192.168.1.50/24`, gateway
+   `192.168.1.1`, same XID
+
+If a second DHCP server on the segment also replied to the Discover, the
+XID is what lets the client tell its own Offer apart from an unrelated
+one - not the source IP.
 
 ---
 

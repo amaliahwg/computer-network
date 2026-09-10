@@ -1,0 +1,162 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="wc-title">
+<title id="wc-title">Diagram comparing a subnet mask in binary to its equivalent wildcard mask, bit by bit</title>
+<style>
+  .lbl { font-family: system-ui, -apple-system, sans-serif; fill: #1A1A1A; font-size: 13px; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 11px; }
+  .lbl-w { font-family: system-ui, -apple-system, sans-serif; fill: #ffffff; font-size: 13px; font-weight: 600; }
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .bit { font-family: monospace; font-size: 11px; text-anchor: middle; }
+</style>
+<rect x="4" y="4" width="892" height="452" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">Wildcard mask — the bitwise inverse of a subnet mask</text>
+<text x="24" y="96" class="lbl" style="font-weight:700;fill:#0C3274;">Subnet mask 255.255.255.0 — a /24 network</text>
+<text x="142.0" y="116" text-anchor="middle" class="lbl-sm" style="font-weight:600;">255</text>
+<rect x="74" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="81.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="91" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="98.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="108" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="115.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="125" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="132.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="142" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="149.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="159" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="166.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="176" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="183.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="193" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="200.5" y="145" class="bit" fill="#ffffff">1</text>
+<text x="202" y="145" class="lbl-sm" style="font-weight:700;">.</text>
+<text x="300.0" y="116" text-anchor="middle" class="lbl-sm" style="font-weight:600;">255</text>
+<rect x="232" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="239.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="249" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="256.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="266" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="273.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="283" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="290.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="300" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="307.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="317" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="324.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="334" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="341.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="351" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="358.5" y="145" class="bit" fill="#ffffff">1</text>
+<text x="360" y="145" class="lbl-sm" style="font-weight:700;">.</text>
+<text x="458.0" y="116" text-anchor="middle" class="lbl-sm" style="font-weight:600;">255</text>
+<rect x="390" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="397.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="407" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="414.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="424" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="431.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="441" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="448.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="458" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="465.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="475" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="482.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="492" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="499.5" y="145" class="bit" fill="#ffffff">1</text>
+<rect x="509" y="130" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="516.5" y="145" class="bit" fill="#ffffff">1</text>
+<text x="518" y="145" class="lbl-sm" style="font-weight:700;">.</text>
+<text x="616.0" y="116" text-anchor="middle" class="lbl-sm" style="font-weight:600;">0</text>
+<rect x="548" y="130" width="15" height="22" fill="#ffffff" stroke="#B7C2CB" stroke-width="1.5"/>
+<text x="555.5" y="145" class="bit" fill="#5B6B78">0</text>
+<rect x="565" y="130" width="15" height="22" fill="#ffffff" stroke="#B7C2CB" stroke-width="1.5"/>
+<text x="572.5" y="145" class="bit" fill="#5B6B78">0</text>
+<rect x="582" y="130" width="15" height="22" fill="#ffffff" stroke="#B7C2CB" stroke-width="1.5"/>
+<text x="589.5" y="145" class="bit" fill="#5B6B78">0</text>
+<rect x="599" y="130" width="15" height="22" fill="#ffffff" stroke="#B7C2CB" stroke-width="1.5"/>
+<text x="606.5" y="145" class="bit" fill="#5B6B78">0</text>
+<rect x="616" y="130" width="15" height="22" fill="#ffffff" stroke="#B7C2CB" stroke-width="1.5"/>
+<text x="623.5" y="145" class="bit" fill="#5B6B78">0</text>
+<rect x="633" y="130" width="15" height="22" fill="#ffffff" stroke="#B7C2CB" stroke-width="1.5"/>
+<text x="640.5" y="145" class="bit" fill="#5B6B78">0</text>
+<rect x="650" y="130" width="15" height="22" fill="#ffffff" stroke="#B7C2CB" stroke-width="1.5"/>
+<text x="657.5" y="145" class="bit" fill="#5B6B78">0</text>
+<rect x="667" y="130" width="15" height="22" fill="#ffffff" stroke="#B7C2CB" stroke-width="1.5"/>
+<text x="674.5" y="145" class="bit" fill="#5B6B78">0</text>
+<text x="24" y="174" class="lbl-sm">Filled navy = network bit (must match) &#183; Outline = host bit (varies)</text>
+<text x="24" y="266" class="lbl" style="font-weight:700;fill:#0C3274;">Wildcard mask 0.0.0.255 — equivalent to that /24</text>
+<text x="142.0" y="286" text-anchor="middle" class="lbl-sm" style="font-weight:600;">0</text>
+<rect x="74" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="81.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="91" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="98.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="108" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="115.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="125" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="132.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="142" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="149.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="159" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="166.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="176" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="183.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="193" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="200.5" y="315" class="bit" fill="#ffffff">0</text>
+<text x="202" y="315" class="lbl-sm" style="font-weight:700;">.</text>
+<text x="300.0" y="286" text-anchor="middle" class="lbl-sm" style="font-weight:600;">0</text>
+<rect x="232" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="239.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="249" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="256.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="266" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="273.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="283" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="290.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="300" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="307.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="317" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="324.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="334" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="341.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="351" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="358.5" y="315" class="bit" fill="#ffffff">0</text>
+<text x="360" y="315" class="lbl-sm" style="font-weight:700;">.</text>
+<text x="458.0" y="286" text-anchor="middle" class="lbl-sm" style="font-weight:600;">0</text>
+<rect x="390" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="397.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="407" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="414.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="424" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="431.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="441" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="448.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="458" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="465.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="475" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="482.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="492" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="499.5" y="315" class="bit" fill="#ffffff">0</text>
+<rect x="509" y="300" width="15" height="22" fill="#0C3274" stroke="#0C3274" stroke-width="1.5"/>
+<text x="516.5" y="315" class="bit" fill="#ffffff">0</text>
+<text x="518" y="315" class="lbl-sm" style="font-weight:700;">.</text>
+<text x="616.0" y="286" text-anchor="middle" class="lbl-sm" style="font-weight:600;">255</text>
+<rect x="548" y="300" width="15" height="22" fill="#E8792A" stroke="#E8792A" stroke-width="1.5"/>
+<text x="555.5" y="315" class="bit" fill="#ffffff">1</text>
+<rect x="565" y="300" width="15" height="22" fill="#E8792A" stroke="#E8792A" stroke-width="1.5"/>
+<text x="572.5" y="315" class="bit" fill="#ffffff">1</text>
+<rect x="582" y="300" width="15" height="22" fill="#E8792A" stroke="#E8792A" stroke-width="1.5"/>
+<text x="589.5" y="315" class="bit" fill="#ffffff">1</text>
+<rect x="599" y="300" width="15" height="22" fill="#E8792A" stroke="#E8792A" stroke-width="1.5"/>
+<text x="606.5" y="315" class="bit" fill="#ffffff">1</text>
+<rect x="616" y="300" width="15" height="22" fill="#E8792A" stroke="#E8792A" stroke-width="1.5"/>
+<text x="623.5" y="315" class="bit" fill="#ffffff">1</text>
+<rect x="633" y="300" width="15" height="22" fill="#E8792A" stroke="#E8792A" stroke-width="1.5"/>
+<text x="640.5" y="315" class="bit" fill="#ffffff">1</text>
+<rect x="650" y="300" width="15" height="22" fill="#E8792A" stroke="#E8792A" stroke-width="1.5"/>
+<text x="657.5" y="315" class="bit" fill="#ffffff">1</text>
+<rect x="667" y="300" width="15" height="22" fill="#E8792A" stroke="#E8792A" stroke-width="1.5"/>
+<text x="674.5" y="315" class="bit" fill="#ffffff">1</text>
+<text x="24" y="344" class="lbl-sm">Filled gold = 1 bit, "don't care" &#183; Filled navy = 0 bit, "must match"</text>
+<text x="24" y="372" class="lbl-sm" style="font-style:italic;">Every bit flips: where the subnet mask is 1 (must match), the wildcard is 0 — and vice versa.</text>
+<text x="24" y="430" class="lbl-sm" style="font-style:italic;">Schematic — bit widths are illustrative.</text>
+</svg>

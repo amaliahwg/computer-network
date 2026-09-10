@@ -118,6 +118,8 @@ mechanism keeping IPv4 alive.
 Same principle as `enable secret` (Module 3): never send or store
 passwords in plaintext.
 
+![h:230](./images/module10-chap-handshake.svg)
+
 ---
 
 <!-- Act 3 / BUILD -->
@@ -131,8 +133,35 @@ passwords in plaintext.
 
 | | Static NAT | PAT (Overload) |
 |---|---|---|
-| Mapping | 1 local ↔ 1 global | Many local ↔ 1 global (port-multiplexed) |
+| Mapping | 1 local, 1 global | Many local, 1 global (port-multiplexed) |
 | Use case | Hosting a server | Sharing one public IP outbound |
+
+---
+
+# NAT/PAT in Action
+
+The router rewrites the source IP and port as a packet leaves the inside
+network - the translation table is what lets the reply find its way back.
+
+![h:340](./images/module10-nat-translation.svg)
+
+---
+
+# Worked Example: Two Hosts, One Public IP
+
+Both `192.168.1.10` and `192.168.1.11` share R0's single outside address,
+`10.0.0.1`, via PAT (Port Address Translation).
+
+| Inside Local | Inside Global |
+|---|---|
+| 192.168.1.10:1055 | 10.0.0.1:1055 |
+| 192.168.1.11:1062 | 10.0.0.1:1062 |
+
+Both hosts appear to the outside as `10.0.0.1`, but each keeps its own
+source port. When a reply arrives addressed to `10.0.0.1:1062`, R0 looks
+up that exact port in the table and knows to deliver it to
+`192.168.1.11`, never to `.10` - the port number, not the IP, is what
+distinguishes the two conversations.
 
 ---
 

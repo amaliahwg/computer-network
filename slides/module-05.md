@@ -112,17 +112,27 @@ to automate exactly this manual step.
 
 > When a packet arrives, the router looks at the destination IP, searches
 > its routing table for the **longest prefix match**, and forwards out the
-> matching interface or next hop. No match → use the **default route**
+> matching interface or next hop. No match: use the **default route**
 > (`0.0.0.0/0`) if one exists; otherwise, drop the packet.
 
 ```
 ip route <network> <mask> <next-hop-IP>
-ip route 0.0.0.0 0.0.0.0 <next-hop-IP>   ← default route
+ip route 0.0.0.0 0.0.0.0 <next-hop-IP>   (default route)
 ```
 
 ---
 
 <!-- Act 3 / BUILD -->
+
+# The Two-Site Topology
+
+Seoul (LAN A) and Busan (LAN B) each have a working local network. The WAN
+link between R0 and R1 is physically up - but neither router yet has a
+route telling it the *other* site's LAN exists.
+
+![h:330](./images/module05-two-site-topology.svg)
+
+---
 
 # Routing Table Codes
 
@@ -133,8 +143,18 @@ ip route 0.0.0.0 0.0.0.0 <next-hop-IP>   ← default route
 | `S` | Static route |
 | `S*` | Static default route |
 
-**Routing is never one-way** - request *and* reply packets each need a
-path, so both routers need a route to the other's LAN.
+```
+R0# show ip route
+Gateway of last resort is 203.0.113.2 to network 0.0.0.0
+
+C    192.168.1.0/24 is directly connected, FastEthernet0/0
+L    192.168.1.1/32 is directly connected, FastEthernet0/0
+S    192.168.2.0/24 [1/0] via 10.0.0.2
+S*   0.0.0.0/0 [1/0] via 203.0.113.2
+```
+
+`C`/`L` came free from configuring the interface; the `S` and `S*` lines
+are the two static routes added in Part B and C - nothing else changed.
 
 ---
 
@@ -145,7 +165,35 @@ path, so both routers need a route to the other's LAN.
 | `Destination Host Unreachable` | Source's gateway couldn't forward | Router **nearest the source** |
 | `Request Timed Out` | Reached destination, no reply came back | Router **nearest the destination** |
 
-This heuristic saves real diagnostic time in the field.
+This heuristic saves real diagnostic time in the field. **Routing is never
+one-way** - request *and* reply packets each need a path, so both routers
+need a route to the other's LAN.
+
+---
+
+# Longest Prefix Match: Why the Most Specific Route Wins
+
+When more than one routing-table entry matches a destination, the router
+does not use the first one it finds - it compares every matching entry's
+**prefix length** and forwards using the longest one, because it is the
+most specific description of where the packet is actually going.
+
+![h:330](./images/module05-routing-lookup.svg)
+
+---
+
+# Worked Example: Packet to 192.168.2.10 - Which Entry Matches?
+
+Suppose R0's table also carried a broader static summary,
+`192.168.0.0/16`, alongside the real LAN B route and the default route:
+
+1. `192.168.0.0/16` matches (192.168.2.10 falls inside it) - but it is only a `/16`
+2. `192.168.2.0/24` also matches - and it is a `/24`, more specific
+3. `0.0.0.0/0` always matches - but it is the least specific entry of all
+4. R0 picks the **longest prefix**, `/24`, and forwards toward `10.0.0.2`
+
+The `/16` and the default route were never wrong - they just lost to a
+more specific match.
 
 ---
 

@@ -148,10 +148,24 @@ router eigrp <AS-number>
 
 # Why EIGRP Converges Faster
 
-EIGRP's **DUAL algorithm** pre-computes **feasible successors** - backup
-routes that are loop-free and ready before a failure happens. RIP has no
-such backup - it waits for the next periodic update (up to 30s) to detect
-a dead route.
+EIGRP's **DUAL algorithm** (Diffusing Update Algorithm) pre-computes
+**feasible successors** - backup routes that are loop-free and ready
+before a failure happens. RIP has no such backup - it waits for the next
+periodic update (up to 30s) to detect a dead route.
+
+![h:300](./images/module06-eigrp-paths.svg)
+
+---
+
+# RIP Convergence: Watching Routes Propagate Hop by Hop
+
+At `t0`, each router knows only its own directly connected networks. Each
+periodic update lets a router learn one more hop's worth of routes from
+its neighbors. R1 sits between R0 and R2, so it hears from both sides at
+`t1` and is already done; R0 and R2 each need a second round before they
+learn about the network on the *far* side of R1.
+
+![h:330](./images/module06-distance-vector-propagation.svg)
 
 ---
 

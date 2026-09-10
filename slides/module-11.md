@@ -119,6 +119,8 @@ convergence. It applies **Dijkstra's shortest-path algorithm (1959)** - over
 | Algorithm | Dijkstra SPF | Bellman-Ford |
 | Convergence | Seconds | Minutes |
 
+![h:230](./images/module11-lsa-flooding.svg)
+
 ---
 
 <!-- Act 3 / BUILD -->
@@ -137,6 +139,41 @@ router ospf <process-id>
 **Why `passive-interface` on LAN ports:** they connect to end devices, not
 other routers - sending Hellos there wastes bandwidth. Passive interfaces
 still *advertise* the network; they just don't Hello on that port.
+
+---
+
+# Choosing the Winning Path
+
+SPF (Shortest Path First) sums cost along every possible path and keeps
+the cheapest one - fewer hops does not automatically mean lower cost.
+
+![h:340](./images/module11-spf-cost.svg)
+
+---
+
+# Worked Example: Running Dijkstra by Hand
+
+Using the topology above, from source R0 to destination R3:
+
+| Path considered | Running total | Kept? |
+|---|---|---|
+| R0 to R1 (cost 1) | 1 | best-so-far to R1 |
+| R0 to R1 to R3 (cost 1 + 1) | 2 | best-so-far to R3 |
+| R0 to R2 (cost 64) | 64 | best-so-far to R2 |
+| R0 to R2 to R3 (cost 64 + 1) | 65 | worse than 2 - discarded |
+
+Dijkstra never backtracks once a node's lowest cost is confirmed - R3's
+running total of 2 (via R1) beats 65 (via R2), so the path through R1 is
+installed in the routing table.
+
+---
+
+# Neighbor States on the Way to FULL
+
+Before two routers can exchange LSAs at all, they climb this adjacency
+ladder:
+
+![h:280](./images/module11-neighbor-states.svg)
 
 ---
 

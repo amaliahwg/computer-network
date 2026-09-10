@@ -1,0 +1,60 @@
+<svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="lsa-title">
+<title id="lsa-title">Diagram of LSA flooding across three routers converging to an identical link-state database at each one</title>
+<style>
+  .lbl { font-family: system-ui, -apple-system, sans-serif; fill: #1A1A1A; font-size: 13px; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .lbl-w { font-family: system-ui, -apple-system, sans-serif; fill: #ffffff; font-size: 13px; font-weight: 600; }
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+</style>
+
+<rect x="4" y="4" width="892" height="472" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">LSA flooding — every router converges on the identical link-state database</text>
+
+<!-- routers -->
+<rect x="80" y="60" width="90" height="46" rx="6" fill="#0C3274"/>
+<text x="125" y="88" text-anchor="middle" class="lbl-w">R0</text>
+<rect x="405" y="60" width="90" height="46" rx="6" fill="#0C3274"/>
+<text x="450" y="88" text-anchor="middle" class="lbl-w">R1</text>
+<rect x="730" y="60" width="90" height="46" rx="6" fill="#0C3274"/>
+<text x="775" y="88" text-anchor="middle" class="lbl-w">R2</text>
+
+<!-- physical links -->
+<line x1="170" y1="83" x2="405" y2="83" stroke="#B7C2CB" stroke-width="3"/>
+<line x1="495" y1="83" x2="730" y2="83" stroke="#B7C2CB" stroke-width="3"/>
+
+<!-- flooding arrows, dashed, colored per originating router -->
+<line x1="125" y1="106" x2="450" y2="150" stroke="#E8792A" stroke-width="2" stroke-dasharray="5 3"/>
+<line x1="450" y1="150" x2="775" y2="106" stroke="#E8792A" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="450" y="170" text-anchor="middle" class="lbl-sm" style="fill:#E8792A;font-weight:600;">R0's LSA floods to R1, then R1 forwards it on to R2</text>
+
+<line x1="775" y1="106" x2="450" y2="190" stroke="#00A79E" stroke-width="2" stroke-dasharray="5 3"/>
+<line x1="450" y1="190" x2="125" y2="106" stroke="#00A79E" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="450" y="210" text-anchor="middle" class="lbl-sm" style="fill:#00A79E;font-weight:600;">R2's LSA floods to R1, then R1 forwards it on to R0</text>
+
+<line x1="450" y1="106" x2="230" y2="230" stroke="#145DA0" stroke-width="2" stroke-dasharray="5 3"/>
+<line x1="450" y1="106" x2="670" y2="230" stroke="#145DA0" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="450" y="250" text-anchor="middle" class="lbl-sm" style="fill:#145DA0;font-weight:600;">R1's LSA floods directly to both R0 and R2</text>
+
+<!-- identical LSDB boxes -->
+<rect x="60" y="290" width="230" height="130" rx="8" fill="#E3F3F1" stroke="#00A79E" stroke-width="2"/>
+<text x="175" y="314" text-anchor="middle" class="lbl" style="font-weight:700;fill:#0C3274;">R0's LSDB</text>
+<rect x="385" y="290" width="230" height="130" rx="8" fill="#E3F3F1" stroke="#00A79E" stroke-width="2"/>
+<text x="500" y="314" text-anchor="middle" class="lbl" style="font-weight:700;fill:#0C3274;">R1's LSDB</text>
+<rect x="710" y="290" width="230" height="130" rx="8" fill="#E3F3F1" stroke="#00A79E" stroke-width="2"/>
+<text x="825" y="314" text-anchor="middle" class="lbl" style="font-weight:700;fill:#0C3274;">R2's LSDB</text>
+
+<text x="175" y="336" text-anchor="middle" class="lbl-sm" style="font-family:monospace;">R0-R1 cost 1</text>
+<text x="175" y="352" text-anchor="middle" class="lbl-sm" style="font-family:monospace;">R1-R2 cost 1</text>
+<text x="500" y="336" text-anchor="middle" class="lbl-sm" style="font-family:monospace;">R0-R1 cost 1</text>
+<text x="500" y="352" text-anchor="middle" class="lbl-sm" style="font-family:monospace;">R1-R2 cost 1</text>
+<text x="825" y="336" text-anchor="middle" class="lbl-sm" style="font-family:monospace;">R0-R1 cost 1</text>
+<text x="825" y="352" text-anchor="middle" class="lbl-sm" style="font-family:monospace;">R1-R2 cost 1</text>
+
+<text x="175" y="400" text-anchor="middle" class="lbl-sm" style="font-weight:700;">identical</text>
+<text x="500" y="400" text-anchor="middle" class="lbl-sm" style="font-weight:700;">identical</text>
+<text x="825" y="400" text-anchor="middle" class="lbl-sm" style="font-weight:700;">identical</text>
+
+<text x="24" y="456" class="lbl-sm" style="font-style:italic;">Schematic — every router keeps its own copy, but the content converges to be identical at every router.</text>
+</svg>
