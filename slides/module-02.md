@@ -257,11 +257,13 @@ access to it could type <code>enable</code> and change anything.
 
 # Summary
 
-- Every "network is down" report starts with: which layer?
-- Switches read Layer 2 only; routers read up to Layer 3
-- **Deliverables & assessment:** topology diagram, annotated ARP/ICMP and
-  HTTP simulation screenshots, switch-vs-router explanation - see the book
-  for the full rubric
+- **The answer:** layer by layer, bottom-up, systematically - never guess
+- **Encapsulation & decapsulation:** wrap going down, unwrap coming back up
+- **Switch vs router:** switch reads only the MAC; router reads the IP and re-wraps
+- **ARP before ICMP:** resolves MAC by broadcast - broadcasts don't cross a router
+- **HTTP trace:** ARP, then a TCP handshake, then the HTTP request/response
+- **Deliverables & assessment:** topology diagram, ARP/ICMP + HTTP screenshots,
+  switch-vs-router write-up - full rubric in the book
 
 ---
 
