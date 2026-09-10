@@ -18,7 +18,7 @@
 <rect x="4" y="4" width="892" height="452" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
 <rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
 <rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
-<text x="20" y="25" class="lbl-title">NAT/PAT — the router rewrites source IP and port as the packet crosses</text>
+<text x="20" y="25" class="lbl-title">NAT/PAT - the router rewrites source IP and port as the packet crosses</text>
 
 <text x="40" y="70" class="lbl-sm" style="font-weight:600;">Inside (private)</text>
 <text x="760" y="70" class="lbl-sm" style="font-weight:600;">Outside (public)</text>
@@ -30,7 +30,7 @@
 
 <!-- router -->
 <rect x="350" y="90" width="200" height="60" rx="8" fill="#0C3274"/>
-<text x="450" y="115" text-anchor="middle" class="lbl-w">R0 — NAT / PAT</text>
+<text x="450" y="115" text-anchor="middle" class="lbl-w">R0 - NAT / PAT</text>
 <text x="450" y="135" text-anchor="middle" class="lbl-sm" style="fill:#D7E1E8;">rewrites source IP:port</text>
 
 <!-- outside host -->
@@ -60,5 +60,5 @@
 <text x="56" y="360" class="lbl-sm">The return packet arrives addressed to 203.0.113.5:3345. R0 looks up that</text>
 <text x="56" y="378" class="lbl-sm">entry in the table and rewrites the destination back to 192.168.1.10:3345.</text>
 
-<text x="24" y="440" class="lbl-sm" style="font-style:italic;">Schematic — real header fields and table columns simplified for teaching.</text>
+<text x="24" y="440" class="lbl-sm" style="font-style:italic;">Schematic - real header fields and table columns simplified for teaching.</text>
 </svg>

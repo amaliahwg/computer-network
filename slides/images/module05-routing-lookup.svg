@@ -16,7 +16,7 @@
 <rect x="4" y="4" width="892" height="452" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
 <rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
 <rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
-<text x="20" y="25" class="lbl-title">Longest prefix match — why the /24 entry wins for 192.168.2.10</text>
+<text x="20" y="25" class="lbl-title">Longest prefix match - why the /24 entry wins for 192.168.2.10</text>
 
 <!-- incoming packet -->
 <rect x="350" y="52" width="200" height="46" rx="6" fill="#FFF8F1" stroke="#E8792A" stroke-width="2"/>
@@ -38,7 +38,7 @@
 <text x="180" y="190" class="lbl-sm mono">192.168.0.0</text>
 <text x="430" y="190" class="lbl-sm mono">via 10.0.0.2</text>
 <text x="600" y="190" class="lbl-sm mono">/16</text>
-<text x="700" y="184" class="lbl-sm">matches —</text>
+<text x="700" y="184" class="lbl-sm">matches -</text>
 <text x="700" y="200" class="lbl-sm">but shorter prefix</text>
 
 <!-- Row 2: /24, winner -->
@@ -47,7 +47,7 @@
 <text x="180" y="258" class="lbl mono" style="font-weight:700;fill:#0C3274;">192.168.2.0</text>
 <text x="430" y="258" class="lbl mono" style="font-weight:700;fill:#0C3274;">via 10.0.0.2</text>
 <text x="600" y="258" class="lbl mono" style="font-weight:700;fill:#0C3274;">/24</text>
-<text x="700" y="252" class="lbl" style="font-weight:700;fill:#E8792A;">WINS —</text>
+<text x="700" y="252" class="lbl" style="font-weight:700;fill:#E8792A;">WINS -</text>
 <text x="700" y="270" class="lbl" style="font-weight:700;fill:#E8792A;">longest prefix</text>
 
 <!-- Row 3: /0 default, matches but loses -->
@@ -56,7 +56,7 @@
 <text x="180" y="328" class="lbl-sm mono">0.0.0.0</text>
 <text x="430" y="328" class="lbl-sm mono">via 203.0.113.2</text>
 <text x="600" y="328" class="lbl-sm mono">/0</text>
-<text x="700" y="322" class="lbl-sm">matches (default) —</text>
+<text x="700" y="322" class="lbl-sm">matches (default) -</text>
 <text x="700" y="338" class="lbl-sm">but shortest prefix</text>
 
 <!-- outcome -->
@@ -66,5 +66,5 @@
 <text x="600" y="380" text-anchor="middle" class="lbl-w">Forward out</text>
 <text x="600" y="397" text-anchor="middle" class="lbl-w mono" style="font-size:12px;">via 10.0.0.2</text>
 
-<text x="24" y="430" class="lbl-sm" style="font-style:italic;">Schematic — the router compares prefix length across all matching entries, not rule order.</text>
+<text x="24" y="430" class="lbl-sm" style="font-style:italic;">Schematic - the router compares prefix length across all matching entries, not rule order.</text>
 </svg>

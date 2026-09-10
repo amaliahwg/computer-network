@@ -21,7 +21,7 @@
 <rect x="4" y="4" width="892" height="432" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
 <rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
 <rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
-<text x="20" y="25" class="lbl-title">CHAP — three-way challenge/response, password never crosses the link</text>
+<text x="20" y="25" class="lbl-title">CHAP - three-way challenge/response, password never crosses the link</text>
 
 <!-- lifeline boxes -->
 <rect x="140" y="56" width="160" height="44" rx="6" fill="#0C3274"/>
@@ -35,18 +35,18 @@
 
 <!-- step 1: challenge -->
 <line x1="220" y1="150" x2="680" y2="150" stroke="#E8792A" stroke-width="2.5" marker-end="url(#arrowGold)"/>
-<text x="450" y="132" text-anchor="middle" class="lbl" style="fill:#E8792A;font-weight:700;">① Challenge — random value + hostname "R0"</text>
+<text x="450" y="132" text-anchor="middle" class="lbl" style="fill:#E8792A;font-weight:700;">① Challenge - random value + hostname "R0"</text>
 
 <!-- step 2: response -->
 <line x1="680" y1="220" x2="220" y2="220" stroke="#00A79E" stroke-width="2.5" marker-end="url(#arrowTeal)"/>
-<text x="450" y="202" text-anchor="middle" class="lbl" style="fill:#00A79E;font-weight:700;">② Response — MD5 hash of (challenge + password + seq #)</text>
+<text x="450" y="202" text-anchor="middle" class="lbl" style="fill:#00A79E;font-weight:700;">② Response - MD5 hash of (challenge + password + seq #)</text>
 <text x="450" y="240" text-anchor="middle" class="lbl-sm">R1 never sends the password itself, only the hash.</text>
 
 <!-- step 3: success -->
 <line x1="220" y1="300" x2="680" y2="300" stroke="#145DA0" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
-<text x="450" y="282" text-anchor="middle" class="lbl" style="fill:#145DA0;font-weight:700;">③ Success — R0 recomputes the hash locally and it matches</text>
+<text x="450" y="282" text-anchor="middle" class="lbl" style="fill:#145DA0;font-weight:700;">③ Success - R0 recomputes the hash locally and it matches</text>
 <text x="450" y="320" text-anchor="middle" class="lbl-sm" style="font-style:italic;">(Failure, dashed, if the locally computed hash does not match)</text>
 <line x1="220" y1="330" x2="680" y2="330" stroke="#B7C2CB" stroke-width="2" stroke-dasharray="5 3"/>
 
-<text x="24" y="410" class="lbl-sm" style="font-style:italic;">Schematic — R0 authenticates R1 here; CHAP can run in both directions on the same link.</text>
+<text x="24" y="410" class="lbl-sm" style="font-style:italic;">Schematic - R0 authenticates R1 here; CHAP can run in both directions on the same link.</text>
 </svg>

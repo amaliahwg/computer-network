@@ -17,14 +17,14 @@
 <rect x="56" y="64" width="104" height="28" rx="14" fill="#145DA0"/>
 <text x="108" y="83" text-anchor="middle" class="lbl-w">VLAN 10</text>
 <text x="60" y="330" class="lbl-sm">Broadcasts from PC-A or PC-B reach only</text>
-<text x="60" y="346" class="lbl-sm">other VLAN 10 ports — never VLAN 20.</text>
+<text x="60" y="346" class="lbl-sm">other VLAN 10 ports - never VLAN 20.</text>
 
 <!-- VLAN 20 domain box -->
 <rect x="480" y="50" width="380" height="300" rx="14" fill="#E8792A" fill-opacity="0.10" stroke="#E8792A" stroke-width="2" stroke-dasharray="6 4"/>
 <rect x="496" y="64" width="104" height="28" rx="14" fill="#E8792A"/>
 <text x="548" y="83" text-anchor="middle" class="lbl-w">VLAN 20</text>
 <text x="500" y="330" class="lbl-sm">Broadcasts from PC-C or PC-D reach only</text>
-<text x="500" y="346" class="lbl-sm">other VLAN 20 ports — never VLAN 10.</text>
+<text x="500" y="346" class="lbl-sm">other VLAN 20 ports - never VLAN 10.</text>
 
 <!-- PCs VLAN10 -->
 <rect x="100" y="150" width="42" height="30" rx="4" fill="#145DA0"/>
@@ -46,8 +46,8 @@
 
 <!-- switch -->
 <rect x="40" y="390" width="820" height="50" rx="8" fill="#0C3274"/>
-<text x="450" y="412" text-anchor="middle" class="lbl-w">SW0 — one physical switch</text>
-<text x="450" y="430" text-anchor="middle" class="lbl-sm" style="fill:#D7E1E8;">Ports 1–2 in VLAN 10, ports 3–4 in VLAN 20 — same hardware, two logical networks</text>
+<text x="450" y="412" text-anchor="middle" class="lbl-w">SW0 - one physical switch</text>
+<text x="450" y="430" text-anchor="middle" class="lbl-sm" style="fill:#D7E1E8;">Ports 1–2 in VLAN 10, ports 3–4 in VLAN 20 - same hardware, two logical networks</text>
 
 <!-- port markers -->
 <rect x="112" y="384" width="18" height="10" fill="#145DA0"/>
@@ -55,5 +55,5 @@
 <rect x="552" y="384" width="18" height="10" fill="#E8792A"/>
 <rect x="752" y="384" width="18" height="10" fill="#E8792A"/>
 
-<text x="24" y="464" class="lbl-sm" style="font-style:italic;">Schematic — a PC in VLAN 10 cannot directly reach a PC in VLAN 20, even on this same switch.</text>
+<text x="24" y="464" class="lbl-sm" style="font-style:italic;">Schematic - a PC in VLAN 10 cannot directly reach a PC in VLAN 20, even on this same switch.</text>
 </svg>

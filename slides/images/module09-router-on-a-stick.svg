@@ -10,15 +10,15 @@
 <rect x="4" y="4" width="892" height="472" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
 <rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
 <rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
-<text x="20" y="25" class="lbl-title">Router-on-a-stick — one physical interface, two logical gateways</text>
+<text x="20" y="25" class="lbl-title">Router-on-a-stick - one physical interface, two logical gateways</text>
 
 <!-- sub-interface chips -->
 <rect x="120" y="60" width="230" height="56" rx="8" fill="#145DA0"/>
-<text x="235" y="82" text-anchor="middle" class="lbl-w">Fa0/0.10 — VLAN 10</text>
+<text x="235" y="82" text-anchor="middle" class="lbl-w">Fa0/0.10 - VLAN 10</text>
 <text x="235" y="102" text-anchor="middle" class="lbl-sm" style="fill:#E3F3F1;">Gateway 192.168.10.1</text>
 
 <rect x="550" y="60" width="230" height="56" rx="8" fill="#E8792A"/>
-<text x="665" y="82" text-anchor="middle" class="lbl-w">Fa0/0.20 — VLAN 20</text>
+<text x="665" y="82" text-anchor="middle" class="lbl-w">Fa0/0.20 - VLAN 20</text>
 <text x="665" y="102" text-anchor="middle" class="lbl-sm" style="fill:#FFF8F1;">Gateway 192.168.20.1</text>
 
 <!-- dashed lines from sub-interfaces to single physical router box, showing they are logical divisions of one port -->
@@ -32,7 +32,7 @@
 
 <!-- trunk link -->
 <line x1="450" y1="220" x2="450" y2="290" stroke="#0C3274" stroke-width="4"/>
-<text x="470" y="260" class="lbl-sm" style="font-weight:600;">Trunk (802.1Q) — carries tagged</text>
+<text x="470" y="260" class="lbl-sm" style="font-weight:600;">Trunk (802.1Q) - carries tagged</text>
 <text x="470" y="276" class="lbl-sm" style="font-weight:600;">frames for VLAN 10 and VLAN 20</text>
 
 <!-- switch -->
@@ -55,5 +55,5 @@
 <rect x="740" y="400" width="40" height="30" rx="4" fill="#E8792A"/>
 <text x="760" y="446" text-anchor="middle" class="lbl-sm">VLAN 20 PC</text>
 
-<text x="24" y="464" class="lbl-sm" style="font-style:italic;">Schematic — each sub-interface is a logical division of one physical port, not a separate cable.</text>
+<text x="24" y="464" class="lbl-sm" style="font-style:italic;">Schematic - each sub-interface is a logical division of one physical port, not a separate cable.</text>
 </svg>

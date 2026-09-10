@@ -15,7 +15,7 @@
 <!-- title bar -->
 <rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
 <rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
-<text x="20" y="25" class="lbl-title">Cisco Packet Tracer — Untitled Project*</text>
+<text x="20" y="25" class="lbl-title">Cisco Packet Tracer - Untitled Project*</text>
 <circle cx="850" cy="20" r="5" fill="#00A79E"/>
 <circle cx="868" cy="20" r="5" fill="#E3F3F1"/>
 
@@ -50,7 +50,7 @@
 <!-- Physical / Config / CLI tabs (conditional panel) -->
 <rect x="696" y="102" width="184" height="322" rx="6" class="panel-ghost"/>
 <text x="788" y="130" text-anchor="middle" class="lbl-sm" style="font-weight:600;">Physical / Config / CLI</text>
-<text x="788" y="148" text-anchor="middle" class="lbl-sm">tabs — appear when a</text>
+<text x="788" y="148" text-anchor="middle" class="lbl-sm">tabs - appear when a</text>
 <text x="788" y="164" text-anchor="middle" class="lbl-sm">device is selected</text>
 
 <!-- device category bar -->
@@ -76,9 +76,9 @@
 <rect x="510" y="440" width="370" height="98" rx="6" class="panel-ghost"/>
 <text x="524" y="460" class="lbl-sm" style="font-weight:600;">Cable Palette</text>
 <text x="524" y="478" class="lbl-sm">only visible when the</text>
-<text x="524" y="494" class="lbl-sm">"Connections" category is selected —</text>
+<text x="524" y="494" class="lbl-sm">"Connections" category is selected -</text>
 <text x="524" y="510" class="lbl-sm">Straight-Through, Crossover, Console,</text>
 <text x="524" y="526" class="lbl-sm">Serial DCE/DTE, Automatic</text>
 
-<text x="16" y="552" class="lbl-sm" style="font-style:italic;">*Schematic layout for orientation — not a live screenshot. Panel positions match your installed version closely but may vary slightly by release.</text>
+<text x="16" y="552" class="lbl-sm" style="font-style:italic;">*Schematic layout for orientation - not a live screenshot. Panel positions match your installed version closely but may vary slightly by release.</text>
 </svg>

@@ -90,9 +90,9 @@ systematic way to check, "down" is just a guess.
 # By the End of This Module, You Can
 
 1. Describe each layer of the **OSI model** (Open Systems Interconnection) and map it to the **TCP/IP model** (Transmission Control Protocol / Internet Protocol)
-2. Use Packet Tracer's Simulation Mode to watch data gain and lose its per-layer wrapping — **encapsulation** and **decapsulation**
+2. Use Packet Tracer's Simulation Mode to watch data gain and lose its per-layer wrapping - **encapsulation** and **decapsulation**
 3. Identify which protocols operate at which layers from a packet capture
-4. Trace a full **HTTP** (HyperText Transfer Protocol — the web's request language) page load, naming each envelope added and removed
+4. Trace a full **HTTP** (HyperText Transfer Protocol - the web's request language) page load, naming each envelope added and removed
 
 ---
 
@@ -100,11 +100,11 @@ systematic way to check, "down" is just a guess.
 
 # Where This Idea Came From
 
-The **OSI model** (**ISO** — International Organization for Standardization,
+The **OSI model** (**ISO** - International Organization for Standardization,
 1984) was designed by committee to let any vendor's equipment interoperate -
 a teaching and interoperability reference, mostly never implemented
 layer-for-layer. The **TCP/IP model** (Vint Cerf & Bob Kahn, 1974, funded by
-**DARPA** — the U.S. Defense Advanced Research Projects Agency) was the
+**DARPA** - the U.S. Defense Advanced Research Projects Agency) was the
 pragmatic, already-shipping protocol suite that became the real internet.
 Today we use OSI's vocabulary to talk about TCP/IP's reality.
 
@@ -145,18 +145,18 @@ Full name for every protocol here: next slide.
 <div class="two-col">
 <div>
 
-**HTTP** = HyperText Transfer Protocol — how browsers request pages
-**DNS** = Domain Name System — turns names into IP addresses
-**TCP** = Transmission Control Protocol — reliable, connection-based delivery
-**UDP** = User Datagram Protocol — fast, connectionless delivery
+**HTTP** = HyperText Transfer Protocol - how browsers request pages
+**DNS** = Domain Name System - turns names into IP addresses
+**TCP** = Transmission Control Protocol - reliable, connection-based delivery
+**UDP** = User Datagram Protocol - fast, connectionless delivery
 
 </div>
 <div>
 
-**IP** = Internet Protocol — addressing between networks
-**ICMP** = Internet Control Message Protocol — the messages behind `ping`
-**ARP** = Address Resolution Protocol — finds the MAC for a known IP
-**MAC address** = Media Access Control — the interface's hardware address
+**IP** = Internet Protocol - addressing between networks
+**ICMP** = Internet Control Message Protocol - the messages behind `ping`
+**ARP** = Address Resolution Protocol - finds the MAC for a known IP
+**MAC address** = Media Access Control - the interface's hardware address
 
 </div>
 </div>

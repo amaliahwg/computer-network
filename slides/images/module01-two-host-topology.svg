@@ -11,7 +11,7 @@
 <rect x="4" y="4" width="892" height="412" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
 <rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
 <rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
-<text x="20" y="25" class="lbl-title">Minimal two-host network — one LAN, no router needed</text>
+<text x="20" y="25" class="lbl-title">Minimal two-host network - one LAN, no router needed</text>
 
 <rect x="24" y="52" width="852" height="300" rx="8" fill="#E3F3F1" stroke="#00A79E"/>
 <text x="450" y="76" text-anchor="middle" class="lbl" style="font-weight:700;fill:#0C3274;">192.168.1.0/24</text>
@@ -37,9 +37,9 @@
 <text x="660" y="236" text-anchor="middle" class="lbl-sm">Mask: 255.255.255.0</text>
 <text x="660" y="254" text-anchor="middle" class="lbl-sm">Gateway: none needed</text>
 
-<text x="450" y="300" text-anchor="middle" class="lbl-sm" style="font-style:italic;">Same /24, same switch — no default gateway required for this ping to work.</text>
+<text x="450" y="300" text-anchor="middle" class="lbl-sm" style="font-style:italic;">Same /24, same switch - no default gateway required for this ping to work.</text>
 
 <rect x="24" y="322" width="852" height="18" fill="none"/>
 <text x="24" y="380" class="lbl-sm" style="font-weight:600;">ping 192.168.1.20 from PC0 proves: NIC is up, cabling is good, IP configuration is correct on both</text>
-<text x="24" y="398" class="lbl-sm">ends, and Layer 3 (ARP + ICMP) works — with zero routing involved yet.</text>
+<text x="24" y="398" class="lbl-sm">ends, and Layer 3 (ARP + ICMP) works - with zero routing involved yet.</text>
 </svg>

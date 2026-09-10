@@ -18,7 +18,7 @@
 <rect x="4" y="4" width="892" height="452" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
 <rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
 <rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
-<text x="20" y="25" class="lbl-title">DORA — Discover, Offer, Request, Acknowledge, one shared transaction ID</text>
+<text x="20" y="25" class="lbl-title">DORA - Discover, Offer, Request, Acknowledge, one shared transaction ID</text>
 
 <!-- lifeline boxes -->
 <rect x="140" y="56" width="150" height="44" rx="6" fill="#0C3274"/>
@@ -31,19 +31,19 @@
 
 <!-- 1. Discover - broadcast, dashed -->
 <line x1="215" y1="140" x2="685" y2="140" stroke="#E8792A" stroke-width="2.5" stroke-dasharray="7 4" marker-end="url(#doraGold)"/>
-<text x="450" y="124" text-anchor="middle" class="lbl" style="fill:#E8792A;font-weight:700;">① DISCOVER — broadcast 255.255.255.255</text>
+<text x="450" y="124" text-anchor="middle" class="lbl" style="fill:#E8792A;font-weight:700;">① DISCOVER - broadcast 255.255.255.255</text>
 
 <!-- 2. Offer - unicast solid -->
 <line x1="685" y1="200" x2="215" y2="200" stroke="#00A79E" stroke-width="2.5" marker-end="url(#doraTeal)"/>
-<text x="450" y="184" text-anchor="middle" class="lbl" style="fill:#00A79E;font-weight:700;">② OFFER — unicast, an available lease</text>
+<text x="450" y="184" text-anchor="middle" class="lbl" style="fill:#00A79E;font-weight:700;">② OFFER - unicast, an available lease</text>
 
 <!-- 3. Request - broadcast dashed -->
 <line x1="215" y1="260" x2="685" y2="260" stroke="#E8792A" stroke-width="2.5" stroke-dasharray="7 4" marker-end="url(#doraGold)"/>
-<text x="450" y="244" text-anchor="middle" class="lbl" style="fill:#E8792A;font-weight:700;">③ REQUEST — broadcast, formally claims the offer</text>
+<text x="450" y="244" text-anchor="middle" class="lbl" style="fill:#E8792A;font-weight:700;">③ REQUEST - broadcast, formally claims the offer</text>
 
 <!-- 4. Ack - unicast solid -->
 <line x1="685" y1="320" x2="215" y2="320" stroke="#00A79E" stroke-width="2.5" marker-end="url(#doraTeal)"/>
-<text x="450" y="304" text-anchor="middle" class="lbl" style="fill:#00A79E;font-weight:700;">④ ACKNOWLEDGE — unicast, lease confirmed</text>
+<text x="450" y="304" text-anchor="middle" class="lbl" style="fill:#00A79E;font-weight:700;">④ ACKNOWLEDGE - unicast, lease confirmed</text>
 
 <!-- shared XID annotation -->
 <rect x="330" y="355" width="240" height="34" rx="6" fill="#E3F3F1" stroke="#00A79E"/>
@@ -55,5 +55,5 @@
 <line x1="230" y1="420" x2="270" y2="420" stroke="#00A79E" stroke-width="2.5"/>
 <text x="278" y="424" class="lbl-sm">Unicast</text>
 
-<text x="24" y="440" class="lbl-sm" style="font-style:italic;">Schematic — the client has no IP yet, so its first two messages must be broadcast.</text>
+<text x="24" y="440" class="lbl-sm" style="font-style:italic;">Schematic - the client has no IP yet, so its first two messages must be broadcast.</text>
 </svg>

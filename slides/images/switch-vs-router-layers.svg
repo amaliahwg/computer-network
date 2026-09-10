@@ -11,51 +11,51 @@
 <rect x="4" y="4" width="892" height="432" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
 <rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
 <rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
-<text x="20" y="25" class="lbl-title">Switch vs. Router — which headers does each device actually open?</text>
+<text x="20" y="25" class="lbl-title">Switch vs. Router - which headers does each device actually open?</text>
 
 <!-- Left panel: Switch -->
 <rect x="24" y="50" width="416" height="360" rx="8" class="panel"/>
-<text x="232" y="76" text-anchor="middle" class="lbl" style="font-weight:700;fill:#0C3274;">Switch — Layer 2 only</text>
+<text x="232" y="76" text-anchor="middle" class="lbl" style="font-weight:700;fill:#0C3274;">Switch - Layer 2 only</text>
 
 <rect x="48" y="94" width="368" height="40" rx="4" fill="#0C3274"/>
-<text x="232" y="119" text-anchor="middle" class="lbl-w">Ethernet header — SOURCE / DEST MAC</text>
+<text x="232" y="119" text-anchor="middle" class="lbl-w">Ethernet header - SOURCE / DEST MAC</text>
 
 <rect x="48" y="138" width="368" height="34" rx="4" fill="#D7E1E8"/>
-<text x="232" y="160" text-anchor="middle" class="lbl-sm">IP header — never opened</text>
+<text x="232" y="160" text-anchor="middle" class="lbl-sm">IP header - never opened</text>
 
 <rect x="48" y="176" width="368" height="34" rx="4" fill="#D7E1E8"/>
-<text x="232" y="198" text-anchor="middle" class="lbl-sm">TCP/UDP header — never opened</text>
+<text x="232" y="198" text-anchor="middle" class="lbl-sm">TCP/UDP header - never opened</text>
 
 <rect x="48" y="214" width="368" height="34" rx="4" fill="#D7E1E8"/>
-<text x="232" y="236" text-anchor="middle" class="lbl-sm">Application data — never opened</text>
+<text x="232" y="236" text-anchor="middle" class="lbl-sm">Application data - never opened</text>
 
 <text x="48" y="270" class="lbl">Reads the destination MAC, looks it up in its</text>
 <text x="48" y="288" class="lbl">MAC address table, forwards out one port.</text>
-<text x="48" y="316" class="lbl" style="font-weight:600;">"Bad IP header" is never a switch problem —</text>
+<text x="48" y="316" class="lbl" style="font-weight:600;">"Bad IP header" is never a switch problem -</text>
 <text x="48" y="334" class="lbl" style="font-weight:600;">it never reads that far.</text>
 
 <!-- Right panel: Router -->
 <rect x="460" y="50" width="416" height="360" rx="8" class="panel"/>
-<text x="668" y="76" text-anchor="middle" class="lbl" style="font-weight:700;fill:#0C3274;">Router — up to Layer 3</text>
+<text x="668" y="76" text-anchor="middle" class="lbl" style="font-weight:700;fill:#0C3274;">Router - up to Layer 3</text>
 
 <rect x="484" y="94" width="368" height="34" rx="4" stroke="#0C3274" stroke-width="2" stroke-dasharray="4 3" fill="#F6F8FA"/>
-<text x="668" y="116" text-anchor="middle" class="lbl-sm">Old Ethernet header — stripped off</text>
+<text x="668" y="116" text-anchor="middle" class="lbl-sm">Old Ethernet header - stripped off</text>
 
 <rect x="484" y="132" width="368" height="40" rx="4" fill="#145DA0"/>
-<text x="668" y="157" text-anchor="middle" class="lbl-w">IP header — SOURCE / DEST IP read here</text>
+<text x="668" y="157" text-anchor="middle" class="lbl-w">IP header - SOURCE / DEST IP read here</text>
 
 <rect x="484" y="176" width="368" height="34" rx="4" fill="#D7E1E8"/>
-<text x="668" y="198" text-anchor="middle" class="lbl-sm">TCP/UDP header — passed through unread</text>
+<text x="668" y="198" text-anchor="middle" class="lbl-sm">TCP/UDP header - passed through unread</text>
 
 <rect x="484" y="214" width="368" height="34" rx="4" fill="#D7E1E8"/>
-<text x="668" y="236" text-anchor="middle" class="lbl-sm">Application data — passed through unread</text>
+<text x="668" y="236" text-anchor="middle" class="lbl-sm">Application data - passed through unread</text>
 
 <rect x="484" y="252" width="368" height="30" rx="4" stroke="#00A79E" stroke-width="2" stroke-dasharray="4 3" fill="#E3F3F1"/>
-<text x="668" y="272" text-anchor="middle" class="lbl-sm" style="fill:#0C3274;font-weight:600;">New Ethernet header — re-wrapped for next hop</text>
+<text x="668" y="272" text-anchor="middle" class="lbl-sm" style="fill:#0C3274;font-weight:600;">New Ethernet header - re-wrapped for next hop</text>
 
 <text x="484" y="308" class="lbl">Reads the destination IP, checks its routing</text>
 <text x="484" y="326" class="lbl">table, decides the next hop, then builds a</text>
 <text x="484" y="344" class="lbl">brand-new Ethernet header for that next hop.</text>
 
-<text x="24" y="426" class="lbl-sm" style="font-style:italic;">Schematic — header sizes not to scale.</text>
+<text x="24" y="426" class="lbl-sm" style="font-style:italic;">Schematic - header sizes not to scale.</text>
 </svg>

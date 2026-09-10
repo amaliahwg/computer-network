@@ -10,7 +10,7 @@
 <rect x="4" y="4" width="892" height="512" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
 <rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
 <rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
-<text x="20" y="25" class="lbl-title">Encapsulation — each layer adds its own header before handing data down</text>
+<text x="20" y="25" class="lbl-title">Encapsulation - each layer adds its own header before handing data down</text>
 
 <text x="30" y="66" class="lbl-sm" style="font-weight:600;">Layer (top to bottom)</text>
 <text x="700" y="66" class="lbl-sm" style="font-weight:600;">PDU name</text>
@@ -60,6 +60,6 @@
 <text x="740" y="420" class="lbl">Bits</text>
 
 <text x="30" y="470" class="lbl-sm">Header + trailer added going down (encapsulation). The receiving end strips each one in reverse order,</text>
-<text x="30" y="488" class="lbl-sm">bottom to top, on its way back up — decapsulation.</text>
-<text x="30" y="508" class="lbl-sm" style="font-style:italic;">Schematic — box widths are illustrative, not to scale with real header sizes.</text>
+<text x="30" y="488" class="lbl-sm">bottom to top, on its way back up - decapsulation.</text>
+<text x="30" y="508" class="lbl-sm" style="font-style:italic;">Schematic - box widths are illustrative, not to scale with real header sizes.</text>
 </svg>

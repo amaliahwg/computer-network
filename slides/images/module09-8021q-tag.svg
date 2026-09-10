@@ -10,9 +10,9 @@
 <rect x="4" y="4" width="892" height="412" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
 <rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
 <rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
-<text x="20" y="25" class="lbl-title">802.1Q — the 4-byte tag inserted on a trunk link</text>
+<text x="20" y="25" class="lbl-title">802.1Q - the 4-byte tag inserted on a trunk link</text>
 
-<text x="30" y="70" class="lbl" style="font-weight:600;">Untagged frame — access port</text>
+<text x="30" y="70" class="lbl" style="font-weight:600;">Untagged frame - access port</text>
 <rect x="30" y="86" width="90" height="44" fill="#0C3274"/>
 <text x="75" y="112" text-anchor="middle" class="lbl-pdu">Dest MAC</text>
 <rect x="120" y="86" width="90" height="44" fill="#145DA0"/>
@@ -24,7 +24,7 @@
 <rect x="720" y="86" width="60" height="44" fill="#0C3274"/>
 <text x="750" y="112" text-anchor="middle" class="lbl-pdu" style="font-size:10px;">FCS</text>
 
-<text x="30" y="180" class="lbl" style="font-weight:600;">Tagged frame — crossing the trunk link</text>
+<text x="30" y="180" class="lbl" style="font-weight:600;">Tagged frame - crossing the trunk link</text>
 <rect x="30" y="196" width="90" height="54" fill="#0C3274"/>
 <text x="75" y="228" text-anchor="middle" class="lbl-pdu">Dest MAC</text>
 <rect x="120" y="196" width="90" height="54" fill="#145DA0"/>
@@ -49,7 +49,7 @@
 
 <rect x="30" y="290" width="750" height="46" rx="6" fill="#E3F3F1" stroke="#00A79E"/>
 <text x="46" y="313" class="lbl" style="fill:#0C3274;">Inserted on the trunk link carrying multiple VLANs; the switch strips the tag before</text>
-<text x="46" y="329" class="lbl" style="fill:#0C3274;">delivery to an access port — the end device never sees an 802.1Q tag.</text>
+<text x="46" y="329" class="lbl" style="fill:#0C3274;">delivery to an access port - the end device never sees an 802.1Q tag.</text>
 
-<text x="24" y="398" class="lbl-sm" style="font-style:italic;">Schematic — field widths are illustrative, not to scale with real byte counts.</text>
+<text x="24" y="398" class="lbl-sm" style="font-style:italic;">Schematic - field widths are illustrative, not to scale with real byte counts.</text>
 </svg>

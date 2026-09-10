@@ -15,7 +15,7 @@
 <rect x="4" y="4" width="892" height="332" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
 <rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
 <rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
-<text x="20" y="25" class="lbl-title">OSPF neighbor adjacency — the state ladder from Down to Full</text>
+<text x="20" y="25" class="lbl-title">OSPF neighbor adjacency - the state ladder from Down to Full</text>
 
 <!-- 7 boxes -->
 <!-- Down -->
@@ -63,12 +63,12 @@
 <!-- Full -->
 <rect x="744" y="62" width="130" height="66" rx="8" fill="#E8792A" stroke="#0C3274" stroke-width="2"/>
 <text x="809" y="98" text-anchor="middle" class="lbl-w" style="font-size:16px;">FULL</text>
-<text x="809" y="180" text-anchor="middle" class="lbl-sm" style="font-weight:700;fill:#E8792A;">goal state —</text>
+<text x="809" y="180" text-anchor="middle" class="lbl-sm" style="font-weight:700;fill:#E8792A;">goal state -</text>
 <text x="809" y="194" text-anchor="middle" class="lbl-sm" style="font-weight:700;fill:#E8792A;">LSDBs synchronized</text>
 
 <rect x="24" y="220" width="850" height="60" rx="8" fill="#F6F8FA" stroke="#D7E1E8"/>
-<text x="40" y="244" class="lbl-sm" style="font-size:13px;">A neighbor stuck below FULL never contributes routes — mismatched area IDs or timers are the</text>
+<text x="40" y="244" class="lbl-sm" style="font-size:13px;">A neighbor stuck below FULL never contributes routes - mismatched area IDs or timers are the</text>
 <text x="40" y="264" class="lbl-sm" style="font-size:13px;">most common reason two routers stall at 2-Way or ExStart and never progress further.</text>
 
-<text x="24" y="312" class="lbl-sm" style="font-style:italic;font-size:12px;">Schematic — timing between states varies; the sequence itself is fixed.</text>
+<text x="24" y="312" class="lbl-sm" style="font-style:italic;font-size:12px;">Schematic - timing between states varies; the sequence itself is fixed.</text>
 </svg>
