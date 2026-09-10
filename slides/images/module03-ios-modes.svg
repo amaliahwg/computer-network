@@ -32,7 +32,8 @@
 <text x="565" y="252" text-anchor="middle" class="prompt" style="font-size:13px;">Router(config)#</text>
 
 <rect x="710" y="190" width="170" height="100" rx="8" class="box"/>
-<text x="795" y="215" text-anchor="middle" class="lbl" style="font-size:14px;">Interface / Line Config</text>
+<text x="795" y="208" text-anchor="middle" class="lbl" style="font-size:13px;">Interface /</text>
+<text x="795" y="224" text-anchor="middle" class="lbl" style="font-size:13px;">Line Config</text>
 <rect x="716" y="230" width="158" height="34" rx="5" fill="#ffffff" stroke="#D7E1E8"/>
 <text x="795" y="252" text-anchor="middle" class="prompt" style="font-size:12px;">Router(config-if)#</text>
 

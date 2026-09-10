@@ -137,8 +137,7 @@ config - is **lost** on reload unless it's saved first.
 
 # Worked Example: The Hardening Command Ladder
 
-Watch the prompt itself change at every step - concrete proof of which mode
-a command took effect in.
+Watch the prompt itself change at every step - proof of which mode a command took effect in.
 
 ```
 Router> enable
@@ -152,8 +151,7 @@ YourName(config-line)#end
 YourName#copy running-config startup-config
 ```
 
-Notice: the hostname change appears on the *next* prompt line - live proof
-the command actually ran.
+Notice: the hostname change appears on the *next* prompt line - proof the command ran.
 
 ---
 

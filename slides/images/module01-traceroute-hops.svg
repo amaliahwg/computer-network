@@ -45,7 +45,7 @@
 <text x="24" y="208" class="lbl" style="font-weight:700;fill:#E8792A;">TTL = 2</text>
 <rect x="80" y="216" width="370" height="9" rx="4" fill="#E8792A"/>
 <polygon points="450,220.5 442,215 442,226" fill="#E8792A"/>
-<text x="485" y="223" text-anchor="middle" class="lbl-sm">Probe reaches R2, TTL hits 0 — R2 replies "ICMP Time Exceeded"</text>
+<text x="465" y="223" class="lbl-sm">Probe reaches R2, TTL hits 0 — R2 replies "ICMP Time Exceeded"</text>
 
 <!-- Row 3: TTL=3, dies at R3 -->
 <text x="24" y="264" class="lbl" style="font-weight:700;fill:#E8792A;">TTL = 3</text>
