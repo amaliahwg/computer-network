@@ -35,11 +35,11 @@ By the end of this lab, students are able to:
 
 | Phase | Time |
 |-------|------|
-| Part A: OSI review topology | 20 min |
+| Part A: OSI review topology | 25 min |
 | Part B: Simulation Mode - ICMP | 25 min |
 | Part C: Simulation Mode - HTTP | 25 min |
 | Part D: ARP cause and effect | 15 min |
-| Challenge / wrap-up | 15 min |
+| Challenge / wrap-up | 10 min |
 
 *Guided Lab activities above run about 90 minutes - the rest of the 2-hour block covers troubleshooting, Challenge Tasks, and lab-report writeup.*
 
@@ -94,7 +94,32 @@ architecture-beta
     sw1:R -- L:pc2
 ```
 
-Device addressing:
+**Device checklist** - seven devices total, place each one and rename it to match (click the label under its icon, or its **Config** tab's **Display Name** field):
+
+| # | Device name | PT model | Where in the palette | LAN |
+|---|------------|----------|-----------------------|-----|
+| 1 | PC0 | PC-PT | End Devices → PC-PT | LAN 1 |
+| 2 | PC1 | PC-PT | End Devices → PC-PT | LAN 1 |
+| 3 | Server0 | Server-PT | End Devices → Server-PT | LAN 1 |
+| 4 | Switch0 | Cisco 2960 | Network Devices → Switches → 2960 | LAN 1 |
+| 5 | Switch1 | Cisco 2960 | Network Devices → Switches → 2960 | LAN 2 |
+| 6 | PC2 | PC-PT | End Devices → PC-PT | LAN 2 |
+| 7 | Router0 | Cisco 1841 (or 2811) | Network Devices → Routers → 1841 | joins both |
+
+**Cabling** - all links use **Copper Straight-Through** (every link here connects unlike devices: PC/server to switch, or switch to router):
+
+| From (device : port) | To (device : port) |
+|-----------------------|----------------------|
+| PC0 : FastEthernet0 | Switch0 : Fa0/1 |
+| PC1 : FastEthernet0 | Switch0 : Fa0/2 |
+| Server0 : FastEthernet0 | Switch0 : Fa0/3 |
+| Switch0 : Fa0/24 | Router0 : Fa0/0 |
+| Switch1 : Fa0/24 | Router0 : Fa0/1 |
+| PC2 : FastEthernet0 | Switch1 : Fa0/1 |
+
+Packet Tracer asks which interface to use when you click each device to cable it - match the port column above, don't accept the first option offered.
+
+**Device addressing:**
 
 | Device | Interface | IP Address | Subnet Mask | Gateway |
 |--------|-----------|------------|-------------|---------|
@@ -109,15 +134,17 @@ Device addressing:
 
 > **Note:** The router interfaces come alive in **Module 4** - Module 3 first secures the router before its interfaces are ever turned on. For now, PCs (and the server) on the **same switch** should be able to ping each other; cross-router pings will fail - and that is expected and intentional.
 
-**Step 1.** Place devices: 2× PC-PT (the **-PT** suffix marks Packet Tracer's generic device models), 1× Server-PT, 1× Cisco 2960 switch (LAN 1); 1× Cisco 1841 router (or 2811); 1× more PC-PT, 1× more 2960 switch (LAN 2) - six devices total, matching the diagram above. Rename each one to match (click the label under its icon, or its **Config** tab's **Display Name** field): PC0, PC1, Server0, Router0, Switch0, Switch1, PC2.
+**Step 1. Build LAN 1.** Place rows 1-4 of the device checklist (PC0, PC1, Server0, Switch0) and rename each. Cable the first three rows of the cabling table (PC0, PC1, and Server0 into Switch0). Then configure **PC0, PC1, and Server0**: click each device, open the **Desktop** tab, choose **IP Configuration**, select **Static**, and enter the IP address, subnet mask, and default gateway from the addressing table above (same procedure as Module 1, Step 16). Enter the gateway now even though the router isn't configured yet - it does nothing today, but Module 4 brings it to life.
 
-**Step 2.** Cable: PCs and the server to switches with **Copper Straight-Through**; switches to the router with **Copper Straight-Through** (switch-to-router is unlike devices). Connect **Router0's Fa0/0 to Switch0** and **Fa0/1 to Switch1** specifically - the addressing table above binds each interface to its LAN, and Module 4 builds on exactly this cabling. Packet Tracer asks which interface to use when you click each device - pick deliberately, don't accept the first option offered.
+**Step 2. Build LAN 2.** Place rows 5-6 (Switch1, PC2) and rename each. Cable the last row of the cabling table (PC2 into Switch1). Configure PC2's static IP the same way as Step 1.
 
-**Step 3.** Configure **PC0, PC1, Server0, and PC2**: click each device, open the **Desktop** tab, choose **IP Configuration**, select **Static**, and enter the IP address, subnet mask, and default gateway from the table above. Enter the gateway now even though the router isn't configured yet - it does nothing today, but Module 4 brings it to life.
+**Step 3. Join the two LANs with Router0.** Place row 7 (Router0) and rename it. Cable the two switch-to-router rows: **Switch0 Fa0/24 to Router0 Fa0/0**, and **Switch1 Fa0/24 to Router0 Fa0/1** - the addressing table above binds each router interface to its LAN, and Module 4 builds on exactly this cabling.
 
-📸 Screenshot the complete topology (all six devices labeled, cabled, and visible).
+> **Both new links show a red dot at the router end - that is expected, not a cabling mistake.** Module 1 taught you red = failed connection, but here it means something different: router interfaces are administratively shut down until you enable them in Module 4. The switch end will show green (the switch port itself is up); only the router end stays red until then.
 
-**Step 4.** Ping test: from PC0, open **Desktop → Command Prompt** and run `ping 192.168.1.20` to reach PC1.
+📸 Screenshot the complete topology (all seven devices labeled, cabled, and visible).
+
+**Step 4. Verify each LAN separately.** From PC0, open **Desktop → Command Prompt** and run `ping 192.168.1.20` to reach PC1 (same-LAN, should succeed). PC2 has no same-LAN neighbor to ping yet - its connectivity check is the cross-router Observe prompt below, which is expected to fail for now.
 
 📸 Screenshot the successful same-subnet ping.
 
@@ -238,7 +265,7 @@ PC0> arp -a
 
 | Criterion | Points |
 |-----------|--------|
-| Topology correctly built (all six devices, addressed per the table) | 20 |
+| Topology correctly built (all seven devices, addressed per the table) | 20 |
 | ARP/ICMP simulation screenshots with annotation | 20 |
 | HTTP protocol sequence correctly ordered and layered | 20 |
 | Switch vs. router layer-reading explanation | 15 |
