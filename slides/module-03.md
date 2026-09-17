@@ -113,7 +113,8 @@ instead.
 
 > Cisco IOS uses a hierarchical command structure. The **prompt** itself
 > tells you exactly where you are - it changes as you move between modes,
-> from `Router>` all the way down to `Router(config-if)#`.
+> from `Router>` all the way down to a specific mode like `Router(config-line)#`
+> (console/VTY) or `Router(config-if)#` (interfaces).
 
 ![h:340](./images/module03-ios-modes.svg)
 
@@ -135,23 +136,38 @@ config - is **lost** on reload unless it's saved first.
 
 ---
 
-# Worked Example: The Hardening Command Ladder
+# Worked Example: The Hardening Ladder (1/2)
 
 Watch the prompt itself change at every step - proof of which mode a command took effect in.
 
 ```
 Router> enable
-Router#configure terminal
-Router(config)#hostname YourName
-YourName(config)#enable secret Cisco123
-YourName(config)#line console 0
-YourName(config-line)#password Cisco123
-YourName(config-line)#login
-YourName(config-line)#end
-YourName#copy running-config startup-config
+Router# configure terminal
+Router(config)# hostname YourName
+YourName(config)# banner motd # Authorized access only. #
+YourName(config)# line console 0
+YourName(config-line)# password jarkom
+YourName(config-line)# login
+YourName(config-line)# exit
 ```
 
-Notice: the hostname change appears on the *next* prompt line - proof the command ran.
+The **MOTD** (Message of the Day) banner is the first thing anyone sees before they even log in - a legal warning, not decoration. The hostname change appears on the *next* prompt line - proof the command ran.
+
+---
+
+# Worked Example: The Hardening Ladder (2/2)
+
+```
+YourName(config)# line vty 0 4
+YourName(config-line)# password jarkom
+YourName(config-line)# login
+YourName(config-line)# exit
+YourName(config)# enable secret cisco
+YourName(config)# end
+YourName# copy running-config startup-config
+```
+
+**VTY** (Virtual TeletYpe) lines are what Telnet/SSH connect through - same password pattern as the console, but for remote access. `enable secret` goes last here; `end` returns straight to Privileged EXEC to save.
 
 ---
 
@@ -209,7 +225,7 @@ know the vocabulary of <code>show</code> commands needed to diagnose what's
 actually happening inside it when something goes wrong.
 </div>
 
-<span class="thread">Next: Module 4 addresses it - the `show` command toolkit.</span>
+<span class="thread">Next: Module 4 addresses it - the `show` command toolkit - and finally brings the router's interfaces online.</span>
 
 ---
 

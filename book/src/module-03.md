@@ -250,6 +250,8 @@ YourName# copy running-config startup-config
 3. Use `show interfaces` to find the state of each interface. What do "administratively down" and "line protocol is down" each mean? (Hint: they are different failure modes.)
 4. **Personalized subnetting drill:** Take the IP address `10.10.XX.YY/24` where XX = the last two digits of your student ID and YY = 40 + your roll number in class (e.g., student ID 2023-0042, roll number 5 → `10.10.42.45/24`). Calculate: (a) the network address, (b) the broadcast address, (c) the first and last usable host addresses, (d) total usable hosts. Then find a classmate and compare your network addresses - do your addresses fall in the same /24 network? In the same /16? At what prefix length do you first land in the *same* network?
 
+> **Looking ahead:** the router you just hardened is otherwise still dark - every interface stays administratively shut down until Module 4, which teaches the `show` command toolkit and finally brings those interfaces online.
+
 ## Deliverables
 
 1. Completed subnetting table (or cabling photo with cable tester result).
