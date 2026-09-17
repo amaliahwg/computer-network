@@ -145,6 +145,8 @@ Show your binary working for at least one row.
 
 ### Part B - IOS Mode Navigation
 
+![Schematic diagram of opening a device's CLI tab in Packet Tracer and pressing Enter to activate the console](images/pt-device-cli-tab.svg)
+
 **Step 1.** Open the topology file from Module 2 (or rebuild a single router with two PCs). Double-click the router → **CLI** tab.
 
 **Step 2.** Press **Enter** to activate the console. Observe the initial prompt:
@@ -164,6 +166,8 @@ Router(config)# end
 Router#
 ```
 
+![Schematic diagram of a Packet Tracer CLI session moving through the IOS mode hierarchy, with a ladder of all five prompt states](images/pt-mode-ladder.svg)
+
 📸 Screenshot showing all four different prompts in your CLI.
 
 > **Observe:** What is the difference in prompt symbol between User EXEC and Privileged EXEC?
@@ -179,6 +183,8 @@ Router# hostname TestRouter
 ---
 
 ### Part C - Basic Router Hardening
+
+![Schematic diagram of the full Packet Tracer CLI session for basic router hardening: hostname, MOTD banner, console password, VTY password, and enable secret](images/pt-hardening-session.svg)
 
 **Step 5.** Enter Global Configuration mode and set the hostname (use **your first name**):
 
@@ -226,6 +232,8 @@ YourName(config)# enable secret cisco
 YourName(config)# end
 YourName# show running-config
 ```
+
+![Schematic diagram of a show running-config output, highlighting the encrypted enable secret hash versus what a plaintext enable password would look like instead](images/pt-running-config-output.svg)
 
 📸 Screenshot the running-config output. Note how `enable secret` appears as an encrypted hash while a plain `enable password` (if you had set one) would appear in cleartext.
 

@@ -1,0 +1,41 @@
+<svg viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pt-clitab-title">
+<title id="pt-clitab-title">Schematic diagram of opening a device's CLI tab in Packet Tracer and pressing Enter to activate the console</title>
+<style>
+  .lbl { font-family: system-ui, -apple-system, sans-serif; fill: #1A1A1A; font-size: 13px; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .tab { font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 600; }
+  .term { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 14px; fill: #F6F8FA; }
+</style>
+
+<rect x="4" y="4" width="892" height="372" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">Router0 - Properties</text>
+
+<!-- tab row -->
+<rect x="20" y="46" width="120" height="30" rx="4" fill="#F6F8FA" stroke="#D7E1E8"/>
+<text x="80" y="66" text-anchor="middle" class="tab" style="fill:#5B6B78;">Physical</text>
+<rect x="150" y="46" width="120" height="30" rx="4" fill="#F6F8FA" stroke="#D7E1E8"/>
+<text x="210" y="66" text-anchor="middle" class="tab" style="fill:#5B6B78;">Config</text>
+<rect x="280" y="46" width="120" height="30" rx="4" fill="#00A79E"/>
+<text x="340" y="66" text-anchor="middle" class="tab" style="fill:#fff;">CLI</text>
+
+<text x="20" y="98" class="lbl-sm">Double-click a device on the canvas, then click the <tspan style="font-weight:700;fill:#0C3274;">CLI</tspan> tab.</text>
+
+<!-- before/after console panels -->
+<text x="20" y="130" class="lbl" style="font-weight:600;">Before pressing Enter</text>
+<rect x="20" y="140" width="380" height="140" rx="6" fill="#0C3274" stroke="#D7E1E8" stroke-width="1.5"/>
+<rect x="40" y="200" width="10" height="18" fill="#00A79E"/>
+
+<text x="500" y="130" class="lbl" style="font-weight:600;">After pressing Enter</text>
+<rect x="500" y="140" width="380" height="140" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+<text x="520" y="215" class="term">Router&gt;<tspan fill="#00A79E">▌</tspan></text>
+
+<!-- arrow between panels -->
+<line x1="410" y1="210" x2="490" y2="210" stroke="#5B6B78" stroke-width="2"/>
+<polygon points="490,210 480,204 480,216" fill="#5B6B78"/>
+<text x="450" y="196" text-anchor="middle" class="lbl-sm" style="font-weight:600;">press Enter</text>
+
+<text x="20" y="358" class="lbl-sm" style="font-style:italic;">*Schematic layout - not a live screenshot. Tab positions match your installed version closely but may vary slightly by release.</text>
+</svg>

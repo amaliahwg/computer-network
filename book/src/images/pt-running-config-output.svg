@@ -1,0 +1,45 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pt-runconf-title">
+<title id="pt-runconf-title">Schematic diagram of a show running-config output, highlighting the encrypted enable secret hash versus what a plaintext enable password would look like instead</title>
+<style>
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .term { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; fill: #F6F8FA; }
+  .mono { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; }
+  .panel-ghost { fill: #F6F8FA; stroke: #D7E1E8; stroke-width: 1.5; stroke-dasharray: 5 4; }
+</style>
+
+<rect x="4" y="4" width="892" height="452" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">YourName# show running-config</text>
+
+<rect x="16" y="44" width="864" height="280" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+
+<text x="30" y="66" class="term">Building configuration...</text>
+<text x="30" y="84" class="term">hostname YourName</text>
+<text x="30" y="102" class="term">!</text>
+<text x="30" y="120" class="term">enable secret 5 $1$mERr$hx5rVt7rPNoS4wqbXKX7m0</text>
+<rect x="26" y="110" width="440" height="20" rx="4" fill="none" stroke="#00A79E" stroke-width="2"/>
+<line x1="472" y1="120" x2="500" y2="120" stroke="#00A79E" stroke-width="2"/>
+<polygon points="500,120 493,116 493,124" fill="#00A79E"/>
+<text x="508" y="124" class="lbl-sm" style="fill:#E3F3F1;font-weight:700;">MD5 hash - safe if shared</text>
+
+<text x="30" y="138" class="term">!</text>
+<text x="30" y="156" class="term">banner motd ^C Authorized access only. ^C</text>
+<text x="30" y="174" class="term">!</text>
+<text x="30" y="192" class="term">line con 0</text>
+<text x="48" y="210" class="term">password jarkom</text>
+<text x="48" y="228" class="term">login</text>
+<text x="30" y="246" class="term">line vty 0 4</text>
+<text x="48" y="264" class="term">password jarkom</text>
+<text x="48" y="282" class="term">login</text>
+<text x="30" y="300" class="term">end</text>
+
+<!-- ghosted hypothetical comparison -->
+<rect x="16" y="336" width="864" height="70" rx="6" class="panel-ghost"/>
+<text x="30" y="358" class="lbl-sm" style="font-weight:600;">If you had typed <tspan class="mono" style="fill:#0C3274;">enable password cisco</tspan> instead:</text>
+<text x="30" y="380" class="mono" style="fill:#E8792A;font-weight:700;">enable password cisco</text>
+<text x="230" y="380" class="lbl-sm">- appears in PLAIN TEXT right here. Anyone who reads this file can log in.</text>
+
+<text x="16" y="444" class="lbl-sm" style="font-style:italic;">*Schematic layout - not a live screenshot. Your output will include more lines; hash value shown is illustrative.</text>
+</svg>

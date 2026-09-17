@@ -1,0 +1,31 @@
+<svg viewBox="0 0 900 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pt-harden-title">
+<title id="pt-harden-title">Schematic diagram of the full Packet Tracer CLI session for basic router hardening: hostname, MOTD banner, console password, VTY password, and enable secret</title>
+<style>
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .term { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; fill: #F6F8FA; }
+  .term-hi { fill: #00A79E; font-weight: 600; }
+</style>
+
+<rect x="4" y="4" width="892" height="322" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">Router0 - CLI (the whole Part C sequence, Steps 5-9)</text>
+
+<rect x="16" y="44" width="864" height="252" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+
+<text x="30" y="66" class="term"><tspan class="term-hi">Router#</tspan> configure terminal</text>
+<text x="30" y="84" class="term"><tspan class="term-hi">Router(config)#</tspan> hostname YourName</text>
+<text x="30" y="102" class="term"><tspan class="term-hi">YourName(config)#</tspan> banner motd # Authorized access only. #</text>
+<text x="30" y="120" class="term"><tspan class="term-hi">YourName(config)#</tspan> line console 0</text>
+<text x="30" y="138" class="term"><tspan class="term-hi">YourName(config-line)#</tspan> password jarkom</text>
+<text x="30" y="156" class="term"><tspan class="term-hi">YourName(config-line)#</tspan> login</text>
+<text x="30" y="174" class="term"><tspan class="term-hi">YourName(config-line)#</tspan> exit</text>
+<text x="30" y="192" class="term"><tspan class="term-hi">YourName(config)#</tspan> line vty 0 4</text>
+<text x="30" y="210" class="term"><tspan class="term-hi">YourName(config-line)#</tspan> password jarkom</text>
+<text x="30" y="228" class="term"><tspan class="term-hi">YourName(config-line)#</tspan> login</text>
+<text x="30" y="246" class="term"><tspan class="term-hi">YourName(config-line)#</tspan> exit</text>
+<text x="30" y="264" class="term"><tspan class="term-hi">YourName(config)#</tspan> enable secret cisco</text>
+
+<text x="16" y="316" class="lbl-sm" style="font-style:italic;">*Schematic layout - not a live screenshot. Type each line one at a time; the prompt itself confirms which mode you're in.</text>
+</svg>
