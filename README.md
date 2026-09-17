@@ -83,6 +83,11 @@ npm run build:pdf     # -> dist/slides/*.pdf
 npm run build:pptx    # -> dist/slides/*.pptx, editable in PowerPoint/Impress
 ```
 
+`build:pdf` renders each deck to PDF via marp-cli's own headless Chromium
+(`--pdf` flag) - no extra dependencies needed. Wired into
+`.github/workflows/deploy.yml`, published alongside each deck's `.html`
+under `/slides/` on the live site.
+
 `build:pptx` passes marp-cli's `--pptx-editable` flag (experimental), which
 produces a PPTX with real, editable text boxes instead of one slide image
 per page - it needs LibreOffice (`soffice`) on PATH to do the conversion.
