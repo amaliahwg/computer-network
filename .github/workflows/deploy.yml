@@ -33,6 +33,9 @@ jobs:
         with:
           node-version: 20
 
+      - name: Install Korean fonts (for PDF/PPTX export)
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends fonts-noto-cjk fonts-noto-cjk-extra
+
       - name: Build slides
         run: npx --yes @marp-team/marp-cli --input-dir slides --output "$GITHUB_WORKSPACE/_site/slides" --theme-set themes/hankyong.css --html --allow-local-files
 
