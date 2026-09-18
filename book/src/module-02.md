@@ -15,7 +15,7 @@ By the end of this lab, students are able to:
 
 ## Pre-Lab
 
-**Read before class:** Supplementary textbook, Chapter 2 (Network Models); reference module - Modul Teori Jarkom-2 (Protokol dan Model Jaringan).
+**Read before class:** Reference module 2, any Packet Tracer guide from Cisco NetAcad.
 
 **Answer before the session:**
 
@@ -259,7 +259,7 @@ PC0> arp -a
 6. Written ordered list of protocols observed in the HTTP sequence with their OSI layer, plus one sentence on why PC2's attempt at the same URL fails.
 7. Written answer: what is the difference between what a switch reads vs. what a router reads in a received packet?
 8. Part D - two `arp -a` screenshots (before and after ping) with written explanation of why the outputs differ.
-9. Your saved `.pka` file.
+9. Your saved `.pkt` file.
 
 ## Assessment Rubric
 
