@@ -175,8 +175,7 @@ The variety of models is not just for decoration. Each model mimics real-world C
 
 - **Switch (Layer 2):** reads the destination MAC, never opens the IP header
 - **Router (Layer 3):** reads the destination IP, re-wraps for the next hop
-- To put it simply: a switch connects devices to form a local network, while a router connects those local networks to each other (and to the internet).
-
+- A switch connects devices to form a local network, while a router connects those local networks (and to the internet).
 ![h:340](./images/switch-vs-router-layers.svg)
 
 ---
