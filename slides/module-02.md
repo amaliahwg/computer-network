@@ -163,14 +163,31 @@ Full name for every protocol here: next slide.
 
 ---
 
+# Types of Device
+
+The variety of models is not just for decoration. Each model mimics real-world Cisco hardware, differing in port speeds, number of interfaces, expansion slot availability, and operating system (Cisco IOS) features.
+
+---
+
 <!-- Act 3 / BUILD -->
 
 # Switch vs Router - Which Layer Do They Read?
 
 - **Switch (Layer 2):** reads the destination MAC, never opens the IP header
 - **Router (Layer 3):** reads the destination IP, re-wraps for the next hop
+- To put it simply: a switch connects devices to form a local network, while a router connects those local networks to each other (and to the internet).
 
 ![h:340](./images/switch-vs-router-layers.svg)
+
+---
+
+# Difference between Switch and Router Models
+
+- The most critical difference between switches is the OSI Layer they operate on.
+  * Switch 2960 (Layer 2 Switch): only understands MAC Addresses (Layer 2). You cannot assign IP addresses directly to its physical ports, and it cannot route traffic between different networks on its own.
+  * Switch 3560 & 3650 (Layer 3 / Multilayer Switch): A high-performance, intelligent switch. It can operate at both Layer 2 and Layer 3. This means you can convert its physical ports into routing ports (using the no switchport command). It can assign IP addresses directly to its ports and perform routing between different networks without needing an actual router.
+    
+- The primary differences among routers lie in their default port speeds, slot capacities, and internal software architecture.
 
 ---
 
