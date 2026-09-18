@@ -182,11 +182,11 @@ The variety of models is not just for decoration. Each model mimics real-world C
 
 # Difference between Switch and Router Models
 
-- The most critical difference between switches is the OSI Layer they operate on.
-  * Switch 2960 (Layer 2 Switch): only understands MAC Addresses (Layer 2). You cannot assign IP addresses directly to its physical ports, and it cannot route traffic between different networks on its own.
-  * Switch 3560 & 3650 (Layer 3 / Multilayer Switch): A high-performance, intelligent switch. It can operate at both Layer 2 and Layer 3. This means you can convert its physical ports into routing ports (using the no switchport command). It can assign IP addresses directly to its ports and perform routing between different networks without needing an actual router.
+The most critical difference between switches is the OSI Layer they operate on.
+- Switch 2960 (Layer 2 Switch): only understands MAC Addresses (Layer 2). You cannot assign IP addresses directly to its physical ports, and it cannot route traffic between different networks on its own.
+- Switch 3560 & 3650 (Layer 3 / Multilayer Switch): A high-performance, intelligent switch. It can operate at both Layer 2 and Layer 3. This means you can convert its physical ports into routing ports (using the no switchport command). It can assign IP addresses directly to its ports and perform routing between different networks without needing an actual router.
     
-- The primary differences among routers lie in their default port speeds, slot capacities, and internal software architecture.
+The primary differences among routers lie in their default port speeds, slot capacities, and internal software architecture.
 
 ---
 
