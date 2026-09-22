@@ -16,7 +16,7 @@ By the end of this lab, students are able to:
 
 ## Pre-Lab
 
-**Read before class:** Reference modules - Modul Praktikum 16 (Konfigurasi Dasar Router Cisco) and Modul Praktikum 17 (Konfigurasi Dasar Router Cisco - 2), which are included as reference materials for this course.
+**Read before class:** This module and any Packet Tracer guide from Cisco NetAcad.
 
 **Answer before the session:**
 
@@ -268,7 +268,7 @@ YourName# copy running-config startup-config
 4. Screenshot of `show running-config` with your name as hostname and encrypted enable secret visible.
 5. Screenshot of `copy running-config startup-config` confirmation.
 6. Written answer to the `reload` consequences question.
-7. Your saved `.pka` file.
+7. Your saved `.pkt` file.
 
 ## Assessment Rubric
 
