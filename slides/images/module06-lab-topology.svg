@@ -1,0 +1,71 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t">
+<title id="t">Guided lab topology: three routers in a triangle with a switch inside one WAN link, and one LAN with a PC behind each router</title>
+<style>
+  .lt { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .w { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 14px; font-weight: 700; }
+  .port { font-family: "SFMono-Regular", Consolas, Menlo, monospace; fill: #0C3274; font-size: 12px; font-weight: 600; }
+  .sub { font-family: system-ui, -apple-system, sans-serif; fill: #145DA0; font-size: 13px; font-weight: 700; }
+  .ip { font-family: "SFMono-Regular", Consolas, Menlo, monospace; fill: #1A1A1A; font-size: 12px; }
+  .sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+</style>
+<rect x="4" y="4" width="892" height="592" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lt">Guided lab topology - routed triangle R0, R1, R2</text>
+<line x1="150" y1="330" x2="300" y2="210" stroke="#145DA0" stroke-width="3"/>
+<line x1="300" y1="210" x2="450" y2="90" stroke="#145DA0" stroke-width="3"/>
+<line x1="450" y1="90" x2="750" y2="330" stroke="#00A79E" stroke-width="3" stroke-dasharray="9 5"/>
+<line x1="150" y1="330" x2="750" y2="330" stroke="#00A79E" stroke-width="3" stroke-dasharray="9 5"/>
+<line x1="150" y1="330" x2="150" y2="440" stroke="#145DA0" stroke-width="3"/>
+<line x1="150" y1="440" x2="150" y2="520" stroke="#145DA0" stroke-width="3"/>
+<line x1="750" y1="330" x2="750" y2="440" stroke="#145DA0" stroke-width="3"/>
+<line x1="750" y1="440" x2="750" y2="520" stroke="#145DA0" stroke-width="3"/>
+<line x1="450" y1="90" x2="450" y2="170" stroke="#145DA0" stroke-width="3"/>
+<line x1="450" y1="170" x2="450" y2="245" stroke="#145DA0" stroke-width="3"/>
+<rect x="100.0" y="308.0" width="100" height="44" rx="6" fill="#0C3274"/>
+<text x="150" y="335" text-anchor="middle" class="w">R0</text>
+<rect x="400.0" y="68.0" width="100" height="44" rx="6" fill="#0C3274"/>
+<text x="450" y="95" text-anchor="middle" class="w">R1</text>
+<rect x="700.0" y="308.0" width="100" height="44" rx="6" fill="#0C3274"/>
+<text x="750" y="335" text-anchor="middle" class="w">R2</text>
+<rect x="258.0" y="195.0" width="84" height="30" rx="6" fill="#5B6B78"/>
+<text x="300" y="215" text-anchor="middle" class="w">SW-WAN</text>
+<rect x="120.0" y="426.0" width="60" height="28" rx="6" fill="#5B6B78"/>
+<text x="150" y="445" text-anchor="middle" class="w">SW0</text>
+<rect x="420.0" y="156.0" width="60" height="28" rx="6" fill="#5B6B78"/>
+<text x="450" y="175" text-anchor="middle" class="w">SW1</text>
+<rect x="720.0" y="426.0" width="60" height="28" rx="6" fill="#5B6B78"/>
+<text x="750" y="445" text-anchor="middle" class="w">SW2</text>
+<rect x="115.0" y="504.0" width="70" height="32" rx="6" fill="#00A79E"/>
+<text x="150" y="525" text-anchor="middle" class="w">PC0</text>
+<rect x="415.0" y="229.0" width="70" height="32" rx="6" fill="#00A79E"/>
+<text x="450" y="250" text-anchor="middle" class="w">PC1</text>
+<rect x="715.0" y="504.0" width="70" height="32" rx="6" fill="#00A79E"/>
+<text x="750" y="525" text-anchor="middle" class="w">PC2</text>
+<text x="200" y="292" text-anchor="start" class="port">R0 Gi0/1</text>
+<text x="300" y="246" text-anchor="end" class="port">Fa0/1</text>
+<text x="268" y="178" text-anchor="end" class="port">Fa0/2</text>
+<text x="395" y="110" text-anchor="end" class="port">R1 Gi0/1</text>
+<text x="530" y="112" text-anchor="start" class="port">R1 Gi0/2</text>
+<text x="700" y="300" text-anchor="end" class="port">R2 Gi0/1</text>
+<text x="205" y="322" text-anchor="start" class="port">R0 Gi0/2</text>
+<text x="695" y="322" text-anchor="end" class="port">R2 Gi0/2</text>
+<text x="158" y="376" text-anchor="start" class="port">R0 Gi0/0</text>
+<text x="158" y="424" text-anchor="start" class="port">Fa0/24</text>
+<text x="758" y="376" text-anchor="start" class="port">R2 Gi0/0</text>
+<text x="758" y="424" text-anchor="start" class="port">Fa0/24</text>
+<text x="458" y="128" text-anchor="start" class="port">R1 Gi0/0</text>
+<text x="458" y="160" text-anchor="start" class="port">Fa0/24</text>
+<text x="215" y="262" text-anchor="end" class="sub">10.0.1.0/30</text>
+<text x="595" y="190" text-anchor="start" class="sub">10.0.2.0/30</text>
+<text x="450" y="352" text-anchor="middle" class="sub">10.0.3.0/30</text>
+<text x="215" y="448" text-anchor="start" class="sub">LAN 1  192.168.1.0/24</text>
+<text x="690" y="448" text-anchor="end" class="sub">LAN 2  192.168.2.0/24</text>
+<text x="450" y="303" text-anchor="middle" class="sub">LAN 3  192.168.3.0/24</text>
+<text x="150" y="562" text-anchor="middle" class="ip">192.168.1.10  gw .1</text>
+<text x="750" y="562" text-anchor="middle" class="ip">192.168.2.10  gw .1</text>
+<text x="450" y="288" text-anchor="middle" class="ip">192.168.3.10  gw .1</text>
+<line x1="680" y1="64" x2="730" y2="64" stroke="#145DA0" stroke-width="3"/><text x="738" y="68" text-anchor="start" class="sm">Straight-Through</text>
+<line x1="680" y1="84" x2="730" y2="84" stroke="#00A79E" stroke-width="3" stroke-dasharray="9 5"/><text x="738" y="88" text-anchor="start" class="sm">Copper Cross-Over</text>
+<text x="20" y="584" text-anchor="start" class="sm">*Schematic layout - not a live screenshot. Router-to-router links are Cross-Over; all other links are Straight-Through.</text>
+</svg>

@@ -91,7 +91,8 @@ Instagram, WhatsApp, and Oculus worldwide for six hours.
 1. Explain the difference between distance-vector and link-state routing
 2. Configure RIPv2 on multiple routers and verify route propagation
 3. Configure EIGRP and compare its convergence speed to RIP
-4. Simulate a link failure and observe automatic reconvergence
+4. Verify with `show ip protocols`, `show ip rip database`, `show ip eigrp neighbors`, and read each route's AD and metric
+5. Simulate a link failure in a redundant network and observe reconvergence
 
 ---
 
@@ -116,16 +117,38 @@ DUAL algorithm to converge far faster while staying easy to configure.
 > learn the network gradually, hop by hop, without ever seeing the full
 > topology.
 
-| Property | RIP | EIGRP |
-|----------|-----|-------|
-| Metric | Hop count | Composite (BW, delay, reliability) |
-| Max hops | 15 | 255 |
-| Updates | Periodic, 30s | Triggered |
-| Convergence | Slow | Fast |
+A **link-state** protocol instead floods each router's own links to everyone,
+so every router builds the same full map and computes paths itself.
+
+| Property | RIP | EIGRP | Link-state (OSPF) |
+|----------|-----|-------|------|
+| Shares | Routes, by rumor | Routes, by rumor | Own links, to all |
+| Metric | Hop count | Composite (BW, delay) | Cost |
+| Updates | Periodic, 30s | Triggered + hellos | Triggered |
+| Convergence | Slow | Fast | Fast |
+
+*OSPF is Module 11.*
 
 ---
 
 <!-- Act 3 / BUILD -->
+
+# Administrative Distance and Reading a Route
+
+When two sources offer the same network, the lowest **administrative distance (AD)** wins, before any metric is compared.
+
+| Connected | Static | EIGRP | OSPF | RIP |
+|-----------|--------|-------|------|-----|
+| 0 | 1 | 90 | 110 | 120 |
+
+```
+R  192.168.3.0/24 [120/1] via 10.0.1.2
+D  192.168.3.0/24 [90/3072] via 10.0.1.2
+```
+
+`[AD/metric]`: RIP is `[120/1]` (1 hop); EIGRP is `[90/3072]`.
+
+---
 
 # Configuration Patterns
 
@@ -148,28 +171,28 @@ router eigrp <AS-number>
 
 # Why EIGRP Converges Faster
 
-EIGRP's **DUAL algorithm** (Diffusing Update Algorithm) pre-computes
-**feasible successors** - backup routes that are loop-free and ready
-before a failure happens. RIP has no such backup - it waits for the next
-periodic update (up to 30s) to detect a dead route.
+EIGRP's **DUAL algorithm** pre-computes **feasible successors** - loop-free
+backup routes ready before a failure. RIP notices a silent failure only after
+180 s of missed updates; EIGRP after about 15 s of missed hellos.
 
-![h:300](./images/module06-eigrp-paths.svg)
-
----
-
-# RIP Convergence: Watching Routes Propagate Hop by Hop
-
-At `t0`, each router knows only its own directly connected networks. Each
-periodic update lets a router learn one more hop's worth of routes from
-its neighbors. R1 sits between R0 and R2, so it hears from both sides at
-`t1` and is already done; R0 and R2 each need a second round before they
-learn about the network on the *far* side of R1.
+![h:330](./images/module06-eigrp-paths.svg)
 
 ---
 
-# RIP Convergence, Visualized
+# RIP: One Round to Learn, Minutes to Notice a Silent Failure
 
-![h:450](./images/module06-distance-vector-propagation.svg)
+![h:460](./images/module06-distance-vector-propagation.svg)
+
+---
+
+# Verifying Dynamic Routing
+
+| Command | What it shows |
+|---------|---------------|
+| `show ip route` | Installed routes with `[AD/metric]`, next hop, age |
+| `show ip protocols` | Which protocol runs, networks, timers, sources, AD |
+| `show ip rip database` | Every RIP route: connected or learned via a neighbor |
+| `show ip eigrp neighbors` | Adjacent routers, hold timer, uptime |
 
 ---
 
@@ -177,11 +200,9 @@ learn about the network on the *far* side of R1.
 
 # Guided Lab at a Glance
 
-**Part A** - three-router topology, configure RIPv2, verify `R` entries and connectivity
+![h:430](./images/module06-lab-topology.svg)
 
-**Part B** - verify with `show ip protocols`; simulate a link failure, time RIP's reconvergence
-
-**Part C** - replace RIP with EIGRP (matching AS number); compare `D` entries and reconvergence time
+**A:** RIPv2. **B:** break the R0-R1 path, watch RIP. **C:** EIGRP, same failure.
 
 ---
 
@@ -191,6 +212,8 @@ learn about the network on the *far* side of R1.
 
 - **Forgetting `no auto-summary`:** without it, RIP/EIGRP summarize at
   classful boundaries, breaking routing across discontiguous subnets
+- **Copying one router's `network` lines to the others:** each router
+  must advertise its own networks, not R0's
 - **Mismatched EIGRP AS numbers:** routers with different AS numbers never
   form a neighbor relationship - no error, just silence
 
@@ -202,6 +225,7 @@ learn about the network on the *far* side of R1.
 
 1. What metric does RIP use to determine the best path? What metric does EIGRP use?
 2. What is "convergence" in a dynamic routing context?
+3. A router learns the same network from RIP and from EIGRP. Which route is installed, and why?
 
 ---
 
@@ -209,6 +233,7 @@ learn about the network on the *far* side of R1.
 
 1. RIP uses hop count; EIGRP uses a composite metric based on bandwidth, delay, and reliability
 2. The process by which all routers in a network reach a consistent, up-to-date view of reachable routes after a topology change
+3. The EIGRP route: its AD (90) is lower than RIP's (120), and AD is compared before the metric
 
 ---
 

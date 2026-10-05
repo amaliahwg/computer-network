@@ -1,0 +1,52 @@
+<svg viewBox="0 0 900 756" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t">
+<title id="t">Schematic of ping results in the PC Command Prompt: failure before routing, success after routing, and timeouts during a black hole</title>
+<style>
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .term { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; fill: #F6F8FA; white-space: pre; }
+  .term-hi { fill: #00A79E; font-weight: 600; }
+  .term-new { fill: #FFC27A; }
+  .cap { font-family: system-ui, -apple-system, sans-serif; fill: #FFC27A; font-size: 12px; font-weight: 600; }
+</style>
+<rect x="4" y="4" width="892" height="748" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">PC0 - Desktop - Command Prompt</text>
+<rect x="16" y="44" width="868" height="216" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+<text x="30" y="66" class="term" xml:space="preserve"><tspan class="term-hi">C:\&gt;</tspan> ping 192.168.3.10</text>
+<text x="30" y="84" class="term" xml:space="preserve"></text>
+<text x="30" y="102" class="term" xml:space="preserve">Pinging 192.168.3.10 with 32 bytes of data:</text>
+<text x="30" y="120" class="term" xml:space="preserve"></text>
+<text x="30" y="138" class="term" xml:space="preserve">Request timed out.</text>
+<text x="30" y="156" class="term" xml:space="preserve">Reply from 192.168.1.1: Destination host unreachable.</text>
+<text x="30" y="174" class="term" xml:space="preserve">Reply from 192.168.1.1: Destination host unreachable.</text>
+<text x="30" y="192" class="term" xml:space="preserve">Reply from 192.168.1.1: Destination host unreachable.</text>
+<text x="30" y="210" class="term" xml:space="preserve"></text>
+<text x="30" y="228" class="term" xml:space="preserve">Ping statistics for 192.168.3.10:</text>
+<text x="30" y="246" class="term" xml:space="preserve">    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss)</text>
+<rect x="16" y="270" width="868" height="216" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+<text x="30" y="292" class="term" xml:space="preserve"><tspan class="term-hi">C:\&gt;</tspan> ping 192.168.3.10</text>
+<text x="30" y="310" class="term" xml:space="preserve"></text>
+<text x="30" y="328" class="term" xml:space="preserve">Pinging 192.168.3.10 with 32 bytes of data:</text>
+<text x="30" y="346" class="term" xml:space="preserve"></text>
+<text x="30" y="364" class="term" xml:space="preserve">Reply from 192.168.3.10: bytes=32 time&lt;1ms TTL=126</text>
+<text x="30" y="382" class="term" xml:space="preserve">Reply from 192.168.3.10: bytes=32 time&lt;1ms TTL=126</text>
+<text x="30" y="400" class="term" xml:space="preserve">Reply from 192.168.3.10: bytes=32 time&lt;1ms TTL=126</text>
+<text x="30" y="418" class="term" xml:space="preserve">Reply from 192.168.3.10: bytes=32 time&lt;1ms TTL=126</text>
+<text x="30" y="436" class="term" xml:space="preserve"></text>
+<text x="30" y="454" class="term" xml:space="preserve">Ping statistics for 192.168.3.10:</text>
+<text x="30" y="472" class="term" xml:space="preserve">    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)</text>
+<rect x="16" y="496" width="868" height="216" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+<text x="30" y="518" class="term" xml:space="preserve"><tspan class="term-hi">C:\&gt;</tspan> ping 192.168.3.10</text>
+<text x="30" y="536" class="term" xml:space="preserve"></text>
+<text x="30" y="554" class="term" xml:space="preserve">Pinging 192.168.3.10 with 32 bytes of data:</text>
+<text x="30" y="572" class="term" xml:space="preserve"></text>
+<text x="30" y="590" class="term" xml:space="preserve">Request timed out.</text>
+<text x="30" y="608" class="term" xml:space="preserve">Request timed out.</text>
+<text x="30" y="626" class="term" xml:space="preserve">Request timed out.</text>
+<text x="30" y="644" class="term" xml:space="preserve">Request timed out.</text>
+<text x="30" y="662" class="term" xml:space="preserve"></text>
+<text x="30" y="680" class="term" xml:space="preserve">Ping statistics for 192.168.3.10:</text>
+<text x="30" y="698" class="term" xml:space="preserve">    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss)</text>
+<text x="16" y="736" class="lbl-sm" style="font-style:italic;">*Schematic layout - not a live screenshot. Top: before RIP. Middle: after RIP. Bottom: black hole during the failure.</text>
+</svg>
