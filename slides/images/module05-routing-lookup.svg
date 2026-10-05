@@ -36,7 +36,7 @@
 <rect x="90" y="156" width="740" height="56" rx="6" fill="#FAFBFC" stroke="#D7E1E8"/>
 <text x="100" y="190" class="lbl-sm mono" style="font-weight:600;">S</text>
 <text x="180" y="190" class="lbl-sm mono">192.168.0.0</text>
-<text x="430" y="190" class="lbl-sm mono">via 10.0.0.2</text>
+<text x="430" y="190" class="lbl-sm mono">via 203.0.113.2</text>
 <text x="600" y="190" class="lbl-sm mono">/16</text>
 <text x="700" y="184" class="lbl-sm">matches -</text>
 <text x="700" y="200" class="lbl-sm">but shorter prefix</text>

@@ -1,0 +1,40 @@
+<svg viewBox="0 0 900 550" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="m5pr-title">
+<title id="m5pr-title">PC0 Command Prompt output for a failed and a successful cross-site ping</title>
+<style>
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .cap { font-family: system-ui, -apple-system, sans-serif; fill: #0C3274; font-size: 13px; font-weight: 600; }
+  .term { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; fill: #F6F8FA; }
+  .term-hi { fill: #00A79E; font-weight: 600; }
+  .term-dim { fill: #B8C4CC; }
+  .term-bad { fill: #FF9E9E; }
+  .term-ok { fill: #7FE0C3; }
+</style>
+<rect x="4" y="4" width="892" height="542" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">PC0 - Desktop - Command Prompt</text>
+<circle cx="850" cy="20" r="5" fill="#00A79E"/>
+<circle cx="868" cy="20" r="5" fill="#E3F3F1"/>
+<text x="16" y="62" class="cap">Failed ping (Part A, no static routes yet) - R0 answers for itself</text>
+<rect x="16" y="72" width="868" height="191" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+<text xml:space="preserve" x="30" y="94" class="term">C:\&gt; ping 192.168.2.10</text>
+<text xml:space="preserve" x="30" y="121" class="term">Pinging 192.168.2.10 with 32 bytes of data:</text>
+<text xml:space="preserve" x="30" y="148" class="term term-bad">Reply from 192.168.1.1: Destination host unreachable.</text>
+<text xml:space="preserve" x="30" y="166" class="term term-bad">Reply from 192.168.1.1: Destination host unreachable.</text>
+<text xml:space="preserve" x="30" y="184" class="term term-bad">Reply from 192.168.1.1: Destination host unreachable.</text>
+<text xml:space="preserve" x="30" y="202" class="term term-bad">Reply from 192.168.1.1: Destination host unreachable.</text>
+<text xml:space="preserve" x="30" y="229" class="term">Ping statistics for 192.168.2.10:</text>
+<text xml:space="preserve" x="30" y="247" class="term">    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss)</text>
+<text x="16" y="293" class="cap">Successful ping (Part B) - first echo times out while ARP resolves, like the .!!!! pattern on a router</text>
+<rect x="16" y="303" width="868" height="191" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+<text xml:space="preserve" x="30" y="325" class="term">C:\&gt; ping 192.168.2.10</text>
+<text xml:space="preserve" x="30" y="352" class="term">Pinging 192.168.2.10 with 32 bytes of data:</text>
+<text xml:space="preserve" x="30" y="379" class="term term-bad">Request timed out.</text>
+<text xml:space="preserve" x="30" y="397" class="term term-ok">Reply from 192.168.2.10: bytes=32 time&lt;1ms TTL=126</text>
+<text xml:space="preserve" x="30" y="415" class="term term-ok">Reply from 192.168.2.10: bytes=32 time&lt;1ms TTL=126</text>
+<text xml:space="preserve" x="30" y="433" class="term term-ok">Reply from 192.168.2.10: bytes=32 time&lt;1ms TTL=126</text>
+<text xml:space="preserve" x="30" y="460" class="term">Ping statistics for 192.168.2.10:</text>
+<text xml:space="preserve" x="30" y="478" class="term">    Packets: Sent = 4, Received = 3, Lost = 1 (25% loss)</text>
+<text x="16" y="524" class="lbl-sm" style="font-style:italic;">*Schematic layout - not a live screenshot. A second run succeeds on all four echoes (ARP caches filled). TTL 126 = 128 minus two routers.</text>
+</svg>

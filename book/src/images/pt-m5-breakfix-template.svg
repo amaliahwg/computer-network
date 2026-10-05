@@ -1,0 +1,39 @@
+<svg viewBox="0 0 900 526" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="m5bf-title">
+<title id="m5bf-title">Break-and-fix diagnostic template: failed ping, route table, fix, successful ping</title>
+<style>
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .cap { font-family: system-ui, -apple-system, sans-serif; fill: #0C3274; font-size: 13px; font-weight: 600; }
+  .term { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; fill: #F6F8FA; }
+  .term-hi { fill: #00A79E; font-weight: 600; }
+  .term-dim { fill: #B8C4CC; }
+  .term-bad { fill: #FF9E9E; }
+  .term-ok { fill: #7FE0C3; }
+</style>
+<rect x="4" y="4" width="892" height="518" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">Break and fix - diagnostic log template (fault: R1 has no return route)</text>
+<circle cx="850" cy="20" r="5" fill="#00A79E"/>
+<circle cx="868" cy="20" r="5" fill="#E3F3F1"/>
+<text x="16" y="62" class="cap">1. Symptom - from PC0</text>
+<rect x="16" y="72" width="868" height="56" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+<text xml:space="preserve" x="30" y="94" class="term">C:\&gt; ping 192.168.2.10</text>
+<text xml:space="preserve" x="30" y="112" class="term term-bad">Request timed out.   (all four echoes)</text>
+<text x="16" y="158" class="cap">2. Inspect the router nearest the destination - R1</text>
+<rect x="16" y="168" width="868" height="92" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+<text xml:space="preserve" x="30" y="190" class="term"><tspan class="term-hi">R1#</tspan> show ip route</text>
+<text xml:space="preserve" x="30" y="208" class="term"><tspan class="term-hi">C</tspan>        192.168.2.0/24 is directly connected, GigabitEthernet0/0</text>
+<text xml:space="preserve" x="30" y="226" class="term"><tspan class="term-hi">C</tspan>        10.0.0.0/30 is directly connected, GigabitEthernet0/1</text>
+<text xml:space="preserve" x="30" y="244" class="term term-bad">(no S entry for 192.168.1.0/24: replies have no path back)</text>
+<text x="16" y="290" class="cap">3. Fix</text>
+<rect x="16" y="300" width="868" height="74" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+<text xml:space="preserve" x="30" y="322" class="term"><tspan class="term-hi">R1#</tspan> configure terminal</text>
+<text xml:space="preserve" x="30" y="340" class="term"><tspan class="term-hi">R1(config)#</tspan> ip route 192.168.1.0 255.255.255.0 10.0.0.1</text>
+<text xml:space="preserve" x="30" y="358" class="term"><tspan class="term-hi">R1(config)#</tspan> end</text>
+<text x="16" y="404" class="cap">4. Verify - from PC0</text>
+<rect x="16" y="414" width="868" height="56" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+<text xml:space="preserve" x="30" y="436" class="term">C:\&gt; ping 192.168.2.10</text>
+<text xml:space="preserve" x="30" y="454" class="term term-ok">Reply from 192.168.2.10: bytes=32 time&lt;1ms TTL=126</text>
+<text x="16" y="500" class="lbl-sm" style="font-style:italic;">*Schematic layout - not a live screenshot. Your fault will differ; keep this four-part order: symptom, inspection, fix, proof.</text>
+</svg>

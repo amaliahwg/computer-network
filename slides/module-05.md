@@ -87,10 +87,11 @@ physically connected - the router just doesn't know to use it.
 
 # By the End of This Module, You Can
 
-1. Explain how a router makes a forwarding decision using its routing table
+1. Explain how a router makes a forwarding decision: longest prefix match and administrative distance
 2. Configure static routes: next-hop IP syntax and exit-interface syntax
 3. Configure a default route (gateway of last resort)
-4. Diagnose and fix broken inter-network connectivity
+4. Read a routing table: connected, local, and static entries
+5. Diagnose and fix broken inter-network connectivity
 
 ---
 
@@ -120,6 +121,9 @@ ip route <network> <mask> <next-hop-IP>
 ip route 0.0.0.0 0.0.0.0 <next-hop-IP>   (default route)
 ```
 
+When several entries match, the **longest prefix** wins: it is the most
+specific description of where the packet is going.
+
 ---
 
 <!-- Act 3 / BUILD -->
@@ -130,7 +134,7 @@ Seoul (LAN A) and Busan (LAN B) each have a working local network. The WAN
 link between R0 and R1 is physically up - but neither router yet has a
 route telling it the *other* site's LAN exists.
 
-![h:330](./images/module05-two-site-topology.svg)
+![h:350](./images/module05-two-site-topology.svg)
 
 ---
 
@@ -146,13 +150,31 @@ route telling it the *other* site's LAN exists.
 ```
 R0# show ip route
 Gateway of last resort is 203.0.113.2 to network 0.0.0.0
-C    192.168.1.0/24 is directly connected, FastEthernet0/0
-L    192.168.1.1/32 is directly connected, FastEthernet0/0
+C    192.168.1.0/24 is directly connected, GigabitEthernet0/0
+L    192.168.1.1/32 is directly connected, GigabitEthernet0/0
 S    192.168.2.0/24 [1/0] via 10.0.0.2
 S*   0.0.0.0/0 [1/0] via 203.0.113.2
 ```
 
 `C`/`L` are automatic; `S`/`S*` are the two static routes just added.
+
+---
+
+# Administrative Distance: Which Source to Trust
+
+When two sources offer a route to the **same prefix**, the router installs
+the one with the lower **administrative distance (AD)**.
+
+| Route source | Default AD |
+|---|---|
+| Connected | 0 |
+| Static | 1 |
+| EIGRP | 90 |
+| OSPF | 110 |
+| RIP | 120 |
+
+`[1/0]` in a route line is `[AD/metric]`. A **floating static route** uses a
+higher AD so it stays hidden until needed.
 
 ---
 
@@ -169,15 +191,6 @@ need a route to the other's LAN.
 
 ---
 
-# Longest Prefix Match: Why the Most Specific Route Wins
-
-When more than one routing-table entry matches a destination, the router
-does not use the first one it finds - it compares every matching entry's
-**prefix length** and forwards using the longest one, because it is the
-most specific description of where the packet is actually going.
-
----
-
 # Longest Prefix Match, Visualized
 
 ![h:450](./images/module05-routing-lookup.svg)
@@ -187,7 +200,8 @@ most specific description of where the packet is actually going.
 # Worked Example: Packet to 192.168.2.10 - Which Entry Matches?
 
 Suppose R0's table also carried a broader static summary,
-`192.168.0.0/16`, alongside the real LAN B route and the default route:
+`192.168.0.0/16` (via the ISP router, `203.0.113.2`), alongside the real
+LAN B route and the default route:
 
 1. `192.168.0.0/16` matches (192.168.2.10 falls inside it) - but it is only a `/16`
 2. `192.168.2.0/24` also matches - and it is a `/24`, more specific
@@ -205,9 +219,9 @@ more specific match.
 
 **Part A** - build a two-site topology, observe the failed cross-site ping
 
-**Part B** - add static routes on both routers, verify, test successful ping
+**Part B** - add static routes on both routers, verify, test successful ping, try exit-interface syntax
 
-**Part C** - add an ISP-gateway router, configure a default route (`S*`)
+**Part C** - add an ISP-gateway router, configure a default route (`S*`), and watch longest prefix match pick the `/24` over a `/16`
 
 **Part D** - break-and-fix: diagnose an injected fault using only `show ip route` and `ping`
 
@@ -230,8 +244,9 @@ more specific match.
 
 # Check Yourself
 
-1. What is the difference between `ip route 192.168.2.0 255.255.255.0 10.0.0.2` and `ip route 192.168.2.0 255.255.255.0 Serial0/0`?
+1. What is the difference between `ip route 192.168.2.0 255.255.255.0 10.0.0.2` and `ip route 192.168.2.0 255.255.255.0 GigabitEthernet0/1`?
 2. What is a default route, and when is it used?
+3. A static route and a RIP route reach the same network. Which is installed, and what number decides it?
 
 ---
 
@@ -239,6 +254,7 @@ more specific match.
 
 1. The first specifies a next-hop IP (router still ARPs to find the MAC); the second specifies an exit interface directly
 2. A route matching `0.0.0.0/0`, used when no more specific route matches - the "gateway of last resort"
+3. The static route: administrative distance 1 beats RIP's 120 (lower is more trusted)
 
 ---
 

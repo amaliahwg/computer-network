@@ -1,4 +1,4 @@
-<svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pt-cli-title">
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pt-cli-title">
 <title id="pt-cli-title">Schematic diagram of the Packet Tracer router CLI console and IOS prompt-mode ladder</title>
 <style>
   .lbl { font-family: system-ui, -apple-system, sans-serif; fill: #1A1A1A; }
@@ -11,7 +11,7 @@
 </style>
 
 <!-- window frame -->
-<rect x="4" y="4" width="892" height="512" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="592" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
 
 <!-- title bar -->
 <rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
@@ -21,40 +21,44 @@
 <circle cx="868" cy="20" r="5" fill="#E3F3F1"/>
 
 <!-- terminal panel -->
-<rect x="16" y="44" width="864" height="248" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+<rect x="16" y="44" width="864" height="326" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
 
-<text x="30" y="66" class="term"><tspan class="term-hi">Router&gt;</tspan> enable</text>
-<text x="30" y="84" class="term"><tspan class="term-hi">Router#</tspan> configure terminal</text>
-<text x="30" y="102" class="term"><tspan class="term-hi">Router(config)#</tspan> interface FastEthernet0/0</text>
-<text x="30" y="120" class="term"><tspan class="term-hi">Router(config-if)#</tspan> ip address 192.168.1.1 255.255.255.0</text>
-<text x="30" y="138" class="term"><tspan class="term-hi">Router(config-if)#</tspan> no shutdown</text>
-<text x="30" y="156" class="term"><tspan class="term-hi">Router(config-if)#</tspan> end</text>
-<text x="30" y="174" class="term"><tspan class="term-hi">Router#</tspan> show ip route</text>
-<text x="30" y="196" class="term" style="fill:#B8C4CC;">Codes: <tspan class="term-hi">C</tspan> - connected, <tspan class="term-hi">L</tspan> - local, <tspan class="term-hi">S</tspan> - static, <tspan class="term-hi">S*</tspan> - candidate default</text>
-<text x="30" y="220" class="term"><tspan class="term-hi">C</tspan>    192.168.1.0/24 is directly connected, FastEthernet0/0</text>
-<text x="30" y="238" class="term"><tspan class="term-hi">L</tspan>    192.168.1.1/32 is directly connected, FastEthernet0/0</text>
-<text x="30" y="256" class="term"><tspan class="term-hi">S</tspan>    192.168.2.0/24 [1/0] via 10.0.0.2</text>
-<text x="30" y="274" class="term"><tspan class="term-hi">S*</tspan>   0.0.0.0/0 [1/0] via 203.0.113.2</text>
+<text xml:space="preserve" x="30" y="66" class="term"><tspan class="term-hi">Router&gt;</tspan> enable</text>
+<text xml:space="preserve" x="30" y="84" class="term"><tspan class="term-hi">Router#</tspan> configure terminal</text>
+<text xml:space="preserve" x="30" y="102" class="term"><tspan class="term-hi">Router(config)#</tspan> hostname R0</text>
+<text xml:space="preserve" x="30" y="120" class="term"><tspan class="term-hi">R0(config)#</tspan> interface GigabitEthernet0/0</text>
+<text xml:space="preserve" x="30" y="138" class="term"><tspan class="term-hi">R0(config-if)#</tspan> ip address 192.168.1.1 255.255.255.0</text>
+<text xml:space="preserve" x="30" y="156" class="term"><tspan class="term-hi">R0(config-if)#</tspan> no shutdown</text>
+<text xml:space="preserve" x="30" y="174" class="term"><tspan class="term-hi">R0(config-if)#</tspan> exit</text>
+<text xml:space="preserve" x="30" y="192" class="term"><tspan class="term-hi">R0(config)#</tspan> ip route 192.168.2.0 255.255.255.0 10.0.0.2</text>
+<text xml:space="preserve" x="30" y="210" class="term"><tspan class="term-hi">R0(config)#</tspan> ip route 0.0.0.0 0.0.0.0 203.0.113.2</text>
+<text xml:space="preserve" x="30" y="228" class="term"><tspan class="term-hi">R0(config)#</tspan> end</text>
+<text xml:space="preserve" x="30" y="246" class="term"><tspan class="term-hi">R0#</tspan> show ip route</text>
+<text xml:space="preserve" x="30" y="268" class="term" style="fill:#B8C4CC;">Gateway of last resort is 203.0.113.2 to network 0.0.0.0</text>
+<text xml:space="preserve" x="30" y="286" class="term"><tspan class="term-hi">C</tspan>    192.168.1.0/24 is directly connected, GigabitEthernet0/0</text>
+<text xml:space="preserve" x="30" y="304" class="term"><tspan class="term-hi">L</tspan>    192.168.1.1/32 is directly connected, GigabitEthernet0/0</text>
+<text xml:space="preserve" x="30" y="322" class="term"><tspan class="term-hi">S</tspan>    192.168.2.0/24 [1/0] via 10.0.0.2</text>
+<text xml:space="preserve" x="30" y="340" class="term"><tspan class="term-hi">S*</tspan>   0.0.0.0/0 [1/0] via 203.0.113.2</text>
 
 <!-- prompt-mode ladder -->
-<rect x="16" y="308" width="864" height="152" rx="6" class="panel"/>
-<text x="30" y="330" class="lbl" style="font-size:13px;font-weight:600;">IOS PROMPT-MODE LADDER</text>
+<rect x="16" y="388" width="864" height="152" rx="6" class="panel"/>
+<text x="30" y="410" class="lbl" style="font-size:13px;font-weight:600;">IOS PROMPT-MODE LADDER</text>
 
-<rect x="30" y="342" width="4" height="18" fill="#00A79E"/>
-<text x="46" y="356" class="mono">Router&gt;</text>
-<text x="180" y="356" class="lbl-sm">User EXEC - view-only, limited commands</text>
+<rect x="30" y="422" width="4" height="18" fill="#00A79E"/>
+<text x="46" y="436" class="mono">Router&gt;</text>
+<text x="180" y="436" class="lbl-sm">User EXEC - view-only, limited commands</text>
 
-<rect x="30" y="368" width="4" height="18" fill="#00A79E"/>
-<text x="46" y="382" class="mono">Router#</text>
-<text x="180" y="382" class="lbl-sm">Privileged EXEC - full show/debug access, no config changes yet</text>
+<rect x="30" y="448" width="4" height="18" fill="#00A79E"/>
+<text x="46" y="462" class="mono">Router#</text>
+<text x="180" y="462" class="lbl-sm">Privileged EXEC - full show/debug access, no config changes yet</text>
 
-<rect x="30" y="394" width="4" height="18" fill="#00A79E"/>
-<text x="46" y="408" class="mono">Router(config)#</text>
-<text x="260" y="408" class="lbl-sm">Global Configuration - system-wide settings</text>
+<rect x="30" y="474" width="4" height="18" fill="#00A79E"/>
+<text x="46" y="488" class="mono">Router(config)#</text>
+<text x="260" y="488" class="lbl-sm">Global Configuration - system-wide settings</text>
 
-<rect x="30" y="420" width="4" height="18" fill="#00A79E"/>
-<text x="46" y="434" class="mono">Router(config-if)#</text>
-<text x="280" y="434" class="lbl-sm">Interface Configuration - one interface's IP / shutdown state</text>
+<rect x="30" y="500" width="4" height="18" fill="#00A79E"/>
+<text x="46" y="514" class="mono">Router(config-if)#</text>
+<text x="280" y="514" class="lbl-sm">Interface Configuration - one interface's IP / shutdown state</text>
 
-<text x="16" y="502" class="lbl-sm" style="font-style:italic;">*Schematic layout - not a live screenshot. Command output is a representative example; your addressing will differ.</text>
+<text x="16" y="582" class="lbl-sm" style="font-style:italic;">*Schematic layout - not a live screenshot. Command output is a representative example; your addressing will differ.</text>
 </svg>
