@@ -116,7 +116,11 @@ instead.
 > from `Router>` all the way down to a specific mode like `Router(config-line)#`
 > (console/VTY) or `Router(config-if)#` (interfaces).
 
-![h:340](./images/module03-ios-modes.svg)
+---
+
+# IOS Mode Hierarchy, Visualized
+
+![h:450](./images/module03-ios-modes.svg)
 
 ---
 

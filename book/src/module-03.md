@@ -60,7 +60,7 @@ flowchart TD
 
     UE -->|"enable"| PE
     PE -->|"configure terminal"| GC
-    GC -->|"interface Fa0/0"| IF
+    GC -->|"interface Gig0/0"| IF
     GC -->|"line console 0"| LN
     GC -->|"router ospf 1"| RT
     IF -->|"exit"| GC
@@ -75,7 +75,7 @@ To move between modes:
 ```
 Router> enable                     → Privileged EXEC
 Router# configure terminal         → Global Config
-Router(config)# interface Fa0/0   → Interface Config
+Router(config)# interface Gig0/0   → Interface Config
 Router(config-if)# exit           → back to Global Config
 Router(config)# end  (or Ctrl+Z) → back to Privileged EXEC
 ```
@@ -160,7 +160,7 @@ Router>
 ```
 Router> enable
 Router# configure terminal
-Router(config)# interface FastEthernet 0/0
+Router(config)# interface GigabitEthernet 0/0
 Router(config-if)# exit
 Router(config)# end
 Router#

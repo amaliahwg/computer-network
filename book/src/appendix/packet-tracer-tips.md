@@ -34,15 +34,15 @@ In Simulation Mode:
 
 | Device Type | Where in the Device List |
 |-------------|--------------------------|
-| Router (1841, 2811) | Routers (first row) |
+| Router (2911) | Routers (first row) |
 | Switch (2960) | Switches |
 | PC-PT | End Devices → PC |
 | Server-PT | End Devices → Server |
 | Generic Cloud | WAN Emulation |
 
-**Serial interfaces on routers:** The 1841 does not have serial ports by default. Double-click the router to open it, then power it off (Config tab → Physical → power button), drag a WIC-2T module into an empty slot, power it back on. Serial interfaces appear as Se0/0/0 and Se0/0/1.
+**Serial interfaces on routers:** The 2911 does not have serial ports by default. Double-click the router to open it, then power it off (Config tab → Physical → power button), drag an HWIC-2T (or WIC-2T) module into an empty slot, power it back on. Serial interfaces appear as Se0/0/0 and Se0/0/1.
 
-**Adding an Ethernet expansion module (a third LAN port):** The 1841 and 2811 ship with only two onboard FastEthernet ports (Fa0/0, Fa0/1). Some topologies in this course (Modules 6 and 7) need a router with a *third* FastEthernet interface to attach two LANs plus a WAN link from one device. The procedure is the same shape as the serial module above: double-click the router to open it, power it off (Config tab → Physical → power button), drag an Ethernet network module (a Fast Ethernet NM or HWIC, depending on your Packet Tracer version) into an empty slot, power it back on. The new interface appears as the next FastEthernet number (e.g. Fa0/2). **Module names vary slightly by Packet Tracer version** - if the exact module named here isn't in your Modules list, look for anything labeled Ethernet/Fast Ethernet (not Serial/WIC) and use that instead.
+**Router LAN ports:** The Cisco 2911 has three onboard GigabitEthernet ports (Gig0/0, Gig0/1, Gig0/2), enough for every topology in this course. A fourth or later port would need an extra HWIC module, which this course does not use.
 
 ---
 

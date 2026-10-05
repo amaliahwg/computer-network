@@ -62,7 +62,7 @@ Each module's Theory Review also expands an abbreviation the first time it matte
 | RJ-45 | Registered Jack 45 | The 8-pin connector on the end of an Ethernet cable. |
 | Auto-MDIX / MDIX | Medium Dependent Interface Crossover | A feature that lets a port electronically detect and correct cable type, so a straight-through cable works even between like devices. |
 | DCE / DTE | Data Communications Equipment / Data Terminal Equipment | On a serial link, the DCE end provides clocking (`clock rate`); the DTE end receives it. In Packet Tracer, right-click the serial cable to see which end is which. |
-| WIC-2T | WAN Interface Card, 2-port Serial | A module added to a router to provide two serial ports - the 1841 needs one before it can use `Se0/0/x` interfaces. |
+| WIC-2T / HWIC-2T | (High-speed) WAN Interface Card, 2-port Serial | A module added to a router to provide two serial ports - the 2911 needs one before it can use `Se0/0/x` interfaces. |
 | NVRAM | Non-Volatile Random Access Memory | Where `startup-config` is stored - survives a reboot. |
 | RAM | Random Access Memory | Where `running-config` lives while the device is powered on - lost on reboot unless saved to NVRAM. |
 
@@ -87,7 +87,7 @@ Each module's Theory Review also expands an abbreviation the first time it matte
 | MOTD | Message of the Day | A banner displayed to anyone connecting to a device, before login. |
 | PT | Packet Tracer | Shorthand used throughout this book and its slides for Cisco Packet Tracer. |
 | `.pka` | Packet Tracer Activity (file extension) | The file format Packet Tracer saves a topology and its configuration to. |
-| Fa0/0, Se0/0/0, Gi0/0 | FastEthernet 0/0, Serial 0/0/0, GigabitEthernet 0/0 | Cisco's interface-naming shorthand: type + slot/port. `Fa0/0` and `interface FastEthernet 0/0` refer to the exact same interface - IOS accepts both the abbreviated and full form. |
+| Gig0/0 | GigabitEthernet 0/0 | Cisco's interface-naming shorthand: type + slot/port. `Gig0/0` and `interface GigabitEthernet 0/0` refer to the exact same interface - IOS accepts both the abbreviated and full form. |
 | SVI | Switch Virtual Interface | A virtual Layer 3 interface on a switch (e.g. `interface vlan 99`), used to give the switch itself an IP for management. |
 
 ## Course & Miscellaneous

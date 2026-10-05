@@ -19,7 +19,7 @@
 <rect x="16" y="44" width="864" height="134" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
 <text x="30" y="66" class="term"><tspan class="term-hi">Router&gt;</tspan> enable</text>
 <text x="30" y="84" class="term"><tspan class="term-hi">Router#</tspan> configure terminal</text>
-<text x="30" y="102" class="term"><tspan class="term-hi">Router(config)#</tspan> interface FastEthernet 0/0</text>
+<text x="30" y="102" class="term"><tspan class="term-hi">Router(config)#</tspan> interface GigabitEthernet 0/0</text>
 <text x="30" y="120" class="term"><tspan class="term-hi">Router(config-if)#</tspan> exit</text>
 <text x="30" y="138" class="term"><tspan class="term-hi">Router(config)#</tspan> end</text>
 <text x="30" y="156" class="term"><tspan class="term-hi">Router#</tspan></text>

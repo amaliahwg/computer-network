@@ -69,7 +69,7 @@
 <text x="318" y="460" class="lbl-sm" style="font-weight:600;">Device List</text>
 <text x="318" y="478" class="lbl-sm">models within the</text>
 <text x="318" y="494" class="lbl-sm">selected category</text>
-<text x="318" y="514" class="lbl-sm">(e.g. Cisco 1841, 2811,</text>
+<text x="318" y="514" class="lbl-sm">(e.g. Cisco 2911,</text>
 <text x="318" y="528" class="lbl-sm">2960)</text>
 
 <!-- cable palette (conditional) -->

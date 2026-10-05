@@ -203,7 +203,7 @@ Open Cisco Packet Tracer.
 
 > **Observe:** Notice the two modes in the lower-right corner - **Realtime** and **Simulation**. In Simulation Mode, packets move step-by-step and you can inspect each layer. We will use this extensively from Module 2 onward.
 
-**Step 12.** Place a router and a switch, for real this time (not just placement practice - you will delete these two afterward and place them again deliberately from Module 2 onward): click **Routers** in the device category bar, click the **Cisco 1841** (or 2811) in the device list, then click once on the canvas. Double-click the device to open it and see the **Physical / Config / CLI** tabs appear - these are how you manage a router or switch, unlike a PC's **Desktop** tab. Repeat with **Switches → Cisco 2960**.
+**Step 12.** Place a router and a switch, for real this time (not just placement practice - you will delete these two afterward and place them again deliberately from Module 2 onward): click **Routers** in the device category bar, click the **Cisco 2911** in the device list, then click once on the canvas. Double-click the device to open it and see the **Physical / Config / CLI** tabs appear - these are how you manage a router or switch, unlike a PC's **Desktop** tab. Repeat with **Switches → Cisco 2960**.
 
 **Step 12b. See why nothing reaches "the internet" by default.** Double-click the router again and look at its full list of interfaces (the **CLI** tab, or **Config** tab → interface list): most of them are empty - you only ever touch the ones you explicitly cable. Nothing else is plugged in.
 

@@ -60,7 +60,7 @@ line vty 0 4
 ### Sub-interfaces (Router-on-a-Stick)
 
 ```
-interface Fa0/0.<vlan-id>
+interface Gig0/0.<vlan-id>
  encapsulation dot1Q <vlan-id>
  ip address <IP> <mask>
 ```

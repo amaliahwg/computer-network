@@ -38,8 +38,8 @@
 <rect x="378" y="176" width="90" height="50" rx="6" fill="#B7C2CB"/>
 <text x="423" y="197" text-anchor="middle" class="lbl-w" style="fill:#3A4650;">Router0</text>
 <text x="423" y="213" text-anchor="middle" class="lbl-sm" style="fill:#3A4650;">not configured</text>
-<text x="423" y="250" text-anchor="middle" class="lbl-sm">Fa0/0 = .1.1</text>
-<text x="423" y="264" text-anchor="middle" class="lbl-sm">Fa0/1 = .2.1</text>
+<text x="423" y="250" text-anchor="middle" class="lbl-sm">Gig0/0 = .1.1</text>
+<text x="423" y="264" text-anchor="middle" class="lbl-sm">Gig0/1 = .2.1</text>
 <text x="423" y="150" text-anchor="middle" class="lbl-sm" style="font-style:italic;">Modules 3–4 bring this to life</text>
 
 <line x1="210" y1="203" x2="378" y2="201" stroke="#D7E1E8" stroke-width="2"/>

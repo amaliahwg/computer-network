@@ -52,8 +52,8 @@ Provide a complete IP addressing plan:
 
 | Device | Interface | IP Address | Subnet Mask | VLAN | Notes |
 |--------|-----------|------------|-------------|------|-------|
-| R0 | Fa0/0 | | | | |
-| R0 | Fa0/0.10 | | | 10 | VLAN 10 subif |
+| R0 | Gig0/0 | | | | |
+| R0 | Gig0/0.10 | | | 10 | VLAN 10 subif |
 | ... | | | | | |
 
 - Show your subnet calculation: how many hosts per subnet? Which prefix length did you choose and why?

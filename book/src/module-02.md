@@ -104,7 +104,7 @@ architecture-beta
 | 4 | Switch0 | Cisco 2960 | Network Devices → Switches → 2960 | LAN 1 |
 | 5 | Switch1 | Cisco 2960 | Network Devices → Switches → 2960 | LAN 2 |
 | 6 | PC2 | PC-PT | End Devices → PC-PT | LAN 2 |
-| 7 | Router0 | Cisco 1841 (or 2811) | Network Devices → Routers → 1841 | joins both |
+| 7 | Router0 | Cisco 2911 | Network Devices → Routers → 2911 | joins both |
 
 **Cabling** - all links use **Copper Straight-Through** (every link here connects unlike devices: PC/server to switch, or switch to router):
 
@@ -113,8 +113,8 @@ architecture-beta
 | PC0 : FastEthernet0 | Switch0 : Fa0/1 |
 | PC1 : FastEthernet0 | Switch0 : Fa0/2 |
 | Server0 : FastEthernet0 | Switch0 : Fa0/3 |
-| Switch0 : Fa0/24 | Router0 : Fa0/0 |
-| Switch1 : Fa0/24 | Router0 : Fa0/1 |
+| Switch0 : Fa0/24 | Router0 : Gig0/0 |
+| Switch1 : Fa0/24 | Router0 : Gig0/1 |
 | PC2 : FastEthernet0 | Switch1 : Fa0/1 |
 
 Packet Tracer asks which interface to use when you click each device to cable it - match the port column above, don't accept the first option offered.
@@ -126,11 +126,11 @@ Packet Tracer asks which interface to use when you click each device to cable it
 | PC0 | NIC | 192.168.1.10 | 255.255.255.0 | 192.168.1.1 |
 | PC1 | NIC | 192.168.1.20 | 255.255.255.0 | 192.168.1.1 |
 | Server0 | NIC | 192.168.1.100 | 255.255.255.0 | 192.168.1.1 |
-| Router0 | Fa0/0 | 192.168.1.1 | 255.255.255.0 | - |
-| Router0 | Fa0/1 | 192.168.2.1 | 255.255.255.0 | - |
+| Router0 | Gig0/0 | 192.168.1.1 | 255.255.255.0 | - |
+| Router0 | Gig0/1 | 192.168.2.1 | 255.255.255.0 | - |
 | PC2 | NIC | 192.168.2.10 | 255.255.255.0 | 192.168.2.1 |
 
-> **Fa0/0** = FastEthernet0/0, the router's first FastEthernet interface - Cisco's interface-naming shorthand (type + slot/port). This abbreviated form recurs in every addressing table from here on. **LAN 1** / **LAN 2** in the diagram above are each a Local Area Network - a network confined to one side of the router.
+> **Gig0/0** = GigabitEthernet0/0, the router's first Gigabit Ethernet interface - Cisco's interface-naming shorthand (type + slot/port). This abbreviated form recurs in every addressing table from here on. **LAN 1** / **LAN 2** in the diagram above are each a Local Area Network - a network confined to one side of the router.
 
 > **Note:** The router interfaces come alive in **Module 4** - Module 3 first secures the router before its interfaces are ever turned on. For now, PCs (and the server) on the **same switch** should be able to ping each other; cross-router pings will fail - and that is expected and intentional.
 
@@ -138,7 +138,7 @@ Packet Tracer asks which interface to use when you click each device to cable it
 
 **Step 2. Build LAN 2.** Place rows 5-6 (Switch1, PC2) and rename each. Cable the last row of the cabling table (PC2 into Switch1). Configure PC2's static IP the same way as Step 1.
 
-**Step 3. Join the two LANs with Router0.** Place row 7 (Router0) and rename it. Cable the two switch-to-router rows: **Switch0 Fa0/24 to Router0 Fa0/0**, and **Switch1 Fa0/24 to Router0 Fa0/1** - the addressing table above binds each router interface to its LAN, and Module 4 builds on exactly this cabling.
+**Step 3. Join the two LANs with Router0.** Place row 7 (Router0) and rename it. Cable the two switch-to-router rows: **Switch0 Fa0/24 to Router0 Gig0/0**, and **Switch1 Fa0/24 to Router0 Gig0/1** - the addressing table above binds each router interface to its LAN, and Module 4 builds on exactly this cabling.
 
 > **Both new links show a red dot at the router end - that is expected, not a cabling mistake.** Module 1 taught you red = failed connection, but here it means something different: router interfaces are administratively shut down until you enable them in Module 4. The switch end will show green (the switch port itself is up); only the router end stays red until then.
 
