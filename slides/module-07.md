@@ -90,7 +90,8 @@ could connect and exploit it. Routing got them there; nothing stopped them.
 1. Explain standard vs extended ACLs, when to use each
 2. Write numbered and named ACL rules with wildcard masks
 3. Apply an ACL to the correct interface and direction
-4. Debug a misconfigured ACL by reading hit counts
+4. Verify with `show access-lists` and `show ip interface`
+5. Debug a misconfigured ACL by reading hit counts
 
 ---
 
@@ -117,6 +118,7 @@ history, the router's ACL *was* the firewall.
 | Property | Standard | Extended |
 |----------|----------|----------|
 | Matches on | Source IP only | Source, Dest, Protocol, Port |
+| Numbered range | 1-99 | 100-199 |
 | Best placed | Close to **destination** | Close to **source** |
 
 ---
@@ -157,43 +159,68 @@ point, not just the one destination it was meant to protect.
 
 ---
 
-# The Implicit Deny Trap
+# Direction: In or Out, Relative to the Router
 
-Every ACL ends with an unwritten **implicit deny all**. Removing your
-explicit `permit ip any any` line doesn't remove one rule - it exposes that
-implicit deny, and **all** traffic through that interface stops, not just
-the traffic you meant to block.
+`ip access-group <n|name> in|out` binds an ACL to **one interface in one direction**. `in` filters packets as they arrive, before the routing decision; `out` filters them as they leave, after it.
+
+![h:380](./images/module07-acl-direction.svg)
 
 ---
 
-# Worked Example: Tracing One Packet Through a 3-Line ACL
-
-A standard ACL on R1, protecting the Server subnet after PC 192.168.1.13
-was compromised:
+# Writing the Rules: Syntax
 
 ```
-access-list 10 deny host 192.168.1.13
+access-list 110 deny tcp host 192.168.1.20 host 192.168.2.100 eq 80
+access-list 110 permit ip any any
+
+ip access-list extended BLOCK_WEB
+ deny tcp host 192.168.1.20 host 192.168.2.100 eq www
+ permit ip any any
+
+interface GigabitEthernet0/0
+ ip access-group BLOCK_WEB in
+```
+
+- Numbered ACLs are one global command per rule; **named** ACLs open a `(config-ext-nacl)#` mode where rules can be deleted by sequence number
+- An ACL does nothing until it is bound with `ip access-group`
+
+---
+
+# Verifying: Match Counters and Bindings
+
+```
+R0# show access-lists
+Extended IP access list BLOCK_WEB
+    10 deny tcp host 192.168.1.20 host 192.168.2.100 eq www (8 match(es))
+    20 permit ip any any (12 match(es))
+
+R0# show ip interface GigabitEthernet0/0
+  Outgoing access list is not set
+  Inbound  access list is BLOCK_WEB
+```
+
+- `show access-lists`: which rule matched, and how often
+- `show ip interface`: which ACL is bound, in which direction
+
+---
+
+# Worked Example: The Lab's Standard ACL
+
+Applied outbound on R1's Server-facing interface, after PC `192.168.1.20` is flagged as compromised:
+
+```
+access-list 10 deny host 192.168.1.20
 access-list 10 permit 192.168.1.0 0.0.0.255
 access-list 10 deny any
 ```
 
-**Packet:** source `192.168.1.13`, destination `192.168.2.100`
+| Source | Line that matches | Result |
+|--------|-------------------|--------|
+| `192.168.1.20` (flagged PC) | Line 1 | denied, Lines 2-3 never checked |
+| `192.168.1.10` (admin PC) | Line 2 | permitted |
+| `192.168.3.10` (remote LAN) | Line 3 | denied |
 
-1. `deny host 192.168.1.13` matches Line 1 exactly - **denied, stop here**
-2. Line 2 is never checked - Line 1 already decided the packet's fate
-3. Traffic from `192.168.1.20` skips Line 1, hits Line 2, and is **permitted**
-
----
-
-<!-- SLOT N-2: Worked example -->
-
-# Guided Lab at a Glance
-
-**Part A** - standard ACL: restrict server access to one subnet, applied outbound closest to destination
-
-**Part B** - extended ACL: permit ICMP but block HTTP from one host, applied inbound closest to source
-
-**Part C** - named ACL + debugging: deliberately remove `permit any` and observe everything break
+**Lab:** Part A is this ACL; Part B an extended ACL blocking HTTP from one host, inbound near the source; Part C rebuilds it as a named ACL and removes the final `permit` to expose the implicit deny.
 
 ---
 
@@ -201,8 +228,10 @@ access-list 10 deny any
 
 # Common Mistakes
 
-- **Forgetting the final permit:** without it, the implicit deny blocks
-  everything, not just the traffic you intended to filter
+- **Forgetting the final permit:** removing `permit ip any any` exposes the
+  implicit deny, and all traffic crossing that interface and direction stops
+- **Wrong direction or wrong router:** an ACL that exists but is not bound
+  where the traffic passes filters nothing; check `show ip interface`
 - **Placing an extended ACL far from the source:** it still works, but
   wastes bandwidth carrying traffic across the network only to drop it
   later
@@ -245,7 +274,7 @@ traffic that never needed to be routed in the first place.
 
 # Summary
 
-- Filtering is not the same as routing - reachable ≠ authorized
+- Filtering is not the same as routing: reachable does not mean authorized
 - The implicit deny is the most common ACL authoring trap
 - **Deliverables & assessment:** standard + extended + named ACL screenshots
   with hit counts, implicit-deny explanation - see the book for the full

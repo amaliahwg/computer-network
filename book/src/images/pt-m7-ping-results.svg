@@ -1,0 +1,50 @@
+<svg viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="m7p-t">
+<title id="m7p-t">Schematic comparing a successful ping with a ping blocked by an ACL that returns Destination host unreachable</title>
+<style>
+  .lbl { font-family: system-ui, -apple-system, sans-serif; fill: #1A1A1A; font-size: 13px; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .lbl-w { font-family: system-ui, -apple-system, sans-serif; fill: #ffffff; font-size: 12px; font-weight: 600; }
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .term { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; fill: #F6F8FA; }
+  .term-hi { fill: #00A79E; font-weight: 600; }
+  .term-bad { fill: #FFB4B4; font-weight: 600; }
+  .term-key { fill: #F2A900; font-weight: 600; }
+  .mono { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; fill: #0C3274; font-weight: 600; }
+  .dev { fill: #0C3274; }
+</style>
+<rect x="4" y="4" width="892" height="372" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">Desktop &gt; Command Prompt on the PC named in each panel</text>
+<rect x="16" y="48" width="426" height="24" rx="4" fill="#00A79E"/>
+<text x="28" y="65" class="lbl-w">ICMP allowed (Part B, PC-User pings the Server)</text>
+<rect x="16" y="76" width="426" height="229" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+<text x="30" y="98" class="term" xml:space="preserve"><tspan class="term-hi">C:\&gt;</tspan> ping 192.168.2.100</text>
+<text x="30" y="117" class="term" xml:space="preserve"></text>
+<text x="30" y="136" class="term" xml:space="preserve">Pinging 192.168.2.100 with 32 bytes of data:</text>
+<text x="30" y="155" class="term" xml:space="preserve"></text>
+<text x="30" y="174" class="term" xml:space="preserve">Reply from 192.168.2.100: bytes=32 time&lt;1ms TTL=126</text>
+<text x="30" y="193" class="term" xml:space="preserve">Reply from 192.168.2.100: bytes=32 time&lt;1ms TTL=126</text>
+<text x="30" y="212" class="term" xml:space="preserve">Reply from 192.168.2.100: bytes=32 time&lt;1ms TTL=126</text>
+<text x="30" y="231" class="term" xml:space="preserve">Reply from 192.168.2.100: bytes=32 time&lt;1ms TTL=126</text>
+<text x="30" y="250" class="term" xml:space="preserve"></text>
+<text x="30" y="269" class="term" xml:space="preserve">Packets: Sent = 4, Received = 4, Lost = 0</text>
+<text x="30" y="288" class="term" xml:space="preserve">(0% loss)</text>
+<rect x="458" y="48" width="426" height="24" rx="4" fill="#C0392B"/>
+<text x="470" y="65" class="lbl-w">ICMP denied (Part A, PC-Remote pings the Server)</text>
+<rect x="458" y="76" width="426" height="229" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+<text x="472" y="98" class="term" xml:space="preserve"><tspan class="term-hi">C:\&gt;</tspan> ping 192.168.2.100</text>
+<text x="472" y="117" class="term" xml:space="preserve"></text>
+<text x="472" y="136" class="term" xml:space="preserve">Pinging 192.168.2.100 with 32 bytes of data:</text>
+<text x="472" y="155" class="term" xml:space="preserve"></text>
+<text x="472" y="174" class="term term-bad" xml:space="preserve">Reply from 10.0.0.2: Destination host unreachable.</text>
+<text x="472" y="193" class="term term-bad" xml:space="preserve">Reply from 10.0.0.2: Destination host unreachable.</text>
+<text x="472" y="212" class="term term-bad" xml:space="preserve">Reply from 10.0.0.2: Destination host unreachable.</text>
+<text x="472" y="231" class="term term-bad" xml:space="preserve">Reply from 10.0.0.2: Destination host unreachable.</text>
+<text x="472" y="250" class="term" xml:space="preserve"></text>
+<text x="472" y="269" class="term" xml:space="preserve">Packets: Sent = 4, Received = 0, Lost = 4</text>
+<text x="472" y="288" class="term" xml:space="preserve">(100% loss)</text>
+<text x="30" y="318" class="lbl-sm">The "unreachable" reply comes from the router that dropped the packet (the address after "Reply from"). A plain "Request timed out" instead</text>
+<text x="30" y="336" class="lbl-sm">means nobody answered, which points to a routing or cabling problem rather than an ACL.</text>
+<text x="24" y="366" class="lbl-sm" style="font-style:italic;">Schematic layout - not a live screenshot; the first ping of a fresh session may time out while ARP resolves.</text>
+</svg>
