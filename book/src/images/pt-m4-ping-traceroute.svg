@@ -1,0 +1,45 @@
+<svg viewBox="0 0 900 394" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t-pt-m4-ping-traceroute.svg">
+<title id="t-pt-m4-ping-traceroute.svg">Schematic of router ping showing exclamation marks, a first ping with a leading dot, and a one-hop traceroute</title>
+<style>
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .note { font-family: system-ui, -apple-system, sans-serif; fill: #E3F3F1; font-size: 12px; font-weight: 700; }
+  .term { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; fill: #F6F8FA; white-space: pre; }
+  .pr { fill: #00D1C4; font-weight: 700; }
+  .ok { fill: #7FE3A0; font-weight: 700; }
+  .bad { fill: #FFB4A8; font-weight: 700; }
+  .hi { fill: #FFD76A; font-weight: 700; }
+  .dim { fill: #9FB3D1; }
+</style>
+<rect x="4" y="4" width="892" height="386" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">R0# ping and traceroute - expected output</text>
+<circle cx="850" cy="20" r="5" fill="#00A79E"/><circle cx="868" cy="20" r="5" fill="#E3F3F1"/>
+<rect x="16" y="44" width="868" height="298" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+<text x="30" y="70" class="term" xml:space="preserve"><tspan class="pr">R0#</tspan>ping 192.168.2.10</text>
+<text x="30" y="88" class="term" xml:space="preserve">Type escape sequence to abort.</text>
+<text x="30" y="106" class="term" xml:space="preserve">Sending 5, 100-byte ICMP Echos to 192.168.2.10, timeout is 2 seconds:</text>
+<text x="30" y="124" class="term" xml:space="preserve"><tspan class="ok">!!!!!</tspan></text>
+<text x="30" y="142" class="term" xml:space="preserve">Success rate is 100 percent (5/5), round-trip min/avg/max = 0/0/1 ms</text>
+<text x="30" y="160" class="term" xml:space="preserve"></text>
+<text x="30" y="178" class="term" xml:space="preserve"><tspan class="pr">R0#</tspan>ping 192.168.2.10</text>
+<text x="30" y="196" class="term" xml:space="preserve"><tspan class="hi">.!!!!</tspan></text>
+<text x="30" y="214" class="term" xml:space="preserve">Success rate is 80 percent (4/5), round-trip min/avg/max = 0/0/1 ms</text>
+<text x="30" y="232" class="term" xml:space="preserve"><tspan class="dim">(first ping after a long pause: the leading . is the router waiting for ARP)</tspan></text>
+<text x="30" y="250" class="term" xml:space="preserve"></text>
+<text x="30" y="268" class="term" xml:space="preserve"><tspan class="pr">R0#</tspan>traceroute 192.168.2.10</text>
+<text x="30" y="286" class="term" xml:space="preserve">Type escape sequence to abort.</text>
+<text x="30" y="304" class="term" xml:space="preserve">Tracing the route to 192.168.2.10</text>
+<text x="30" y="322" class="term" xml:space="preserve">  1  192.168.2.10   0 msec   0 msec   0 msec</text>
+<rect x="26" y="112" width="46" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="74" y1="121.0" x2="634" y2="121.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="640" y="125.0" class="note" style="fill:#FFD76A;">! = reply received</text>
+<rect x="26" y="184" width="46" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="74" y1="193.0" x2="634" y2="193.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="640" y="197.0" class="note" style="fill:#FFD76A;">. = timed out</text>
+<rect x="41" y="310" width="121" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="368" y1="319.0" x2="634" y2="319.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="640" y="323.0" class="note" style="fill:#FFD76A;">one hop: R0 is the only router</text>
+<text x="16" y="378" class="lbl-sm" style="font-style:italic;">*Schematic layout - not a live screenshot. Round-trip times differ; your traceroute may print an extra VRF info line.</text>
+</svg>

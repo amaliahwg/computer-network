@@ -1,0 +1,44 @@
+<svg viewBox="0 0 900 376" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t-pt-m4-save-reload.svg">
+<title id="t-pt-m4-save-reload.svg">Schematic of saving the running configuration, then the reload prompts: save yes or no, then proceed with reload confirm</title>
+<style>
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .note { font-family: system-ui, -apple-system, sans-serif; fill: #E3F3F1; font-size: 12px; font-weight: 700; }
+  .term { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; fill: #F6F8FA; white-space: pre; }
+  .pr { fill: #00D1C4; font-weight: 700; }
+  .ok { fill: #7FE3A0; font-weight: 700; }
+  .bad { fill: #FFB4A8; font-weight: 700; }
+  .hi { fill: #FFD76A; font-weight: 700; }
+  .dim { fill: #9FB3D1; }
+</style>
+<rect x="4" y="4" width="892" height="368" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">R0# copy running-config startup-config, then reload</text>
+<circle cx="850" cy="20" r="5" fill="#00A79E"/><circle cx="868" cy="20" r="5" fill="#E3F3F1"/>
+<rect x="16" y="44" width="868" height="280" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+<text x="30" y="70" class="term" xml:space="preserve"><tspan class="pr">R0#</tspan>copy running-config startup-config</text>
+<text x="30" y="88" class="term" xml:space="preserve">Destination filename [startup-config]?</text>
+<text x="30" y="106" class="term" xml:space="preserve">Building configuration...</text>
+<text x="30" y="124" class="term" xml:space="preserve"><tspan class="ok">[OK]</tspan></text>
+<text x="30" y="142" class="term" xml:space="preserve"></text>
+<text x="30" y="160" class="term" xml:space="preserve"><tspan class="pr">R0#</tspan>reload</text>
+<text x="30" y="178" class="term" xml:space="preserve"><tspan class="hi">System configuration has been modified. Save? [yes/no]: no</tspan></text>
+<text x="30" y="196" class="term" xml:space="preserve"><tspan class="hi">Proceed with reload? [confirm]</tspan></text>
+<text x="30" y="214" class="term" xml:space="preserve"><tspan class="dim">(press Enter; the router restarts and loads startup-config)</tspan></text>
+<text x="30" y="232" class="term" xml:space="preserve"></text>
+<text x="30" y="250" class="term" xml:space="preserve"><tspan class="pr">R0#</tspan>show running-config | include Loopback</text>
+<text x="30" y="268" class="term" xml:space="preserve">interface Loopback0</text>
+<text x="30" y="286" class="term" xml:space="preserve"><tspan class="pr">R0#</tspan>show startup-config | include Loopback</text>
+<text x="30" y="304" class="term" xml:space="preserve"><tspan class="dim">(no output - the loopback was never saved)</tspan></text>
+<rect x="26" y="112" width="38" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="66" y1="121.0" x2="634" y2="121.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="640" y="125.0" class="note" style="fill:#FFD76A;">saved to NVRAM</text>
+<rect x="373" y="166" width="99" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="474" y1="175.0" x2="634" y2="175.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="640" y="179.0" class="note" style="fill:#FFD76A;">answer no: discard the loopback</text>
+<rect x="185" y="184" width="76" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="262" y1="193.0" x2="634" y2="193.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="640" y="197.0" class="note" style="fill:#FFD76A;">press Enter to restart</text>
+<text x="16" y="360" class="lbl-sm" style="font-style:italic;">*Schematic layout - not a live screenshot. Prompt wording matches IOS; Packet Tracer may add boot messages after you confirm.</text>
+</svg>

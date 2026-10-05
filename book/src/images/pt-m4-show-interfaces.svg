@@ -1,0 +1,50 @@
+<svg viewBox="0 0 900 376" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t-pt-m4-show-interfaces.svg">
+<title id="t-pt-m4-show-interfaces.svg">Schematic of annotated show interfaces output highlighting status line, IP address, MTU and packet counters</title>
+<style>
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .note { font-family: system-ui, -apple-system, sans-serif; fill: #E3F3F1; font-size: 12px; font-weight: 700; }
+  .term { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; fill: #F6F8FA; white-space: pre; }
+  .pr { fill: #00D1C4; font-weight: 700; }
+  .ok { fill: #7FE3A0; font-weight: 700; }
+  .bad { fill: #FFB4A8; font-weight: 700; }
+  .hi { fill: #FFD76A; font-weight: 700; }
+  .dim { fill: #9FB3D1; }
+</style>
+<rect x="4" y="4" width="892" height="368" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">R0# show interfaces GigabitEthernet0/0 - the four fields to find</text>
+<circle cx="850" cy="20" r="5" fill="#00A79E"/><circle cx="868" cy="20" r="5" fill="#E3F3F1"/>
+<rect x="16" y="44" width="868" height="280" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+<text x="30" y="70" class="term" xml:space="preserve"><tspan class="pr">R0#</tspan>show interfaces GigabitEthernet0/0</text>
+<text x="30" y="88" class="term" xml:space="preserve">GigabitEthernet0/0 is up, line protocol is up (connected)</text>
+<text x="30" y="106" class="term" xml:space="preserve">  Hardware is CN Gigabit Ethernet, address is 0001.4321.AAAA (bia 0001.4321.AAAA)</text>
+<text x="30" y="124" class="term" xml:space="preserve">  Internet address is 192.168.1.1/24</text>
+<text x="30" y="142" class="term" xml:space="preserve">  MTU 1500 bytes, BW 1000000 Kbit, DLY 10 usec,</text>
+<text x="30" y="160" class="term" xml:space="preserve">     reliability 255/255, txload 1/255, rxload 1/255</text>
+<text x="30" y="178" class="term" xml:space="preserve">  Encapsulation ARPA, loopback not set</text>
+<text x="30" y="196" class="term" xml:space="preserve">  Full-duplex, 100Mb/s, media type is RJ45</text>
+<text x="30" y="214" class="term" xml:space="preserve">  ARP type: ARPA, ARP Timeout 04:00:00</text>
+<text x="30" y="232" class="term" xml:space="preserve">  Last input 00:00:08, output 00:00:05, output hang never</text>
+<text x="30" y="250" class="term" xml:space="preserve">     12 packets input, 1530 bytes, 0 no buffer</text>
+<text x="30" y="268" class="term" xml:space="preserve">     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored</text>
+<text x="30" y="286" class="term" xml:space="preserve">     9 packets output, 936 bytes, 0 underruns</text>
+<text x="30" y="304" class="term" xml:space="preserve">     0 output errors, 0 collisions, 2 interface resets</text>
+<rect x="169" y="76" width="204" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="466" y1="85.0" x2="634" y2="85.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="640" y="89.0" class="note" style="fill:#FFD76A;">(a) status: Layer 1 and Layer 2</text>
+<rect x="192" y="112" width="114" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="308" y1="121.0" x2="634" y2="121.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="640" y="125.0" class="note" style="fill:#FFD76A;">(b) IP address</text>
+<rect x="41" y="130" width="114" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="391" y1="139.0" x2="634" y2="139.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="640" y="143.0" class="note" style="fill:#FFD76A;">(c) MTU</text>
+<rect x="64" y="238" width="129" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="383" y1="247.0" x2="634" y2="247.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="640" y="251.0" class="note" style="fill:#FFD76A;">(d) input counters</text>
+<rect x="64" y="274" width="129" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="376" y1="283.0" x2="634" y2="283.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="640" y="287.0" class="note" style="fill:#FFD76A;">(d) output counters</text>
+<text x="16" y="360" class="lbl-sm" style="font-style:italic;">*Schematic layout - not a live screenshot. Counters, MAC address and extra lines differ in your output; find the four labelled fields.</text>
+</svg>

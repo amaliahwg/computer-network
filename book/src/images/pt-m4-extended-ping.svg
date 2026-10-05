@@ -1,0 +1,44 @@
+<svg viewBox="0 0 900 376" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t-pt-m4-extended-ping.svg">
+<title id="t-pt-m4-extended-ping.svg">Schematic of the one-line extended ping with repeat and size options, and the interactive ping prompts</title>
+<style>
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .note { font-family: system-ui, -apple-system, sans-serif; fill: #E3F3F1; font-size: 12px; font-weight: 700; }
+  .term { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; fill: #F6F8FA; white-space: pre; }
+  .pr { fill: #00D1C4; font-weight: 700; }
+  .ok { fill: #7FE3A0; font-weight: 700; }
+  .bad { fill: #FFB4A8; font-weight: 700; }
+  .hi { fill: #FFD76A; font-weight: 700; }
+  .dim { fill: #9FB3D1; }
+</style>
+<rect x="4" y="4" width="892" height="368" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">R0# extended ping - one-line form and interactive form</text>
+<circle cx="850" cy="20" r="5" fill="#00A79E"/><circle cx="868" cy="20" r="5" fill="#E3F3F1"/>
+<rect x="16" y="44" width="868" height="280" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+<text x="30" y="70" class="term" xml:space="preserve"><tspan class="pr">R0#</tspan>ping 192.168.2.10 repeat 10 size 1500</text>
+<text x="30" y="88" class="term" xml:space="preserve">Type escape sequence to abort.</text>
+<text x="30" y="106" class="term" xml:space="preserve">Sending 10, 1500-byte ICMP Echos to 192.168.2.10, timeout is 2 seconds:</text>
+<text x="30" y="124" class="term" xml:space="preserve"><tspan class="ok">!!!!!!!!!!</tspan></text>
+<text x="30" y="142" class="term" xml:space="preserve">Success rate is 100 percent (10/10), round-trip min/avg/max = 0/1/3 ms</text>
+<text x="30" y="160" class="term" xml:space="preserve"></text>
+<text x="30" y="178" class="term" xml:space="preserve"><tspan class="pr">R0#</tspan>ping</text>
+<text x="30" y="196" class="term" xml:space="preserve">Protocol [ip]:</text>
+<text x="30" y="214" class="term" xml:space="preserve">Target IP address: 192.168.2.10</text>
+<text x="30" y="232" class="term" xml:space="preserve">Repeat count [5]: 10</text>
+<text x="30" y="250" class="term" xml:space="preserve">Datagram size [100]: 1500</text>
+<text x="30" y="268" class="term" xml:space="preserve">Timeout in seconds [2]: 1</text>
+<text x="30" y="286" class="term" xml:space="preserve">Extended commands [n]:</text>
+<text x="30" y="304" class="term" xml:space="preserve">Sweep range of sizes [n]:</text>
+<rect x="26" y="256" width="197" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="225" y1="265.0" x2="634" y2="265.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="640" y="269.0" class="note" style="fill:#FFD76A;">reply timeout (seconds)</text>
+<rect x="26" y="220" width="159" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="187" y1="229.0" x2="634" y2="229.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="640" y="233.0" class="note" style="fill:#FFD76A;">repeat count</text>
+<rect x="26" y="238" width="197" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="225" y1="247.0" x2="634" y2="247.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="640" y="251.0" class="note" style="fill:#FFD76A;">datagram size</text>
+<text x="16" y="360" class="lbl-sm" style="font-style:italic;">*Schematic layout - not a live screenshot. If PT rejects the one-line options, use the interactive form.</text>
+</svg>

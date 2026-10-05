@@ -1,0 +1,42 @@
+<svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t-pt-m4-show-ip-route.svg">
+<title id="t-pt-m4-show-ip-route.svg">Schematic of show ip route output with two C connected routes and two L local routes and no S or R routes</title>
+<style>
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .note { font-family: system-ui, -apple-system, sans-serif; fill: #E3F3F1; font-size: 12px; font-weight: 700; }
+  .term { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; fill: #F6F8FA; white-space: pre; }
+  .pr { fill: #00D1C4; font-weight: 700; }
+  .ok { fill: #7FE3A0; font-weight: 700; }
+  .bad { fill: #FFB4A8; font-weight: 700; }
+  .hi { fill: #FFD76A; font-weight: 700; }
+  .dim { fill: #9FB3D1; }
+</style>
+<rect x="4" y="4" width="892" height="332" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">R0# show ip route</text>
+<circle cx="850" cy="20" r="5" fill="#00A79E"/><circle cx="868" cy="20" r="5" fill="#E3F3F1"/>
+<rect x="16" y="44" width="868" height="244" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+<text x="30" y="70" class="term" xml:space="preserve"><tspan class="pr">R0#</tspan>show ip route</text>
+<text x="30" y="88" class="term" xml:space="preserve">Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP</text>
+<text x="30" y="106" class="term" xml:space="preserve">       D - EIGRP, O - OSPF, E - EGP, i - IS-IS, * - candidate default</text>
+<text x="30" y="124" class="term" xml:space="preserve"></text>
+<text x="30" y="142" class="term" xml:space="preserve">Gateway of last resort is not set</text>
+<text x="30" y="160" class="term" xml:space="preserve"></text>
+<text x="30" y="178" class="term" xml:space="preserve">     192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks</text>
+<text x="30" y="196" class="term" xml:space="preserve">C       192.168.1.0/24 is directly connected, GigabitEthernet0/0</text>
+<text x="30" y="214" class="term" xml:space="preserve">L       192.168.1.1/32 is directly connected, GigabitEthernet0/0</text>
+<text x="30" y="232" class="term" xml:space="preserve">     192.168.2.0/24 is variably subnetted, 2 subnets, 2 masks</text>
+<text x="30" y="250" class="term" xml:space="preserve">C       192.168.2.0/24 is directly connected, GigabitEthernet0/1</text>
+<text x="30" y="268" class="term" xml:space="preserve">L       192.168.2.1/32 is directly connected, GigabitEthernet0/1</text>
+<rect x="26" y="184" width="174" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="519" y1="193.0" x2="634" y2="193.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="640" y="197.0" class="note" style="fill:#FFD76A;">C: the whole LAN</text>
+<rect x="26" y="202" width="174" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="519" y1="211.0" x2="634" y2="211.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="640" y="215.0" class="note" style="fill:#FFD76A;">L: the router's own address</text>
+<rect x="26" y="130" width="257" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="285" y1="139.0" x2="634" y2="139.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="640" y="143.0" class="note" style="fill:#FFD76A;">no S or R routes yet</text>
+<text x="16" y="324" class="lbl-sm" style="font-style:italic;">*Schematic layout - not a live screenshot. The legend lines and subnet-count lines may vary slightly by IOS version.</text>
+</svg>

@@ -90,7 +90,8 @@ see inside the device, right now, without guessing.
 1. Use `?` (context-sensitive help) to discover commands without memorizing them
 2. Execute and interpret key `show` commands
 3. Configure all interfaces (IP address, `no shutdown`) and verify them
-4. Compare running-config vs startup-config and explain the implications
+4. Use `ping` (with options) and `traceroute` to test reachability and read the results
+5. Compare running-config vs startup-config and explain the implications
 
 ---
 
@@ -110,13 +111,11 @@ over memorized.
 
 # Interface State: Definition
 
-> Every Cisco interface reports two independent status indicators:
-> **physical** (Layer 1: up/down/administratively down) and **line
-> protocol** (Layer 2: up/down). If Layer 1 is down, Layer 2 is always
-> down too - but Layer 1 up with Layer 2 down often signals an
-> encapsulation mismatch.
+> Every interface reports two status indicators: **physical** (Layer 1) and
+> **line protocol** (Layer 2). If Layer 1 is down, Layer 2 is always down;
+> Layer 1 up with Layer 2 down often means an encapsulation mismatch.
 
-![h:230](./images/module04-interface-states.svg)
+![h:292](./images/module04-interface-states.svg)
 
 ---
 
@@ -127,6 +126,7 @@ over memorized.
 | Command | Reveals |
 |---------|---------|
 | `show version` | IOS version, uptime, memory |
+| `show interfaces` | Per-interface detail: state, IP, MTU, counters, errors |
 | `show ip interface brief` | Compact table: all interfaces, IP, state |
 | `show running-config` / `show startup-config` | Live vs saved config |
 | `show ip route` | Routing table |
@@ -144,9 +144,23 @@ IOS ping symbol patterns:
 - `U....` "no route to host" - an ICMP Unreachable from the router near the
   **destination**
 
-![h:210](./images/module04-ping-symbols.svg)
+---
 
-**Traceroute**: TTL rises per probe; each hop at TTL=0 replies "Time Exceeded."
+# Where Each Ping Symbol Comes From
+
+![h:430](./images/module04-ping-symbols.svg)
+
+---
+
+# Traceroute: Mapping the Path
+
+- Each probe carries a rising **TTL** (1, 2, 3, ...); the router where TTL
+  hits 0 replies **Time Exceeded** and reveals its own address
+- The destination itself ends the trace with a **Port Unreachable** reply
+- IOS probes are **UDP**; Windows `tracert` probes are **ICMP**
+- `* * *` on a hop means that hop sent no reply - the trace continues
+- One router between source and destination means **exactly one hop** before
+  the destination
 
 ---
 
@@ -156,35 +170,40 @@ IOS ping symbol patterns:
 <div>
 
 ```
-Router#show ip interface brief
-Interface       IP-Address   Status  Protocol
-FastEthernet0/0  10.0.0.1    up      up
-FastEthernet0/1  unassigned  admin.. down
-Serial0/0/0      192.168.9.1 up      down
+R0#show ip interface brief
+Interface    IP-Address   Status  Prot
+Gig0/0       192.168.1.1  up      up
+Gig0/1       192.168.2.1  up      up
+Gig0/2       unassigned   admin.. down
 ```
 
 </div>
 <div>
 
 ```
-Router#show ip route
-C  10.0.0.0/24 is directly connected,
-     FastEthernet0/0
-C  192.168.9.0/30 is directly
-     connected, Serial0/0/0
-S  172.16.0.0/16 [1/0] via
-     192.168.9.2
+R0#show ip route
+C  192.168.1.0/24 is directly
+     connected, Gig0/0
+L  192.168.1.1/32 is directly
+     connected, Gig0/0
+C  192.168.2.0/24 is directly
+     connected, Gig0/1
+L  192.168.2.1/32 is directly
+     connected, Gig0/1
 ```
 
 </div>
 </div>
 
-- **Fa0/0** is fully healthy: `up`/`up`, and `C` (directly connected) in
-  the routing table confirms IOS agrees
-- **Fa0/1** is `administratively down` - unused, `shutdown` still applied
-- **Serial0/0/0** is `up`/`down` - a Layer 2 problem (likely encapsulation)
-  even though the routing table still lists it as directly connected
-- Route codes: `C` = directly connected, `S` = static (typed by hand - Module 5)
+---
+
+# Reading the Output
+
+- **Gig0/0** and **Gig0/1** are `up`/`up`, and a `C` route for each LAN confirms IOS agrees
+- **Gig0/2** is `administratively down` - unused and never enabled; if you want it up, the fix is `no shutdown`
+- If an interface showed `up`/`down`, that would be a Layer 2 problem even though the table may still list it as directly connected
+- Route codes: `C` = directly connected network, `L` = the router's own address (/32), `S` = static (typed by hand - Module 5)
+- No `S` or `R` lines: this router knows only the networks it is attached to
 
 ---
 
@@ -192,13 +211,15 @@ S  172.16.0.0/16 [1/0] via
 
 # Guided Lab at a Glance
 
+**Setup** - build one router, two switches, two PCs; address everything from a fixed table
+
 **Part A** - `?` context-help at every mode level
 
-**Part B** - configure both interfaces with student-ID-based addressing
+**Part B** - set the hostname, configure both router interfaces, verify up/up
 
 **Part C** - `show` command deep-dive across the full toolkit
 
-**Part D** - extended ping/traceroute options
+**Part D** - ping, extended ping options, and traceroute
 
 **Part E** - save config, add a loopback, reload without saving, observe what survives
 
@@ -237,12 +258,12 @@ S  172.16.0.0/16 [1/0] via
 # What `show` Commands Cannot Do
 
 <div class="limits">
-You can now read a router's live state perfectly. But two sites still
-can't reach each other, because nobody has told either router how to get
-traffic to the other's network.
+You can now read a router's live state perfectly. But a router only knows
+the networks directly attached to it. Add a second router, or a network
+behind one, and nothing tells it how to reach beyond.
 </div>
 
-<span class="thread">Next: Module 5 addresses inter-site connectivity - static routing.</span>
+<span class="thread">Next: Module 5 addresses reaching networks that are not directly attached - static routing.</span>
 
 ---
 
@@ -252,9 +273,10 @@ traffic to the other's network.
 
 - `?` and `show` commands turn a black box into a readable device
 - running-config vs startup-config: what's live vs what survives a reboot
+- `ping` and `traceroute` test reachability; their symbols point at the failure
 - **Deliverables & assessment:** annotated `show` command screenshots,
-  student-ID-based interface addressing, RAM/NVRAM explanation - see the
-  book for the full rubric
+  both interfaces up/up, ping and traceroute interpretation, RAM/NVRAM
+  explanation - see the book for the full rubric
 
 ---
 

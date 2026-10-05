@@ -1,0 +1,38 @@
+<svg viewBox="0 0 900 268" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t-pt-m4-ip-int-brief.svg">
+<title id="t-pt-m4-ip-int-brief.svg">Schematic of show ip interface brief output on R0: Gig0/0 and Gig0/1 up up with manual addresses, Gig0/2 and Vlan1 administratively down</title>
+<style>
+  .lbl-title { font-family: system-ui, -apple-system, sans-serif; fill: #fff; font-size: 13px; font-weight: 600; }
+  .lbl-sm { font-family: system-ui, -apple-system, sans-serif; fill: #5B6B78; font-size: 12px; }
+  .note { font-family: system-ui, -apple-system, sans-serif; fill: #E3F3F1; font-size: 12px; font-weight: 700; }
+  .term { font-family: "SFMono-Regular", Consolas, Menlo, monospace; font-size: 12.5px; fill: #F6F8FA; white-space: pre; }
+  .pr { fill: #00D1C4; font-weight: 700; }
+  .ok { fill: #7FE3A0; font-weight: 700; }
+  .bad { fill: #FFB4A8; font-weight: 700; }
+  .hi { fill: #FFD76A; font-weight: 700; }
+  .dim { fill: #9FB3D1; }
+</style>
+<rect x="4" y="4" width="892" height="260" rx="10" fill="#ffffff" stroke="#0C3274" stroke-width="2"/>
+<rect x="4" y="4" width="892" height="32" rx="10" fill="#0C3274"/>
+<rect x="4" y="20" width="892" height="16" fill="#0C3274"/>
+<text x="20" y="25" class="lbl-title">R0# show ip interface brief</text>
+<circle cx="850" cy="20" r="5" fill="#00A79E"/><circle cx="868" cy="20" r="5" fill="#E3F3F1"/>
+<rect x="16" y="44" width="868" height="172" rx="6" fill="#0C3274" stroke="#00A79E" stroke-width="1.5"/>
+<text x="30" y="70" class="term" xml:space="preserve"><tspan class="pr">R0#</tspan>show ip interface brief</text>
+<text x="30" y="88" class="term" xml:space="preserve">Interface              IP-Address      OK? Method Status                Protocol</text>
+<text x="30" y="106" class="term" xml:space="preserve">GigabitEthernet0/0     192.168.1.1     YES manual up                    up</text>
+<text x="30" y="124" class="term" xml:space="preserve">GigabitEthernet0/1     192.168.2.1     YES manual up                    up</text>
+<text x="30" y="142" class="term" xml:space="preserve">GigabitEthernet0/2     unassigned      YES unset  administratively down down</text>
+<text x="30" y="160" class="term" xml:space="preserve">Vlan1                  unassigned      YES unset  administratively down down</text>
+<text x="30" y="178" class="term" xml:space="preserve"></text>
+<text x="30" y="196" class="term" xml:space="preserve"><tspan class="dim">manual = you typed the address; unset = nothing configured on that interface</tspan></text>
+<rect x="200" y="94" width="91" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="595" y1="103.0" x2="654" y2="103.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="660" y="107.0" class="note" style="fill:#FFD76A;">lab address</text>
+<rect x="351" y="112" width="53" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="595" y1="121.0" x2="654" y2="121.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="660" y="125.0" class="note" style="fill:#FFD76A;">Method: manual</text>
+<rect x="404" y="130" width="167" height="18" rx="3" fill="none" stroke="#FFD76A" stroke-width="1.8"/>
+<line x1="610" y1="139.0" x2="654" y2="139.0" stroke="#FFD76A" stroke-width="1.5"/>
+<text x="660" y="143.0" class="note" style="fill:#FFD76A;">never enabled</text>
+<text x="16" y="252" class="lbl-sm" style="font-style:italic;">*Schematic layout - not a live screenshot. Your list may include extra interfaces; check Gig0/0 and Gig0/1.</text>
+</svg>
