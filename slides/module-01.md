@@ -121,7 +121,7 @@ Lab reports (실습결과보고서) are due on the LMS within one week of each s
 
 ## Lab Rules
 
-1. **Save constantly** - Packet Tracer does not auto-save. `StudentID_ModuleN.pka`
+1. **Save constantly** - Packet Tracer does not auto-save. `StudentID_ModuleN.pkt`
 2. **Personalize your configs** - hostname = your name, IP addressing = your student ID
 3. **Document as you go** - screenshot every step marked 📸
 4. **Use Simulation Mode** - watch packets hop-by-hop

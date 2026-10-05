@@ -7,8 +7,8 @@
 Always save with a meaningful filename:
 
 ```
-StudentID_ModuleN.pka      ← for weekly labs
-TeamName_Project.pka       ← for the team project
+StudentID_ModuleN.pkt      ← for weekly labs
+TeamName_Project.pkt       ← for the team project
 ```
 
 **File → Save As** every time. PT does not auto-save. A crash costs you the session.
@@ -104,13 +104,13 @@ Use **Automatic** cable type (the lightning bolt icon) if you are unsure - PT wi
 
 ---
 
-## Working with .pka Files
+## Working with .pkt Files
 
-A `.pka` file is a **Packet Tracer Activity** - it stores the full topology, configurations, and (optionally) assessment criteria. Opening it reopens exactly where you left off.
+A `.pkt` file is the standard **Packet Tracer** save file - it stores the full topology and every device's configuration. Use **File > Save As** and Packet Tracer adds the `.pkt` extension for you. Opening it reopens exactly where you left off.
 
 **Exporting a topology screenshot:** File → Export Image → PNG.
 
-**The Activity Wizard** (advanced): instructors can embed graded tasks directly into a `.pka` file. For the project, you submit a plain `.pka` - no activity wizard required.
+**Activity files (`.pka`)** are a different, instructor-only format built with the Activity Wizard to embed graded tasks. You never need one: always submit a plain `.pkt`.
 
 ---
 

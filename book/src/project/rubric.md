@@ -13,7 +13,7 @@ The team project contributes **20% of Other** (기타) grade, plus the lab repor
 
 ## Component 1 - Technical Completeness (40%)
 
-Assessed from the submitted `.pka` file.
+Assessed from the submitted `.pkt` file.
 
 | Requirement | Full credit | Partial credit | No credit |
 |-------------|-------------|---------------|-----------|
@@ -37,7 +37,7 @@ Assessed from the topology diagram, addressing table, and ACL documentation.
 | **Addressing efficiency** | Subnets are sized to actual host requirements (e.g., /30 for WAN links, /24 or /25 for LANs); no wasteful /8 or /16 where a /24 suffices | Minor inefficiencies | Arbitrary address choices with no rationale |
 | **Security rationale** | Each ACL rule has a specific, documented business or threat justification | Most rules have rationale | ACL rules without justification ("just to block it") |
 | **Scalability** | Design can accommodate 2× more hosts per VLAN without reconfiguring routing | Some growth possible | Addressing or routing would break at 2× scale |
-| **Documentation clarity** | Topology diagram is unambiguous; addressing table is complete and consistent with the `.pka` file | Minor inconsistencies | Diagram and implementation differ significantly |
+| **Documentation clarity** | Topology diagram is unambiguous; addressing table is complete and consistent with the `.pkt` file | Minor inconsistencies | Diagram and implementation differ significantly |
 | **Redundancy** (bonus) | At least one failover path demonstrated (floating static, alternate OSPF path) | - | - |
 
 ---
@@ -82,4 +82,4 @@ The individual reflection does not carry a numerical grade but is **required for
 
 ## Academic Honesty
 
-All submitted `.pka` files are compared. Topologies that are structurally identical (same hostnames, same addresses, same ACL rules) across different teams are treated as a single submission and graded as one - regardless of which team "originated" the work. Anti-copying measures in the weekly labs (student-ID-derived addressing) extend to the project: your addressing scheme should trace back to your team's student IDs.
+All submitted `.pkt` files are compared. Topologies that are structurally identical (same hostnames, same addresses, same ACL rules) across different teams are treated as a single submission and graded as one - regardless of which team "originated" the work. Anti-copying measures in the weekly labs (student-ID-derived addressing) extend to the project: your addressing scheme should trace back to your team's student IDs.

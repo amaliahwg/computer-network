@@ -524,7 +524,7 @@ R0# show ip route
 
 **Step 18. Restore the link.** On R1, `no shutdown` on Gig0/1 as in Step 13. Confirm with `show ip eigrp neighbors` on R0 that `10.0.1.2` is back, and that `192.168.3.0/24` returns via `10.0.1.2`.
 
-**Step 19. Save your work: File → Save As** → `StudentID_Module6.pka`.
+**Step 19. Save your work: File → Save As** → `StudentID_Module6.pkt`.
 
 ---
 
@@ -546,7 +546,7 @@ R0# show ip route
 5. Link-failure observation log (the Step 12 table, filled in) with before, during and after screenshots and a written explanation of why R0 kept the stale route and how long RIP took to recover.
 6. `show ip eigrp neighbors` and the routing table after EIGRP configuration, with `D` entries annotated and AD/metric labeled.
 7. Written comparison of RIP vs. EIGRP failure recovery time from your own observation (numbers, not just textbook).
-8. Your saved `.pka` file.
+8. Your saved `.pkt` file.
 
 ## Assessment Rubric
 

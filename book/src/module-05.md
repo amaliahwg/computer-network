@@ -117,7 +117,7 @@ This heuristic saves significant diagnostic time: "Destination host unreachable"
 
 ### Before you start
 
-**Build this lab in a brand-new Packet Tracer file** - do not reuse a file from an earlier module. Everything you need is in the tables below, and every router, switch, and PC starts unconfigured. Save it at the end as a `.pka` (Step 22).
+**Build this lab in a brand-new Packet Tracer file** - do not reuse a file from an earlier module. Everything you need is in the tables below, and every router, switch, and PC starts unconfigured. Save it at the end as a `.pkt` (Step 22).
 
 ![Schematic of the Module 5 lab topology: PC0, SW0, R0 on the Seoul side; R1, SW1, PC1 on the Busan side; WAN link between R0 and R1; dashed ISP router R2 added in Part C](images/pt-m5-two-site-topology.svg)
 
@@ -464,13 +464,13 @@ R0(config)# end
 
 ---
 
-**Step 22. Save As.** Choose **File → Save As** and save the finished lab as `module05-static-routing.pka` (the file you submit in Deliverables).
+**Step 22. Save As.** Choose **File → Save As** and save the finished lab as `module05-static-routing.pkt` (the file you submit in Deliverables).
 
 ---
 
 ### Looking ahead
 
-Module 6 does **not** reuse this file. It starts again from an empty workspace with a different network plan, and asks a new question: what if you had to type 20 of these routes, and fix them when a link failed? Keep your `.pka` from this module as a reference for the static-routing commands.
+Module 6 does **not** reuse this file. It starts again from an empty workspace with a different network plan, and asks a new question: what if you had to type 20 of these routes, and fix them when a link failed? Keep your `.pkt` from this module as a reference for the static-routing commands.
 
 ---
 
@@ -509,7 +509,7 @@ Module 6 does **not** reuse this file. It starts again from an empty workspace w
 5. Screenshot of R0's routing table showing the `S*` default route, plus the Step 16 failure and Step 17 fix.
 6. Screenshot and explanation of the longest-prefix-match demonstration from Step 19.
 7. Diagnostic log from Part D: failed ping, route table analysis, fix applied, successful ping, with narrative explanation.
-8. Your saved `module05-static-routing.pka` file.
+8. Your saved `module05-static-routing.pkt` file.
 
 ## Assessment Rubric
 

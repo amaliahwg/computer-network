@@ -397,7 +397,7 @@ R0# show ip interface brief
 
 > **Explain:** What happened to the loopback interface? What happened to Gig0/0 and Gig0/1? Why did one survive the reboot and the other did not?
 
-**Step 21.** Save your work: **File → Save As**, name the file `module04-ios-management.pka`, and keep it for your deliverables.
+**Step 21.** Save your work: **File → Save As**, name the file `module04-ios-management.pkt`, and keep it for your deliverables.
 
 ---
 
@@ -420,7 +420,7 @@ R0# show ip interface brief
 5. Screenshot of `show arp` before and after ping, with explanation of what changed and why.
 6. Part D - extended ping and traceroute screenshots with annotations of: (a) dot vs exclamation interpretation, (b) how traceroute uses TTL and ICMP Time Exceeded (and why you see one hop here), (c) the IOS-vs-Windows UDP/ICMP probe and `-w` units differences.
 7. Written explanation of what happened to loopback vs. Gig0/0 after a reload-without-save, with reference to RAM vs. NVRAM.
-8. Your saved `.pka` file.
+8. Your saved `.pkt` file.
 
 ## Assessment Rubric
 

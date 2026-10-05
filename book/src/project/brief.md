@@ -123,7 +123,7 @@ Choose one of the following real-world scenarios. Each gives you a different org
 |-------------|-----|--------|
 | Team registration + scenario selection | End of Week 10 | LMS submission |
 | Project Proposal | Week 13 presentation | [Proposal Template](proposal.md) |
-| Final Packet Tracer file (`.pka`) | Week 14 presentation day | LMS submission |
+| Final Packet Tracer file (`.pkt`) | Week 14 presentation day | LMS submission |
 | Final Presentation | Week 14 in-class | [Presentation format](implementation.md) |
 | Individual Reflection (1 page) | 1 week after Week 14 | LMS submission |
 

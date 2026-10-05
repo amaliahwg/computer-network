@@ -393,7 +393,7 @@ R0(config-ext-nacl)# end
 
 > **Explain:** What is the "implicit deny all" rule and why does it make ACL authoring dangerous if you forget the final permit?
 
-**Step 12.** Save your work: **File > Save As**, name it `module07-acl-yourname.pka`, and also run `write memory` on both routers.
+**Step 12.** Save your work: **File > Save As**, name it `module07-acl-yourname.pkt`, and also run `write memory` on both routers.
 
 ---
 
@@ -411,7 +411,7 @@ R0(config-ext-nacl)# end
 4. Named ACL: screenshot of `show access-lists` output and `show ip interface` confirming correct placement.
 5. Written explanation of: (a) why extended ACLs belong close to the source, (b) what the implicit deny rule is and why forgetting a final permit breaks everything.
 6. Deliberate-mistake screenshot (traffic through Gig0/0 broken after removing permit) with written explanation.
-7. Your saved `.pka` file.
+7. Your saved `.pkt` file.
 
 ## Assessment Rubric
 

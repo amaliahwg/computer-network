@@ -73,7 +73,7 @@ This lab manual is your primary course material (개인 강의 자료). Suppleme
 
 ## Lab Rules
 
-1. **Save your work constantly.** Packet Tracer does not auto-save. Use **File → Save As** at the beginning of every session with the filename format `StudentID_ModuleN.pka`.
+1. **Save your work constantly.** Packet Tracer does not auto-save. Use **File → Save As** at the beginning of every session with the filename format `StudentID_ModuleN.pkt`.
 2. **Personalize your configurations.** Every module asks you to set your hostname to your name and use your student ID in IP addressing. Identical configurations across submissions will be treated as academic dishonesty.
 3. **Document as you go.** Take screenshots at each step marked 📸 - you will need them for your lab report. This manual includes schematic diagrams of Packet Tracer's interface (IP Configuration, CLI console, PDU details, link lights) so you know what to expect - but they are reference mockups, not your submission. Every 📸 still means: capture it from your own running Packet Tracer session.
 4. **Simulation Mode is your friend.** Use PT Simulation Mode (the clock icon) to watch packets travel hop-by-hop. Many lab questions require you to observe and explain packet behavior.
@@ -103,6 +103,6 @@ The midterm is a **timed practical exam** (50 minutes) administered in Packet Tr
 
 1. Diagnose what is broken (connectivity test will show failing pings)
 2. Apply correct IOS commands to restore full connectivity
-3. Submit your `.pka` file and a brief written explanation
+3. Submit your `.pkt` file and a brief written explanation
 
 Topics in scope: Modules 1–7 (everything before Week 8).

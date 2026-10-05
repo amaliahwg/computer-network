@@ -272,7 +272,7 @@ R0# show ip route
 5. Successful inter-VLAN ping screenshot.
 6. PT Simulation Mode screenshot showing the 802.1Q tag at the trunk link, with annotation.
 7. Written explanation of management domain vs. spanning tree state (from Step 14 observation).
-8. Your saved `.pka` file.
+8. Your saved `.pkt` file.
 
 ## Assessment Rubric
 

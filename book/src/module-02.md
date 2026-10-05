@@ -237,7 +237,7 @@ PC0> arp -a
 
 > **Observe:** ARP is a Layer 2 broadcast frame, even though the Theory Review table above groups the *protocol* ARP at Layer 3 (it resolves a Layer-3 IP into a Layer-2 MAC, so it's conventionally listed there) - the broadcast itself is what happens at Layer 2. Every device on the local segment receives it. Only the device that owns the target IP replies. This is why ARP works within a subnet but cannot cross a router (routers do not forward broadcasts).
 
-**Step 17.** Save your work: **File → Save As** → `StudentID_Module2.pka`.
+**Step 17.** Save your work: **File → Save As** → `StudentID_Module2.pkt`.
 
 ---
 

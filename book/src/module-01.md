@@ -115,7 +115,7 @@ If you already installed Packet Tracer before class using the Pre-Lab instructio
 
 📸 Screenshot the About window showing your installed version number.
 
-> **Note:** Packet Tracer updates every few months. A version mismatch between you and a lab partner (e.g. 9.0 vs 9.1) can occasionally make a shared `.pka` (Packet Tracer Activity) file open with a warning - if that happens, whoever has the older version should update.
+> **Note:** Packet Tracer updates every few months. A version mismatch between you and a lab partner (e.g. 9.0 vs 9.1) can occasionally make a shared `.pkt` (Packet Tracer Activity) file open with a warning - if that happens, whoever has the older version should update.
 
 ---
 
@@ -256,7 +256,7 @@ ping 192.168.1.20
 
 📸 Screenshot the successful ping. Note the TTL value in the reply.
 
-**Step 18. Save your file: File → Save As** → `YourStudentID_Module1.pka`.
+**Step 18. Save your file: File → Save As** → `YourStudentID_Module1.pkt`.
 
 > **Explain:** Why does a PC-to-PC connection require a crossover cable on older equipment, but modern switches accept straight cables from all ports?
 
@@ -292,7 +292,7 @@ For your lab report, include the following items, grouped by where they came fro
 6. Screenshot of your Packet Tracer topology with both PCs and the cable visible.
 7. Screenshot of the successful ping from PC0 to PC1.
 8. Written answer to the crossover cable question (Step 18).
-9. Your saved `.pka` file (`StudentID_Module1.pka`).
+9. Your saved `.pkt` file (`StudentID_Module1.pkt`).
 
 ## Assessment Rubric
 

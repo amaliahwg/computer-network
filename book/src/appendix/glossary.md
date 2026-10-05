@@ -86,7 +86,7 @@ Each module's Theory Review also expands an abbreviation the first time it matte
 | VTY | Virtual Teletype | The virtual terminal lines used for remote access (Telnet/SSH) into a router or switch. |
 | MOTD | Message of the Day | A banner displayed to anyone connecting to a device, before login. |
 | PT | Packet Tracer | Shorthand used throughout this book and its slides for Cisco Packet Tracer. |
-| `.pka` | Packet Tracer Activity (file extension) | The file format Packet Tracer saves a topology and its configuration to. |
+| `.pkt` | Packet Tracer (file extension) | The standard file Packet Tracer saves a topology and its configuration to (File > Save As). Packet Tracer also has `.pka` Activity files, which instructors build with the Activity Wizard; students do not need them. |
 | Gig0/0 | GigabitEthernet 0/0 | Cisco's interface-naming shorthand: type + slot/port. `Gig0/0` and `interface GigabitEthernet 0/0` refer to the exact same interface - IOS accepts both the abbreviated and full form. |
 | SVI | Switch Virtual Interface | A virtual Layer 3 interface on a switch (e.g. `interface vlan 99`), used to give the switch itself an IP for management. |
 

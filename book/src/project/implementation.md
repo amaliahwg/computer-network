@@ -4,10 +4,10 @@
 
 By Week 14 you have incorporated feedback from your Week 13 proposal and built the full network in Packet Tracer. The final session is divided into two parts:
 
-1. **LMS submission** (before class): upload your `.pka` file and supporting documentation.
+1. **LMS submission** (before class): upload your `.pkt` file and supporting documentation.
 2. **In-class presentation** (15 minutes per team): live demonstration + Q&A.
 
-There is no grace period for the `.pka` submission - the instructor will review it during your presentation slot. A broken topology that you cannot explain is worse than a working topology you can explain fully.
+There is no grace period for the `.pkt` submission - the instructor will review it during your presentation slot. A broken topology that you cannot explain is worse than a working topology you can explain fully.
 
 ---
 
@@ -15,7 +15,7 @@ There is no grace period for the `.pka` submission - the instructor will review 
 
 Submit all of the following to the LMS before Week 14 class begins:
 
-- [ ] **`TeamName_Project.pka`** - complete, working Packet Tracer file
+- [ ] **`TeamName_Project.pkt`** - complete, working Packet Tracer file
 - [ ] **Addressing Table** (final version, may differ from proposal)
 - [ ] **Topology Diagram** (final version, labeled with all IP addresses)
 - [ ] **ACL Documentation** - each ACL rule with its security rationale

@@ -308,7 +308,7 @@ R0# show ip dhcp binding
 6. DHCP relay: failed DHCP screenshot (before relay) and successful screenshot (after relay).
 7. `show ip dhcp binding` on R0 showing cross-subnet bindings.
 8. Written explanation of the giaddr field and how R0 uses it to select the correct pool.
-9. Your saved `.pka` file.
+9. Your saved `.pkt` file.
 
 ## Assessment Rubric
 

@@ -281,7 +281,7 @@ Watch the OSPF adjacency re-establish: `show ip ospf neighbor` repeatedly until 
 5. Both end-to-end pings successful.
 6. Link failure observation: neighbor table before/after, with written comparison of OSPF vs. RIP dead-interval.
 7. Written description of the OSPF adjacency state sequence with one-sentence explanation of each state.
-8. Your saved `.pka` file.
+8. Your saved `.pkt` file.
 
 ## Assessment Rubric
 

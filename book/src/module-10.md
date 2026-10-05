@@ -274,7 +274,7 @@ Open multiple connections from PC0 (ping, then open web browser to the server) a
 4. Static NAT: `show ip nat translations` output with inside-local and inside-global columns annotated.
 5. PAT: `show ip nat translations` output showing port numbers, with explanation of how NAT multiplexes multiple inside hosts onto one outside IP.
 6. Written explanation of the difference between static NAT and PAT use cases.
-7. Your saved `.pka` file.
+7. Your saved `.pkt` file.
 
 ## Assessment Rubric
 
