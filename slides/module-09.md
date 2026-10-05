@@ -139,7 +139,7 @@ One physical router interface, divided into **sub-interfaces**, one per
 VLAN:
 
 ```
-interface FastEthernet0/0.10
+interface GigabitEthernet0/0.10
  encapsulation dot1Q 10
  ip address 192.168.10.1 255.255.255.0
 ```

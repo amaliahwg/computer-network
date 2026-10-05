@@ -109,7 +109,7 @@ architecture-beta
     sw0:R -- L:r0
 ```
 
-> **Address pool:** R0 Fa0/0 = 192.168.1.1/24 (gateway). DHCP pool: 192.168.1.0/24, exclusion 192.168.1.1–.20, dynamic range .21–.254.
+> **Address pool:** R0 Gig0/0 = 192.168.1.1/24 (gateway). DHCP pool: 192.168.1.0/24, exclusion 192.168.1.1–.20, dynamic range .21–.254.
 
 > **Student addressing:** Replace the third octet with the last two digits of your student ID.
 
@@ -261,7 +261,7 @@ architecture-beta
     r1:R -- L:r0
 ```
 
-> **Relay detail:** R1 Fa0/0 = 192.168.2.1/24 (client gateway). R1 configured with `ip helper-address 10.0.0.1` on Fa0/0. R0 DHCP pool covers 192.168.2.0/24.
+> **Relay detail:** R1 Gig0/0 = 192.168.2.1/24 (client gateway). R1 configured with `ip helper-address 10.0.0.1` on Gig0/0. R0 DHCP pool covers 192.168.2.0/24.
 
 Configure routing (static routes) between R0 and R1.
 
@@ -272,7 +272,7 @@ Set PC3 and PC4 to DHCP. They should fail to get an IP - because DHCP Discover c
 **Step 10.** Configure the relay on R1's client-facing interface:
 
 ```
-R1(config)# interface FastEthernet 0/0
+R1(config)# interface GigabitEthernet 0/0
 R1(config-if)# ip helper-address 10.0.0.1
 ```
 

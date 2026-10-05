@@ -69,6 +69,7 @@ OSPF cost = 10⁸ / interface bandwidth (in bps).
 | Interface | Bandwidth | Default Cost |
 |-----------|-----------|-------------|
 | FastEthernet | 100 Mbps | 1 |
+| GigabitEthernet | 1 Gbps | 1 (default reference bandwidth is 100 Mbps, so cost floors at 1) |
 | Serial (T1) | 1.544 Mbps | 64 |
 | Serial (56k) | 56 kbps | 1785 |
 
@@ -126,13 +127,13 @@ architecture-beta
 
 | Device | Interface | IP Address | Role |
 |--------|-----------|------------|------|
-| R0 | Fa0/0 | 192.168.1.1/24 | LAN 1 gateway (passive) |
-| R0 | Fa0/1 | 10.1.0.1/30 | OSPF link to R1 |
-| R1 | Fa0/0 | 10.1.0.2/30 | OSPF link to R0 |
-| R1 | Fa0/1 | 10.2.0.1/30 | OSPF link to R2 |
-| R1 | Fa0/2 | 192.168.3.1/24 | LAN 3 gateway (passive) |
-| R2 | Fa0/0 | 10.2.0.2/30 | OSPF link to R1 |
-| R2 | Fa0/1 | 192.168.2.1/24 | LAN 2 gateway (passive) |
+| R0 | Gig0/0 | 192.168.1.1/24 | LAN 1 gateway (passive) |
+| R0 | Gig0/1 | 10.1.0.1/30 | OSPF link to R1 |
+| R1 | Gig0/0 | 10.1.0.2/30 | OSPF link to R0 |
+| R1 | Gig0/1 | 10.2.0.1/30 | OSPF link to R2 |
+| R1 | Gig0/2 | 192.168.3.1/24 | LAN 3 gateway (passive) |
+| R2 | Gig0/0 | 10.2.0.2/30 | OSPF link to R1 |
+| R2 | Gig0/1 | 192.168.2.1/24 | LAN 2 gateway (passive) |
 
 If using Module 6's file, remove the previous routing protocol first:
 ```
@@ -147,7 +148,7 @@ R0(config)# router ospf 1
 R0(config-router)# router-id 1.1.1.1
 R0(config-router)# network 192.168.1.0 0.0.0.255 area 0
 R0(config-router)# network 10.1.0.0 0.0.0.3 area 0
-R0(config-router)# passive-interface FastEthernet 0/0
+R0(config-router)# passive-interface GigabitEthernet 0/0
 ```
 
 **Step 2.** Configure OSPF on R1:
@@ -158,7 +159,7 @@ R1(config-router)# router-id 2.2.2.2
 R1(config-router)# network 10.1.0.0 0.0.0.3 area 0
 R1(config-router)# network 10.2.0.0 0.0.0.3 area 0
 R1(config-router)# network 192.168.3.0 0.0.0.255 area 0
-R1(config-router)# passive-interface FastEthernet 0/2
+R1(config-router)# passive-interface GigabitEthernet 0/2
 ```
 
 **Step 3.** Configure OSPF on R2:
@@ -168,7 +169,7 @@ R2(config)# router ospf 1
 R2(config-router)# router-id 3.3.3.3
 R2(config-router)# network 10.2.0.0 0.0.0.3 area 0
 R2(config-router)# network 192.168.2.0 0.0.0.255 area 0
-R2(config-router)# passive-interface FastEthernet 0/1
+R2(config-router)# passive-interface GigabitEthernet 0/1
 ```
 
 > **Why passive-interface on LAN ports?** LAN-facing interfaces connect to end devices, not to other routers. Sending OSPF Hellos out those ports wastes bandwidth and confuses end devices. Passive interfaces still *advertise* the network in OSPF - they just do not send or accept Hellos on that port.
@@ -204,7 +205,7 @@ R0# show ip route
 
 📸 Screenshot. Identify: `O` entries (OSPF), the cost value in brackets (e.g., `[110/2]` - AD 110, metric/cost 2).
 
-> **Calculate:** The path from R0 to 192.168.2.0/24 passes through two FastEthernet hops. Each FastEthernet interface has cost 1. What should the total cost be? Does `show ip route` agree?
+> **Calculate:** The path from R0 to 192.168.2.0/24 passes through two Ethernet hops. Each FastEthernet or GigabitEthernet interface has cost 1 under the default 100 Mbps reference bandwidth. What should the total cost be? Does `show ip route` agree?
 
 **Step 7.** Verify OSPF process details:
 
@@ -230,7 +231,7 @@ PC0> ping 192.168.3.10
 **Step 9.** Time-stamp your observation. Shut down the R0-R1 link:
 
 ```
-R0(config)# interface FastEthernet 0/1
+R0(config)# interface GigabitEthernet 0/1
 R0(config-if)# shutdown
 ```
 
@@ -253,7 +254,7 @@ R0# show ip route
 **Step 12.** Restore the link:
 
 ```
-R0(config)# interface FastEthernet 0/1
+R0(config)# interface GigabitEthernet 0/1
 R0(config-if)# no shutdown
 ```
 
@@ -267,9 +268,9 @@ Watch the OSPF adjacency re-establish: `show ip ospf neighbor` repeatedly until 
 
 ## Challenge Tasks
 
-1. Adjust the OSPF cost on a specific interface to influence path selection: `ip ospf cost 100` on R0's Fa0/1. Verify in the routing table that a different path is now preferred (you may need to add a redundant link).
+1. Adjust the OSPF cost on a specific interface to influence path selection: `ip ospf cost 100` on R0's Gig0/1. Verify in the routing table that a different path is now preferred (you may need to add a redundant link).
 2. Configure the Hello and Dead timers manually: `ip ospf hello-interval 5` and `ip ospf dead-interval 15` on a pair of interfaces. Verify neighbor formation still works. What happens if hello-interval mismatches between neighbors?
-3. Use `show ip ospf interface FastEthernet 0/0` to find the DR and BDR on a multi-access network. Why is there no DR election on point-to-point links?
+3. Use `show ip ospf interface GigabitEthernet 0/0` to find the DR and BDR on a multi-access network. Why is there no DR election on point-to-point links?
 
 ## Deliverables
 

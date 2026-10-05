@@ -14,11 +14,11 @@
 
 <!-- sub-interface chips -->
 <rect x="120" y="60" width="230" height="56" rx="8" fill="#145DA0"/>
-<text x="235" y="82" text-anchor="middle" class="lbl-w">Fa0/0.10 - VLAN 10</text>
+<text x="235" y="82" text-anchor="middle" class="lbl-w">Gig0/0.10 - VLAN 10</text>
 <text x="235" y="102" text-anchor="middle" class="lbl-sm" style="fill:#E3F3F1;">Gateway 192.168.10.1</text>
 
 <rect x="550" y="60" width="230" height="56" rx="8" fill="#E8792A"/>
-<text x="665" y="82" text-anchor="middle" class="lbl-w">Fa0/0.20 - VLAN 20</text>
+<text x="665" y="82" text-anchor="middle" class="lbl-w">Gig0/0.20 - VLAN 20</text>
 <text x="665" y="102" text-anchor="middle" class="lbl-sm" style="fill:#FFF8F1;">Gateway 192.168.20.1</text>
 
 <!-- dashed lines from sub-interfaces to single physical router box, showing they are logical divisions of one port -->
@@ -28,7 +28,7 @@
 <!-- router -->
 <rect x="380" y="160" width="140" height="60" rx="8" fill="#0C3274"/>
 <text x="450" y="184" text-anchor="middle" class="lbl-w">R0</text>
-<text x="450" y="202" text-anchor="middle" class="lbl-sm" style="fill:#D7E1E8;">one physical Fa0/0</text>
+<text x="450" y="202" text-anchor="middle" class="lbl-sm" style="fill:#D7E1E8;">one physical Gig0/0</text>
 
 <!-- trunk link -->
 <line x1="450" y1="220" x2="450" y2="290" stroke="#0C3274" stroke-width="4"/>

@@ -29,7 +29,7 @@ By the end of this lab, students are able to:
 ## Equipment & Materials
 
 - Cisco Packet Tracer 9.x
-- Two routers with serial interfaces (2811 or 1841 with a WIC-2T module - a WAN Interface Card adding two serial ports), one switch, two PCs, one server
+- Two routers with serial interfaces (Cisco 2911 with an HWIC-2T module - a High-speed WAN Interface Card adding two serial ports), one switch, two PCs, one server
 
 ## Estimated Time (In-Class Lab, ~2 hrs)
 
@@ -111,17 +111,17 @@ architecture-beta
 
 | Device | Interface | IP Address | Role |
 |--------|-----------|------------|------|
-| R0 | Fa0/0 | 192.168.1.1/24 | LAN A gateway |
+| R0 | Gig0/0 | 192.168.1.1/24 | LAN A gateway |
 | R0 | Se0/0/0 | 10.0.0.1/30 | Serial WAN (DCE) |
 | R1 | Se0/0/0 | 10.0.0.2/30 | Serial WAN (DTE) |
-| R1 | Fa0/0 | 192.168.2.1/24 | LAN B gateway |
+| R1 | Gig0/0 | 192.168.2.1/24 | LAN B gateway |
 
-> **DCE/DTE** = Data Communications Equipment / Data Terminal Equipment - on a serial link, the DCE end supplies clocking (`clock rate`, Step 1 below) and the DTE end receives it; right-click the serial cable in Packet Tracer to see which end is which. **Se0/0/0** = Serial0/0/0, the same type+slot/port shorthand as `Fa0/0` from earlier modules, just for a serial interface.
+> **DCE/DTE** = Data Communications Equipment / Data Terminal Equipment - on a serial link, the DCE end supplies clocking (`clock rate`, Step 1 below) and the DTE end receives it; right-click the serial cable in Packet Tracer to see which end is which. **Se0/0/0** = Serial0/0/0, the same type+slot/port shorthand as `Gig0/0` from earlier modules, just for a serial interface.
 
-**Step 0. Build the physical link first.** Neither the 1841 nor the 2811 has a serial port by default - you need to install one before you can cable this topology:
+**Step 0. Build the physical link first.** The Cisco 2911 has no serial port by default - you need to install one before you can cable this topology:
 
-1. Place R0 and R1 (Routers → 1841 or 2811), plus SW0, SW1, PC0, and PC1 as usual.
-2. For each router: double-click it to open it, go to the **Physical** tab, click the power switch to turn it **off**, drag a **WIC-2T** module into an empty slot, then power it back on. (See [Appendix C](appendix/packet-tracer-tips.md) if you need the full walkthrough.) Two serial interfaces appear: Se0/0/0 and Se0/0/1.
+1. Place R0 and R1 (Network Devices > Routers > 2911), plus SW0, SW1, PC0, and PC1 as usual.
+2. For each router: double-click it to open it, go to the **Physical** tab, click the power switch to turn it **off**, drag an **HWIC-2T** module (a WIC-2T also works if your Packet Tracer version lists it; exact module name: verify in PT 9) into an empty slot, then power it back on. (See [Appendix C](appendix/packet-tracer-tips.md) if you need the full walkthrough.) Two serial interfaces appear: Se0/0/0 and Se0/0/1.
 3. Cable PC0-SW0-R0 and PC1-SW1-R1 with **Copper Straight-Through**, as in earlier modules.
 4. Cable R0-R1 with a **Serial DCE/DTE** cable (Connections category → Serial DCE). Right-click the new serial cable to confirm which end is DCE - you will need that in Step 1.
 
@@ -195,7 +195,7 @@ Scenario: R1 hosts a web server (PC1 acting as server). You want it reachable fr
 
 ```
 R1(config)# ip nat inside source static 192.168.2.10 10.0.0.2
-R1(config)# interface FastEthernet 0/0
+R1(config)# interface GigabitEthernet 0/0
 R1(config-if)# ip nat inside
 R1(config-if)# exit
 R1(config)# interface Serial 0/0/0
@@ -230,14 +230,14 @@ Scenario: All PCs on 192.168.1.0/24 (R0's LAN) must share R0's single public IP 
 ```
 R0(config)# access-list 1 permit 192.168.1.0 0.0.0.255
 R0(config)# ip nat inside source list 1 interface Serial 0/0/0 overload
-R0(config)# interface FastEthernet 0/0
+R0(config)# interface GigabitEthernet 0/0
 R0(config-if)# ip nat inside
 R0(config-if)# exit
 R0(config)# interface Serial 0/0/0
 R0(config-if)# ip nat outside
 ```
 
-**Step 10.** From PC0, ping R1's Fa0/0 interface (192.168.2.1):
+**Step 10.** From PC0, ping R1's Gig0/0 interface (192.168.2.1):
 
 ```
 PC0> ping 192.168.2.1

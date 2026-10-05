@@ -29,7 +29,7 @@ By the end of this lab, students are able to:
 ## Equipment & Materials
 
 - Cisco Packet Tracer 9.x
-- Two Cisco 2960 switches, one 1841 router, four PCs
+- Two Cisco 2960 switches, one Cisco 2911 router, four PCs
 
 ## Estimated Time (In-Class Lab, ~2 hrs)
 
@@ -58,11 +58,11 @@ A switch, by default, forwards broadcast frames out every port. A VLAN is a logi
 Inter-VLAN routing requires a Layer 3 device. The router-on-a-stick model uses **one physical router interface** divided into multiple **sub-interfaces**, one per VLAN:
 
 ```
-interface FastEthernet0/0.10
+interface GigabitEthernet0/0.10
  encapsulation dot1Q 10
  ip address 192.168.10.1 255.255.255.0
 
-interface FastEthernet0/0.20
+interface GigabitEthernet0/0.20
  encapsulation dot1Q 20
  ip address 192.168.20.1 255.255.255.0
 ```
@@ -195,7 +195,7 @@ PC-A (on SW0, VLAN 10)> ping <PC on SW1, VLAN 10>
 
 ### Part C - Router-on-a-Stick
 
-Connect R0's Fa0/0 to SW0's Fa0/23 (this will be a trunk port).
+Connect R0's Gig0/0 to SW0's Fa0/23 (this will be a trunk port).
 
 ```
 SW0(config)# interface FastEthernet 0/23
@@ -205,17 +205,17 @@ SW0(config-if)# switchport mode trunk
 **Step 10.** Configure sub-interfaces on R0:
 
 ```
-R0(config)# interface FastEthernet 0/0
+R0(config)# interface GigabitEthernet 0/0
 R0(config-if)# no shutdown
 R0(config-if)# no ip address
 R0(config-if)# exit
 
-R0(config)# interface FastEthernet 0/0.10
+R0(config)# interface GigabitEthernet 0/0.10
 R0(config-subif)# encapsulation dot1Q 10
 R0(config-subif)# ip address 192.168.10.1 255.255.255.0
 R0(config-subif)# exit
 
-R0(config)# interface FastEthernet 0/0.20
+R0(config)# interface GigabitEthernet 0/0.20
 R0(config-subif)# encapsulation dot1Q 20
 R0(config-subif)# ip address 192.168.20.1 255.255.255.0
 R0(config-subif)# exit
@@ -268,7 +268,7 @@ R0# show ip route
 1. `show vlan brief` screenshot with VLAN names and port assignments annotated.
 2. Screenshots of within-VLAN ping success and cross-VLAN ping failure (before routing).
 3. `show interfaces trunk` screenshot with allowed VLANs identified.
-4. Sub-interface configuration (screenshot of running-config showing Fa0/0.10 and Fa0/0.20).
+4. Sub-interface configuration (screenshot of running-config showing Gig0/0.10 and Gig0/0.20).
 5. Successful inter-VLAN ping screenshot.
 6. PT Simulation Mode screenshot showing the 802.1Q tag at the trunk link, with annotation.
 7. Written explanation of management domain vs. spanning tree state (from Step 14 observation).
