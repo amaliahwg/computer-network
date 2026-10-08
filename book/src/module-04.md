@@ -17,7 +17,7 @@ By the end of this lab, students are able to:
 
 ## Pre-Lab
 
-**Read before class:** Reference module - Modul Praktikum 16 (Modul Praktikum 16 - Konfigurasi Dasar Router Cisco), focusing on the `show` commands section and the RAM/NVRAM explanation.
+**Read before class:** This module and any Packet Tracer guide from Cisco NetAcad, focusing on the `show` commands section and the RAM/NVRAM explanation.
 
 **Answer before the session:**
 
