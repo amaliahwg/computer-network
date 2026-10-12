@@ -16,7 +16,7 @@ By the end of this lab, students are able to:
 
 ## Pre-Lab
 
-**Read before class:** Reference module - Modul Teori Jarkom-5 (Lapisan Network), particularly the section on routing; Modul Praktikum 17, the two-router static routing lab.
+**Read before class:** This module and any Packet Tracer guide from Cisco NetAcad, particularly the section on routing; The two-router static routing lab.
 
 **Answer before the session:**
 
